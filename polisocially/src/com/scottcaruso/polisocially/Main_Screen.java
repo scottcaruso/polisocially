@@ -2,7 +2,9 @@ package com.scottcaruso.polisocially;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.view.Menu;
+import android.view.MenuItem;
 
 public class Main_Screen extends Activity {
 
@@ -10,6 +12,7 @@ public class Main_Screen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__screen);
+        
     }
 
 
@@ -18,6 +21,21 @@ public class Main_Screen extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main__screen, menu);
         return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	this.createAlert();
+    	return true;
+    }
+    
+    
+    public void createAlert() {
+    	AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(R.string.about_app);
+		AlertDialog alertDialog = alert.create();
+
+		alertDialog.show();  
     }
     
 }
