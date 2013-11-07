@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="main_geolocation_button">Main Geolocation Button</string>
     <string name="zip_code_entry">Zip Code Entry</string>
+    <string name="all_politiican_data_courtesy_of_sunlight_labs_">All politiican data courtesy of Sunlight Labs.</string>
 
 </resources>
