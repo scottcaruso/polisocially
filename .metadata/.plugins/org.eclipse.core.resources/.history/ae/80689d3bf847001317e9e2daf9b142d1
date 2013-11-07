@@ -6,20 +6,9 @@
     android:orientation="vertical"
     tools:context=".Politician_Details" >
     
-    <RelativeLayout
+    <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-       <ImageView
-           android:id="@+id/imageView1"
-           android:layout_width="75dp"
-           android:layout_height="75dp"
-           android:layout_alignParentLeft="true"
-           android:layout_alignParentTop="true"
-           android:layout_marginLeft="30dp"
-           android:layout_marginTop="20dp"
-           android:scaleType="fitCenter"
-           android:src="@drawable/no_image_available" />
         
     </RelativeLayout>
     

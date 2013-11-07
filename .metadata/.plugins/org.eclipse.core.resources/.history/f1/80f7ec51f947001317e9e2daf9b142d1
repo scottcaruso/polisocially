@@ -9,15 +9,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        
+       <Button
+	        android:id="@+id/button1"
+	        style="?android:attr/buttonStyleSmall"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/zip_code_entry" />
 
        <ImageView
            android:id="@+id/imageView1"
-           android:layout_width="75dp"
-           android:layout_height="75dp"
-           android:layout_alignParentLeft="true"
-           android:layout_alignParentTop="true"
-           android:layout_marginLeft="30dp"
-           android:layout_marginTop="20dp"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
            android:scaleType="fitCenter"
            android:src="@drawable/no_image_available" />
         
