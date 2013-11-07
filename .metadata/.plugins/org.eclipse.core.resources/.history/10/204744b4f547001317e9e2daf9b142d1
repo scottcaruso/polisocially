@@ -9,6 +9,5 @@
     <string name="all_politiican_data_courtesy_of_sunlight_labs_">All politiican data courtesy of Sunlight Labs.</string>
     <string name="about_app">&lt;b&gt;Poli-Socially&lt;b&gt; by Scott Caruso. Copyright 2013. All rights reserved. Images and data courtesy of Sunlight Labs. Maps and City data provided by Google, Inc.</string>
     <string name="about">About</string>
-    <string name="placeholder_map">placeholder_map</string>
 
 </resources>
