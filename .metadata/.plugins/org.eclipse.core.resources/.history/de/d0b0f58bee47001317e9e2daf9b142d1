@@ -17,7 +17,6 @@ public class Main_Screen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__screen);
         boolean connection = connectionExists();
-        //The connection logic below is simply for testing purposes. It will be hooked up when the required classes are built.
         if (connection)
         {
         	Log.i("Info","We are connected.");

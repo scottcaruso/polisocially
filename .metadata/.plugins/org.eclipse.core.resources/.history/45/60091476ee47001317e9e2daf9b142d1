@@ -17,12 +17,9 @@ public class Main_Screen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__screen);
         boolean connection = connectionExists();
-        //The connection logic below is simply for testing purposes. It will be hooked up when the required classes are built.
         if (connection)
         {
         	Log.i("Info","We are connected.");
-    		Toast toast = Toast.makeText(this, "There is a connection to the network!", Toast.LENGTH_LONG);
-    		toast.show();
         } else
         {
     		Log.i("Info","No internet connection found.");
@@ -30,6 +27,7 @@ public class Main_Screen extends Activity {
     		toast.show();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
