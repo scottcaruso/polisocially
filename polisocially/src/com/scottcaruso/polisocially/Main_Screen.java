@@ -1,13 +1,20 @@
 package com.scottcaruso.polisocially;
 
+import org.w3c.dom.Document;
+
 import com.scottcaruso.utilities.Connection_Verification;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class Main_Screen extends Activity {
@@ -56,6 +63,50 @@ public class Main_Screen extends Activity {
     public boolean connectionExists() {
     	Boolean connected = Connection_Verification.areWeConnected(this);
     	return connected;
+    }
+    
+    public void zipcodeClick() {
+    	Button zipButton = (Button) findViewById(R.id.button1);
+    	zipButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder alert = new AlertDialog.Builder(Main_Screen.this);
+
+				alert.setTitle("Enter Zip Code");
+				alert.setMessage("Please enter a 5-digit zip code.");
+
+				// Set an EditText view to get user input 
+				final EditText input = new EditText(Main_Screen.this);
+				input.setInputType(InputType.TYPE_CLASS_NUMBER);
+				alert.setView(input);
+				
+				alert.setPositiveButton("Search", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						String zipEntered = input.toString();
+						if (zipEntered.length() != 5)
+						{
+				    		Toast toast = Toast.makeText(Main_Screen.this, "Please enter a valid 5-digit zip code.", Toast.LENGTH_LONG);
+				    		toast.show();
+						} else
+						{
+							Log.i("Log","The number entered was "+zipEntered+".");
+						}
+					}
+				});
+
+				alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				  public void onClick(DialogInterface dialog, int whichButton) {
+				    // Canceled.
+				  }
+				});
+
+				alert.show();
+				
+			}
+		});	
     }
        
 }

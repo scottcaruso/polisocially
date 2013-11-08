@@ -56,24 +56,6 @@
            android:layout_centerHorizontal="true"
            android:text="@string/follow" />
 
-       <Button
-           android:id="@+id/buttonTweet"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignBaseline="@+id/button1"
-           android:layout_alignBottom="@+id/button1"
-           android:layout_alignRight="@+id/imageView1"
-           android:text="Tweet" />
-
-       <Button
-           android:id="@+id/buttonPhone"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignBaseline="@+id/button1"
-           android:layout_alignBottom="@+id/button1"
-           android:layout_toRightOf="@+id/poliAge"
-           android:text="@string/call" />
-
        <ImageView
            android:id="@+id/imageView1"
            android:layout_width="75dp"
@@ -84,6 +66,23 @@
            android:layout_toLeftOf="@+id/button1"
            android:scaleType="fitCenter"
            android:src="@drawable/no_image_available" />
+
+       <Button
+           android:id="@+id/buttonTweet"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/imageView1"
+           android:layout_marginRight="22dp"
+           android:layout_toLeftOf="@+id/buttonFollow"
+           android:text="Tweet" />
+
+       <Button
+           android:id="@+id/buttonPhone"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@+id/poliHometown"
+           android:layout_below="@+id/imageView1"
+           android:text="@string/call" />
         
     </RelativeLayout>
     
