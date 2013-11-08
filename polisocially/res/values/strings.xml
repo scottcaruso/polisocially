@@ -18,5 +18,6 @@
     <string name="call">Call</string>
     <string name="politician_picture">Politician Picture</string>
     <string name="tweet">Tweet</string>
+    <string name="debug_advance_to_next_screen">DEBUG: Advance To Next Screen</string>
 
 </resources>

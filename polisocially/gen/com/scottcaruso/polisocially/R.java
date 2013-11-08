@@ -58,6 +58,7 @@ public final class R {
         public static final int all_politiican_data_courtesy_of_sunlight_labs_=0x7f050005;
         public static final int app_name=0x7f050000;
         public static final int call=0x7f05000e;
+        public static final int debug_advance_to_next_screen=0x7f050011;
         public static final int follow=0x7f05000d;
         public static final int hello_world=0x7f050002;
         public static final int hometown=0x7f05000c;
