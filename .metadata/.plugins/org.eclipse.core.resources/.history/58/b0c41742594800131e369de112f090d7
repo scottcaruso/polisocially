@@ -86,10 +86,9 @@ public class Main_Screen extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						String zipEntered = input.getText().toString();
+						String zipEntered = input.toString();
 						if (zipEntered.length() != 5)
 						{
-							Log.i("Log","Invalid zip code entry: "+zipEntered);
 				    		Toast toast = Toast.makeText(Main_Screen.this, "Please enter a valid 5-digit zip code.", Toast.LENGTH_LONG);
 				    		toast.show();
 						} else
