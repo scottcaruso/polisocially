@@ -64,7 +64,9 @@ public final class R {
         public static final int main_geolocation_button=0x7f050003;
         public static final int party=0x7f05000a;
         public static final int placeholder_map=0x7f050008;
+        public static final int politician_picture=0x7f05000f;
         public static final int politiican_name=0x7f050009;
+        public static final int tweet=0x7f050010;
         public static final int zip_code_entry=0x7f050004;
     }
     public static final class style {

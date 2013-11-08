@@ -16,5 +16,7 @@
     <string name="hometown">Hometown</string>
     <string name="follow">Follow</string>
     <string name="call">Call</string>
+    <string name="politician_picture">Politician Picture</string>
+    <string name="tweet">Tweet</string>
 
 </resources>
