@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Politician_Details" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <ImageView
+           android:id="@+id/imageView1"
+           android:layout_width="75dp"
+           android:layout_height="75dp"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true"
+           android:layout_marginLeft="30dp"
+           android:layout_marginTop="20dp"
+           android:scaleType="fitCenter"
+           android:src="@drawable/no_image_available" />
+
+       <TextView
+           android:id="@+id/poliName"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_alignTop="@+id/imageView1"
+           android:layout_marginRight="53dp"
+           android:text="@string/politiican_name" />
+
+       <TextView
+           android:id="@+id/poliParty"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/poliName"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="18dp"
+           android:text="@string/party" />
+
+       <TextView
+           android:id="@+id/poliAge"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBaseline="@+id/textView1"
+           android:layout_alignBottom="@+id/textView1"
+           android:layout_alignRight="@+id/poliName"
+           android:layout_marginRight="14dp"
+           android:text="@string/age" />
+        
+    </RelativeLayout>
+    
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

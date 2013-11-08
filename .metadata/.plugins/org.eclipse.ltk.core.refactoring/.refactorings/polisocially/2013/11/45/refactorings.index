@@ -3,3 +3,9 @@
 1383836475456	Extracts string 'All politiican data courtesy of Sunlight Labs.' into R.string.all_politiican_data_courtesy_of_sunlight_labs_
 1383854409030	Extracts string 'About' into R.string.about
 1383860636938	Extracts string 'placeholder_map' into R.string.placeholder_map
+1383900379302	Extracts string 'Politiican Name' into R.string.politiican_name
+1383900431654	Extracts string 'Party' into R.string.party
+1383900474051	Extracts string 'Age' into R.string.age
+1383900666670	Extracts string 'Hometown' into R.string.hometown
+1383901018039	Extracts string 'Follow' into R.string.follow
+1383901127674	Extracts string 'Call' into R.string.call

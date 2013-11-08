@@ -12,9 +12,5 @@
     <string name="placeholder_map">placeholder_map</string>
     <string name="politiican_name">Politiican Name</string>
     <string name="party">Party</string>
-    <string name="age">Age</string>
-    <string name="hometown">Hometown</string>
-    <string name="follow">Follow</string>
-    <string name="call">Call</string>
 
 </resources>
