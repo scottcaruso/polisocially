@@ -14,7 +14,6 @@ public class Politician_Results extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_politician_results);
-        debugButtonClick();
     }
 
     @Override
@@ -33,7 +32,7 @@ public class Politician_Results extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 		    	Intent nextActivity = new Intent(Politician_Results.this,Politician_Details.class);
-				Activity currentActivity = (Activity) Politician_Results.this;
+				Activity currentActivity = (Activity) Politician_results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});

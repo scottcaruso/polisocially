@@ -8,8 +8,7 @@
     
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:layout_height="wrap_content">
 
        <TextView
            android:id="@+id/poliName"
@@ -49,6 +48,14 @@
            android:layout_marginRight="16dp"
            android:text="@string/hometown" />
 
+       <Button
+           android:id="@+id/buttonFollow"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/imageView1"
+           android:layout_centerHorizontal="true"
+           android:text="@string/follow" />
+
        <ImageView
            android:id="@+id/imageView1"
            android:contentDescription="@string/politician_picture"
@@ -77,14 +84,6 @@
            android:layout_alignLeft="@+id/poliHometown"
            android:layout_below="@+id/imageView1"
            android:text="@string/call" />
-
-       <Button
-           android:id="@+id/buttonFollow"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignRight="@+id/poliAge"
-           android:layout_below="@+id/imageView1"
-           android:text="@string/follow" />
         
     </RelativeLayout>
     

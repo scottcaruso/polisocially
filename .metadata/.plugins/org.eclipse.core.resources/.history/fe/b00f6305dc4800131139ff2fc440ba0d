@@ -9,7 +9,7 @@ public class Politician_Details extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_politician_details);
+        setContentView(R.layout.activity_main__screen);
     }
 
 
