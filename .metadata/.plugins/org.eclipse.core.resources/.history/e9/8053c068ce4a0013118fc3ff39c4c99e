@@ -16,7 +16,6 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Messenger;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -240,11 +239,11 @@ public class Main_Screen extends Activity {
  			};
  			Messenger apiMessenger = new Messenger(retrievalHandler);
  			
- 			/*Intent startDataService = new Intent(this, DataRetrievalService.class);
+ 			Intent startDataService = new Intent(this, DataRetrievalService.class);
  			startDataService.putExtra(DataRetrievalService.MESSENGER_KEY, apiMessenger);
  			startDataService.putExtra(DataRetrievalService.LON_KEY,lon);
  			startDataService.putExtra(DataRetrievalService.LAT_KEY,lat);
- 			this.startService(startDataService);*/
+ 			this.startService(startDataService);
          }
     }
        

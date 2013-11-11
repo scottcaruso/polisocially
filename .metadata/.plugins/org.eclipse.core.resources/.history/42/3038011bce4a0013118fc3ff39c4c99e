@@ -1,25 +1,15 @@
 package com.scottcaruso.polisocially;
 
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.scottcaruso.utilities.Connection_Verification;
 
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Messenger;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,8 +28,6 @@ public class Main_Screen extends Activity {
 	public static LocationManager lm;
 	public static String lat;
 	public static String lon;
-	public static String response;
-	public static String location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,6 +182,22 @@ public class Main_Screen extends Activity {
     	Log.i("Current Location","Lat = "+lat+"  Lon = "+lon);
     }
     
+    public class NetworkReceiver extends BroadcastReceiver
+    {
+    	@Override
+    	public void onReceive(Context context, Intent intent)
+    	{
+    		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    		try {
+				NetworkInfo ni = cm.getActiveNetworkInfo();
+				currentNetworkState = ni.getState().toString();
+			} catch (Exception e) {
+				currentNetworkState = "Not connected";
+			}
+    		Log.i("Connection State",currentNetworkState);
+    	}
+    }
+    
     public void runGeolocation()
     {
     	 startLocationManager();
@@ -215,7 +219,7 @@ public class Main_Screen extends Activity {
  						String nullResponse = "{\"results\":[],\"count\":0}";
  						if (response.equals(nullResponse))
  						{
- 							Toast toast = Toast.makeText(Main_Screen.this, "There was a problem retrieving Geo data. Please try again later.", Toast.LENGTH_SHORT);
+ 							Toast toast = Toast.makeText(MainActivity.this, "There was a problem retrieving Geo data. Please try again later.", Toast.LENGTH_SHORT);
  							toast.show();
  						} else
  						{
@@ -240,11 +244,11 @@ public class Main_Screen extends Activity {
  			};
  			Messenger apiMessenger = new Messenger(retrievalHandler);
  			
- 			/*Intent startDataService = new Intent(this, DataRetrievalService.class);
+ 			Intent startDataService = new Intent(this, DataRetrievalService.class);
  			startDataService.putExtra(DataRetrievalService.MESSENGER_KEY, apiMessenger);
  			startDataService.putExtra(DataRetrievalService.LON_KEY,lon);
  			startDataService.putExtra(DataRetrievalService.LAT_KEY,lat);
- 			this.startService(startDataService);*/
+ 			this.startService(startDataService);
          }
     }
        
