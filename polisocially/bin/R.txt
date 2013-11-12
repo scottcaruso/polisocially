@@ -55,7 +55,6 @@ int drawable main_button 0x7f020019
 int drawable map 0x7f02001a
 int drawable no_image_available 0x7f02001b
 int id About 0x7f050011
-int id action_settings 0x7f050012
 int id button1 0x7f050006
 int id buttonFollow 0x7f05000d
 int id buttonPhone 0x7f05000f
@@ -77,6 +76,8 @@ int layout activity_main__screen 0x7f030000
 int layout activity_politician_details 0x7f030001
 int layout activity_politician_results 0x7f030002
 int menu main__screen 0x7f090000
+int menu menu_politician_details 0x7f090001
+int menu menu_politician_results 0x7f090002
 int string about 0x7f06001c
 int string about_app 0x7f06001b
 int string action_settings 0x7f060016

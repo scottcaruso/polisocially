@@ -31,4 +31,5 @@
 <fullyQualifiedTypeName name="org.json.JSONArray"/>
 <fullyQualifiedTypeName name="org.json.JSONException"/>
 <fullyQualifiedTypeName name="android.os.Messenger"/>
+<fullyQualifiedTypeName name="com.scottcaruso.dataretrievalclasses.DataRetrievalService"/>
 </qualifiedTypeNameHistroy>
