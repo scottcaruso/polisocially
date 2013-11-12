@@ -5,7 +5,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.scottcaruso.dataretrievalclasses.DataRetrievalService;
 import com.scottcaruso.utilities.Connection_Verification;
 
 import android.location.Criteria;
@@ -224,7 +223,7 @@ public class Main_Screen extends Activity {
  						} else
  						{
  							//When we get a response...
- 							/*try {
+ 							try {
  								//Try to parse it into a valid location plus state
 								JSONObject result = new JSONObject(response);
 								JSONArray resultArray = result.getJSONArray("geonames");
@@ -236,7 +235,7 @@ public class Main_Screen extends Activity {
 							} catch (JSONException e) {
 								Log.e("Error","Problem parsing JSON data!");
 								e.printStackTrace();
-							}*/
+							}
  							
  						}
  					}

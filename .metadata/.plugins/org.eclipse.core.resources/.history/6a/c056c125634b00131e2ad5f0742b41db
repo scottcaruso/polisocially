@@ -235,8 +235,8 @@ public class Main_Screen extends Activity {
 								Log.i("Location",location);
 							} catch (JSONException e) {
 								Log.e("Error","Problem parsing JSON data!");
-								e.printStackTrace();
-							}*/
+								e.printStackTrace();*/
+							}
  							
  						}
  					}

@@ -224,19 +224,19 @@ public class Main_Screen extends Activity {
  						} else
  						{
  							//When we get a response...
- 							/*try {
+ 							try {
  								//Try to parse it into a valid location plus state
-								JSONObject result = new JSONObject(response);
+								/*JSONObject result = new JSONObject(response);
 								JSONArray resultArray = result.getJSONArray("geonames");
 								JSONObject thisLocation = resultArray.getJSONObject(0);
 								String nearestPlace = thisLocation.getString("toponymName");
 								String state = thisLocation.getString("adminCode1");
 								location = nearestPlace+", "+state;
-								Log.i("Location",location);
+								Log.i("Location",location);*/
 							} catch (JSONException e) {
 								Log.e("Error","Problem parsing JSON data!");
 								e.printStackTrace();
-							}*/
+							}
  							
  						}
  					}

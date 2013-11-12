@@ -5,7 +5,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.scottcaruso.dataretrievalclasses.DataRetrievalService;
 import com.scottcaruso.utilities.Connection_Verification;
 
 import android.location.Criteria;
@@ -62,6 +61,7 @@ public class Main_Screen extends Activity {
         }
         zipcodeClick();
         mainButtonClick();
+        startLocationManager();
         
     }
 
@@ -145,10 +145,10 @@ public class Main_Screen extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				runGeolocation();
-		    	/*Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
+				obtainGeoData();
+		    	Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
 				Activity currentActivity = (Activity) Main_Screen.this;
-				currentActivity.startActivityForResult(nextActivity, 0);*/
+				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
     }
@@ -197,7 +197,7 @@ public class Main_Screen extends Activity {
     	Log.i("Current Location","Lat = "+lat+"  Lon = "+lon);
     }
     
-    @SuppressLint("HandlerLeak")
+    /*@SuppressLint("HandlerLeak")
 	public void runGeolocation()
     {
     	 startLocationManager();
@@ -224,7 +224,7 @@ public class Main_Screen extends Activity {
  						} else
  						{
  							//When we get a response...
- 							/*try {
+ 							try {
  								//Try to parse it into a valid location plus state
 								JSONObject result = new JSONObject(response);
 								JSONArray resultArray = result.getJSONArray("geonames");
@@ -236,7 +236,7 @@ public class Main_Screen extends Activity {
 							} catch (JSONException e) {
 								Log.e("Error","Problem parsing JSON data!");
 								e.printStackTrace();
-							}*/
+							}
  							
  						}
  					}
@@ -250,6 +250,6 @@ public class Main_Screen extends Activity {
  			startDataService.putExtra(DataRetrievalService.LAT_KEY,lat);
  			this.startService(startDataService);
          }
-    }
+    }*/
        
 }
