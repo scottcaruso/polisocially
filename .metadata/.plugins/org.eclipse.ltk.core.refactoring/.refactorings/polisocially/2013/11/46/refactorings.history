@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;polisocially&apos;&#x0A;- Original project: &apos;polisocially&apos;&#x0A;- Original elements:&#x0A;     com.scottcaruso.dataretrievalclasses.RetrieveDataFromSunlightLabs.java&#x0A;     com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject.java" description="Delete elements" element1="/src&lt;com.scottcaruso.dataretrievalclasses{RetrieveDataFromSunlightLabs.java" element2="/src&lt;com.scottcaruso.dataretrievalclasses{TurnStringIntoJSONObject.java" elements="2" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1384234880949" subPackages="false" version="1.0"/>
+</session>
