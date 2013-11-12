@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -60,6 +61,7 @@ public class Main_Screen extends Activity {
         }
         zipcodeClick();
         mainButtonClick();
+        startLocationManager();
         
     }
 
@@ -143,6 +145,7 @@ public class Main_Screen extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				obtainGeoData();
 		    	Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
 				Activity currentActivity = (Activity) Main_Screen.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
@@ -194,7 +197,8 @@ public class Main_Screen extends Activity {
     	Log.i("Current Location","Lat = "+lat+"  Lon = "+lon);
     }
     
-    public void runGeolocation()
+    /*@SuppressLint("HandlerLeak")
+	public void runGeolocation()
     {
     	 startLocationManager();
          if (lm != null)
@@ -240,12 +244,12 @@ public class Main_Screen extends Activity {
  			};
  			Messenger apiMessenger = new Messenger(retrievalHandler);
  			
- 			/*Intent startDataService = new Intent(this, DataRetrievalService.class);
+ 			Intent startDataService = new Intent(this, DataRetrievalService.class);
  			startDataService.putExtra(DataRetrievalService.MESSENGER_KEY, apiMessenger);
  			startDataService.putExtra(DataRetrievalService.LON_KEY,lon);
  			startDataService.putExtra(DataRetrievalService.LAT_KEY,lat);
- 			this.startService(startDataService);*/
+ 			this.startService(startDataService);
          }
-    }
+    }*/
        
 }

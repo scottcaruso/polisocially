@@ -21,4 +21,14 @@
 <fullyQualifiedTypeName name="android.location.Criteria"/>
 <fullyQualifiedTypeName name="android.location.LocationListener"/>
 <fullyQualifiedTypeName name="android.location.LocationManager"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.content.BroadcastReceiver"/>
+<fullyQualifiedTypeName name="android.net.ConnectivityManager"/>
+<fullyQualifiedTypeName name="android.net.NetworkInfo"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.json.JSONArray"/>
+<fullyQualifiedTypeName name="org.json.JSONException"/>
+<fullyQualifiedTypeName name="android.os.Messenger"/>
 </qualifiedTypeNameHistroy>
