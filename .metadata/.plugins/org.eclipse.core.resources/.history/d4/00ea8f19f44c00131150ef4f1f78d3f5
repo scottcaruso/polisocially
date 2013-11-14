@@ -24,7 +24,7 @@ public class Politician_Results extends Activity {
 	public String[] politicianNames;
 	public String polData;
 	public ArrayList<String> polsList;
-	public String location;
+	public String location
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,24 +42,18 @@ public class Politician_Results extends Activity {
         try {
         	polsList = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
-			for (int x = 0; x < polArray.length(); x++)
+			for (int x = 0; x <= polArray.length(); x++)
 			{
 				JSONObject polObjectOne = polArray.getJSONObject(x);
 				String polName = polObjectOne.getString("Name");
 				polsList.add(x, polName);
-				String polTitle = "None";
-				try {
-					polTitle = polObjectOne.getString("Title");
-					if (polTitle.equals("Rep"))
-					{
-						String polDistrict = polObjectOne.getString("District");
-						String polState = polObjectOne.getString("State");
-						Log.i("Info",polDistrict);
-						Log.i("Info",polState);
-						location = polState+"-"+polDistrict;
-					}
-				} catch (Exception e) {
-					//Do nothing and move on.
+				String polTitle = polObjectOne.getString("title");
+				if (polTitle.equals("Rep"))
+				{
+					String polDistrict = polObjectOne.getString("district");
+					String polState = polObjectOne.getString("state");
+					location = 
+					
 				}
 			}
 		} catch (JSONException e) {
@@ -76,7 +70,6 @@ public class Politician_Results extends Activity {
         ArrayAdapter<String> politicianAdapter = createArray(polsList);
         ListView listView = (ListView) findViewById(R.id.listOfPols);
         listView.setAdapter(politicianAdapter);
-        this.setTitle(location);
     }
 
     @Override

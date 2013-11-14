@@ -49,13 +49,12 @@ public class Politician_Results extends Activity {
 				polsList.add(x, polName);
 				String polTitle = "None";
 				try {
-					polTitle = polObjectOne.getString("Title");
+					polTitle = polObjectOne.getString("title");
 					if (polTitle.equals("Rep"))
 					{
-						String polDistrict = polObjectOne.getString("District");
-						String polState = polObjectOne.getString("State");
+						String polDistrict = polObjectOne.getString("district");
+						String polState = polObjectOne.getString("state");
 						Log.i("Info",polDistrict);
-						Log.i("Info",polState);
 						location = polState+"-"+polDistrict;
 					}
 				} catch (Exception e) {
@@ -76,6 +75,7 @@ public class Politician_Results extends Activity {
         ArrayAdapter<String> politicianAdapter = createArray(polsList);
         ListView listView = (ListView) findViewById(R.id.listOfPols);
         listView.setAdapter(politicianAdapter);
+        Log.i("Info",location);
         this.setTitle(location);
     }
 

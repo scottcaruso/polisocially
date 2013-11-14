@@ -49,11 +49,12 @@ public class Politician_Results extends Activity {
 				polsList.add(x, polName);
 				String polTitle = "None";
 				try {
-					polTitle = polObjectOne.getString("Title");
+					polTitle = polObjectOne.getString("title");
+					Log.i("Info",polTitle);
 					if (polTitle.equals("Rep"))
 					{
-						String polDistrict = polObjectOne.getString("District");
-						String polState = polObjectOne.getString("State");
+						String polDistrict = polObjectOne.getString("district");
+						String polState = polObjectOne.getString("state");
 						Log.i("Info",polDistrict);
 						Log.i("Info",polState);
 						location = polState+"-"+polDistrict;

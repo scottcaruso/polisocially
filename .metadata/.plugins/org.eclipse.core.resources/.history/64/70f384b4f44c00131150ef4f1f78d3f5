@@ -42,24 +42,22 @@ public class Politician_Results extends Activity {
         try {
         	polsList = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
-			for (int x = 0; x < polArray.length(); x++)
+			for (int x = 0; x <= polArray.length(); x++)
 			{
 				JSONObject polObjectOne = polArray.getJSONObject(x);
 				String polName = polObjectOne.getString("Name");
 				polsList.add(x, polName);
-				String polTitle = "None";
+				String polTitle;
 				try {
-					polTitle = polObjectOne.getString("Title");
-					if (polTitle.equals("Rep"))
-					{
-						String polDistrict = polObjectOne.getString("District");
-						String polState = polObjectOne.getString("State");
-						Log.i("Info",polDistrict);
-						Log.i("Info",polState);
-						location = polState+"-"+polDistrict;
-					}
+					polTitle = polObjectOne.getString("title");
 				} catch (Exception e) {
-					//Do nothing and move on.
+					//Do nothing
+				}
+				if (polTitle.equals("Rep"))
+				{
+					String polDistrict = polObjectOne.getString("district");
+					String polState = polObjectOne.getString("state");
+					location = polState+"-"+polDistrict;
 				}
 			}
 		} catch (JSONException e) {
@@ -76,7 +74,8 @@ public class Politician_Results extends Activity {
         ArrayAdapter<String> politicianAdapter = createArray(polsList);
         ListView listView = (ListView) findViewById(R.id.listOfPols);
         listView.setAdapter(politicianAdapter);
-        this.setTitle(location);
+        Activity thisActivity = this;
+        thisActivity.setTitle(location);
     }
 
     @Override
