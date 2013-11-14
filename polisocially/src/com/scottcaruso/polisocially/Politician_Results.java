@@ -29,8 +29,13 @@ public class Politician_Results extends Activity {
 	public String polData;
 	public ArrayList<String> polsList;
 	public String location;
+	public String tempLocation;
 	public ArrayList<String> multipleReps;
 	public ArrayList<String> arrayOfDistricts;
+	public Spinner hiddenButton;
+	public JSONObject thesePols;
+	public ListView listview;
+	public ArrayAdapter<String> politicianAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,7 @@ public class Politician_Results extends Activity {
         }
         Log.i("Info",polData);
         
-        JSONObject thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
+        thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
         try {
         	polsList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
@@ -130,10 +135,10 @@ public class Politician_Results extends Activity {
    
         setContentView(R.layout.activity_politician_results);
         
-        ArrayAdapter<String> politicianAdapter = createArray(polsList);
-        ListView listView = (ListView) findViewById(R.id.listOfPols);
-        listView.setAdapter(politicianAdapter);
-        listView.setOnItemClickListener(new OnItemClickListener() {
+        politicianAdapter = createArray(polsList);
+        listview = (ListView) findViewById(R.id.listOfPols);
+        listview.setAdapter(politicianAdapter);
+        listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view, int item,
@@ -190,14 +195,74 @@ public class Politician_Results extends Activity {
     
     public void showHiddenButton(Boolean shouldItBeShown)
     {
-		Spinner hiddenButton = (Spinner) findViewById(R.id.district);
+		hiddenButton = (Spinner) findViewById(R.id.district);
     	if (shouldItBeShown == true)
     	{
+    		createSpinner();
     		hiddenButton.setVisibility(Spinner.VISIBLE);
     	} else {
     		hiddenButton.setVisibility(Spinner.INVISIBLE);
     	}
     	
+    }
+    
+    public void createSpinner()
+    {
+    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayOfDistricts);		
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		hiddenButton.setAdapter(adapter);
+		//Adapter that listens for which spinner item has been clicked.
+		hiddenButton.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> adapter, View view,
+					int loc, long id) {
+				politicianAdapter.clear();
+				String district = adapter.getItemAtPosition(loc).toString();
+				try {
+					JSONArray polArray = thesePols.getJSONArray("Politicians");
+					int arrayLength = polArray.length();
+					for (int x = 0; x < arrayLength; x++)
+					{
+						JSONObject polObjectFour = polArray.getJSONObject(x);
+						String polName = polObjectFour.getString("Name");
+						String polTitle = "None";
+						String polDistrict = "None";
+						String polState = "None";
+						polTitle = polObjectFour.getString("Title");
+						polDistrict = polObjectFour.getString("District");
+						polState = polObjectFour.getString("State");
+						tempLocation = polState+"-"+polDistrict;
+						if (polTitle.equals("Rep")&&tempLocation.equals(district))
+						{
+							polsList.add(polName);
+						} else if (!polTitle.equals("Rep"))
+						{
+							polsList.add(polName);
+						}
+					}
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			//TODO: Need to debug why the title isn't changing with the Spinner clicks.
+			Politician_Results.this.setTitle(tempLocation);
+		    int size = polsList.size();
+		    polsList.add(size, "President Barack Obama");
+		    polsList.add(size+1, "Vice President Joe Biden");
+			politicianAdapter.notifyDataSetChanged();
+	    	Intent nextActivity = new Intent(Politician_Results.this,Politician_Details.class);
+			Activity currentActivity = (Activity) Politician_Results.this;
+			currentActivity.startActivityForResult(nextActivity, 0);
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				//DO NOTHING
+			}
+		});
     }
     
 }
