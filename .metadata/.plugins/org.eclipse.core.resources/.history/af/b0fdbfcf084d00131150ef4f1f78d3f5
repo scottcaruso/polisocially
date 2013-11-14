@@ -46,10 +46,9 @@ public class Politician_Results extends Activity {
         JSONObject thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
         try {
         	polsList = new ArrayList<String>();
-        	arrayOfDistricts = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			int arrayLength = polArray.length();
-			if (arrayLength <= 3)
+			if (arrayLength <= 2)
 			{
 				for (int x = 0; x < arrayLength; x++)
 				{
@@ -73,45 +72,16 @@ public class Politician_Results extends Activity {
 			} else {
 				for (int x = 0; x < arrayLength; x++)
 				{
-					Log.i("Info","Multiple representatives found!");
 					JSONObject polObjectTwo = polArray.getJSONObject(x);
 					String polTitle = "None";
 					try {
 						polTitle = polObjectTwo.getString("Title");
 						if (polTitle.equals("Rep"))
 						{
-							String polDistrict = polObjectTwo.getString("District");
-							String polState = polObjectTwo.getString("State");
+							String polDistrict = polObjectOne.getString("District");
+							String polState = polObjectOne.getString("State");
 							String district = polState+"-"+polDistrict;
-							arrayOfDistricts.add(district);
-						}
-					} catch (Exception e) {
-						//Do nothing and move on.
-					}
-				}
-				for (int x = 0; x < arrayLength; x++)
-				{
-					JSONObject polObjectThree = polArray.getJSONObject(x);
-					String polName = polObjectThree.getString("Name");
-					String polTitle = "None";
-					try {
-						polTitle = polObjectThree.getString("Title");
-						if (polTitle.equals("Rep"))
-						{
-							String polDistrict = polObjectThree.getString("District");
-							String polState = polObjectThree.getString("State");
-							String district = polState+"-"+polDistrict;
-							for (int y=0; y < arrayOfDistricts.size(); y++)
-							{
-								if (district.equals(arrayOfDistricts.get(arrayOfDistricts.size()-1)))
-								{
-									polsList.add(polName);
-									break;
-								}
-							}
-						} else
-						{
-							polsList.add(polName);
+							arrayOfDistricts.add(location);
 						}
 					} catch (Exception e) {
 						//Do nothing and move on.

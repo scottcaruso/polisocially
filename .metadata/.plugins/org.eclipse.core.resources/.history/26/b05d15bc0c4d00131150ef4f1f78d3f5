@@ -46,7 +46,6 @@ public class Politician_Results extends Activity {
         JSONObject thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
         try {
         	polsList = new ArrayList<String>();
-        	arrayOfDistricts = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			int arrayLength = polArray.length();
 			if (arrayLength <= 3)
@@ -101,12 +100,11 @@ public class Politician_Results extends Activity {
 							String polDistrict = polObjectThree.getString("District");
 							String polState = polObjectThree.getString("State");
 							String district = polState+"-"+polDistrict;
-							for (int y=0; y < arrayOfDistricts.size(); y++)
+							for (int y=0; y < arrayOfDistricts.size(); x++)
 							{
-								if (district.equals(arrayOfDistricts.get(arrayOfDistricts.size()-1)))
+								if (district.equals(arrayOfDistricts.get(0)))
 								{
 									polsList.add(polName);
-									break;
 								}
 							}
 						} else
