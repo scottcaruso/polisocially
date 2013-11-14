@@ -5,16 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 public class Politician_Results extends Activity {
+	
+	public String[] politicianNames = {"Test","Test 2","Test 3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_politician_results);
         debugButtonClick();
+        
+        ArrayAdapter<String> politicianAdapter = createArray(politicianNames);
+        ListView listView = (ListView) findViewById(R.id.listOfPols);
+        listView.setAdapter(politicianAdapter);
     }
 
     @Override
@@ -37,6 +45,12 @@ public class Politician_Results extends Activity {
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
+    }
+    
+    public ArrayAdapter<String> createArray(String[] politicians)
+    {
+    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, politicians);
+    	return adapter;
     }
 
 }

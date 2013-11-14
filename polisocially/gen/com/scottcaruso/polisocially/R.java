@@ -185,7 +185,7 @@ containing a value of this type.
         public static final int no_image_available=0x7f02001b;
     }
     public static final class id {
-        public static final int About=0x7f050011;
+        public static final int About=0x7f050012;
         public static final int button1=0x7f050006;
         public static final int buttonFollow=0x7f05000d;
         public static final int buttonPhone=0x7f05000f;
@@ -193,6 +193,7 @@ containing a value of this type.
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050005;
         public static final int imageView1=0x7f050009;
+        public static final int listOfPols=0x7f050011;
         public static final int listView1=0x7f050010;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;

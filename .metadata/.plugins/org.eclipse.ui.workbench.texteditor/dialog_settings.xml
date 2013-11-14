@@ -13,8 +13,9 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Geo" key="selection"/>
+		<item value="requestSingle" key="selection"/>
 		<list key="findhistory">
+			<item value="requestsingle"/>
 			<item value="geo"/>
 			<item value="geon"/>
 		</list>

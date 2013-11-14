@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.scottcaruso.dataretrievalclasses.DataRetrievalService;
 import com.scottcaruso.utilities.Connection_Verification;
 
@@ -62,6 +63,7 @@ public class Main_Screen extends Activity {
         }
         zipcodeClick();
         mainButtonClick();
+  	 	startLocationManager();
         
     }
 
@@ -146,9 +148,9 @@ public class Main_Screen extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				runGeolocation();
-		    	/*Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
+		    	Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
 				Activity currentActivity = (Activity) Main_Screen.this;
-				currentActivity.startActivityForResult(nextActivity, 0);*/
+				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
     }
@@ -156,6 +158,8 @@ public class Main_Screen extends Activity {
     public void startLocationManager()
     {
     	lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        Boolean googleServices = servicesConnected();
+        Log.i("info",String.valueOf(googleServices));
     }
     
     public void obtainGeoData()
@@ -200,7 +204,6 @@ public class Main_Screen extends Activity {
     @SuppressLint("HandlerLeak")
 	public void runGeolocation()
     {
-    	 startLocationManager();
          if (lm != null)
          {
          	obtainGeoData();
@@ -250,6 +253,17 @@ public class Main_Screen extends Activity {
  			startDataService.putExtra(DataRetrievalService.LAT_KEY,lat);
  			this.startService(startDataService);
          }
+    }    
+    private boolean servicesConnected()
+    {
+    	int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+    	if (resultCode == 0)
+    	{
+    		return true;
+    	} else
+    	{
+    		return false;
+    	}
     }
        
 }
