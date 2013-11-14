@@ -1,7 +1,5 @@
 package com.scottcaruso.polisocially;
 
-import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,23 +37,25 @@ public class Politician_Results extends Activity {
         
         JSONObject thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
         try {
-        	polsList = new ArrayList<String>();
+        	ArrayList<String> itemsList = new ArrayList<String> (  );
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			for (int x = 0; x <= polArray.length(); x++)
 			{
 				JSONObject polObjectOne = polArray.getJSONObject(x);
 				String polName = polObjectOne.getString("Name");
-				polsList.add(x, polName);
+				polData.
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-   
+        
+        
+        
         setContentView(R.layout.activity_politician_results);
         debugButtonClick();
         
-        ArrayAdapter<String> politicianAdapter = createArray(polsList);
+        ArrayAdapter<String> politicianAdapter = createArray(politicianNames);
         ListView listView = (ListView) findViewById(R.id.listOfPols);
         listView.setAdapter(politicianAdapter);
     }
@@ -82,9 +82,9 @@ public class Politician_Results extends Activity {
 		});
     }
     
-    public ArrayAdapter<String> createArray(ArrayList<String> polsList2)
+    public ArrayAdapter<String> createArray(String[] politicians)
     {
-    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, polsList2);
+    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, politicians);
     	return adapter;
     }
     
