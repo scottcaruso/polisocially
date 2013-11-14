@@ -179,12 +179,12 @@ public class Politician_Results extends Activity {
     
     public Boolean shouldButtonBeShown(int listSize)
     {
-    	if (listSize > 1)
-    	{
-    		return true;
-    	} else
+    	if (listSize > 0)
     	{
     		return false;
+    	} else
+    	{
+    		return true;
     	}
     }
     

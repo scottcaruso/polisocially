@@ -184,7 +184,7 @@ public class Politician_Results extends Activity {
     		return true;
     	} else
     	{
-    		return false;
+    		return true;
     	}
     }
     

@@ -19,7 +19,7 @@
         android:layout_weight="0.58" >
     </ListView>
 
-    <Spinner
+    <Button
         android:id="@+id/district"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

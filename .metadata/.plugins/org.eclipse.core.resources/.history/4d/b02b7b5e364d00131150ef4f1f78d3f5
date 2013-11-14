@@ -181,10 +181,10 @@ public class Politician_Results extends Activity {
     {
     	if (listSize > 1)
     	{
-    		return true;
+    		return false;
     	} else
     	{
-    		return false;
+    		return true;
     	}
     }
     

@@ -48,7 +48,7 @@ public class Politician_Results extends Activity {
         try {
         	polsList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
-        	multipleReps = new ArrayList<String>();
+        	multipleReps = new ArrayList<String>()''
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			int arrayLength = polArray.length();
 			if (arrayLength <= 3)
@@ -181,10 +181,10 @@ public class Politician_Results extends Activity {
     {
     	if (listSize > 1)
     	{
-    		return true;
+    		return false;
     	} else
     	{
-    		return false;
+    		return true;
     	}
     }
     

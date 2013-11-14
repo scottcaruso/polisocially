@@ -48,7 +48,6 @@ public class Politician_Results extends Activity {
         try {
         	polsList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
-        	multipleReps = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			int arrayLength = polArray.length();
 			if (arrayLength <= 3)
@@ -66,6 +65,7 @@ public class Politician_Results extends Activity {
 							String polDistrict = polObjectOne.getString("District");
 							String polState = polObjectOne.getString("State");
 							location = polState+"-"+polDistrict;
+							multipleReps.add(polName);
 						}
 					} catch (Exception e) {
 						//Do nothing and move on.
@@ -102,7 +102,6 @@ public class Politician_Results extends Activity {
 							String polDistrict = polObjectThree.getString("District");
 							String polState = polObjectThree.getString("State");
 							String district = polState+"-"+polDistrict;
-							multipleReps.add(polName);
 							for (int y=0; y < arrayOfDistricts.size(); y++)
 							{
 								if (district.equals(arrayOfDistricts.get(arrayOfDistricts.size()-1)))
@@ -127,6 +126,11 @@ public class Politician_Results extends Activity {
         int size = polsList.size();
         polsList.add(size, "President Barack Obama");
         polsList.add(size+1, "Vice President Joe Biden");
+        
+        if (size > 3)
+        {
+        	showHiddenButton(true);
+        }
    
         setContentView(R.layout.activity_politician_results);
         
@@ -144,7 +148,7 @@ public class Politician_Results extends Activity {
         
         this.setTitle(location);
         
-        Boolean needToShow = shouldButtonBeShown(multipleReps.size());
+        Boolean needToShow = shouldButtonBeShown(size);
         showHiddenButton(needToShow);
 
     }
@@ -179,12 +183,12 @@ public class Politician_Results extends Activity {
     
     public Boolean shouldButtonBeShown(int listSize)
     {
-    	if (listSize > 1)
-    	{
-    		return true;
-    	} else
+    	if (listSize < 4)
     	{
     		return false;
+    	} else
+    	{
+    		return true;
     	}
     }
     

@@ -48,7 +48,6 @@ public class Politician_Results extends Activity {
         try {
         	polsList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
-        	multipleReps = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			int arrayLength = polArray.length();
 			if (arrayLength <= 3)
@@ -102,7 +101,6 @@ public class Politician_Results extends Activity {
 							String polDistrict = polObjectThree.getString("District");
 							String polState = polObjectThree.getString("State");
 							String district = polState+"-"+polDistrict;
-							multipleReps.add(polName);
 							for (int y=0; y < arrayOfDistricts.size(); y++)
 							{
 								if (district.equals(arrayOfDistricts.get(arrayOfDistricts.size()-1)))
@@ -144,8 +142,8 @@ public class Politician_Results extends Activity {
         
         this.setTitle(location);
         
-        Boolean needToShow = shouldButtonBeShown(multipleReps.size());
-        showHiddenButton(needToShow);
+        //Boolean needToShow = shouldButtonBeShown(multipleReps.size());
+        //showHiddenButton(needToShow);
 
     }
 
@@ -181,10 +179,10 @@ public class Politician_Results extends Activity {
     {
     	if (listSize > 1)
     	{
-    		return true;
+    		return false;
     	} else
     	{
-    		return false;
+    		return true;
     	}
     }
     
