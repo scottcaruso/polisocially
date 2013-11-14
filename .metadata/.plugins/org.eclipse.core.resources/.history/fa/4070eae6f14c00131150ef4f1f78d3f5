@@ -52,8 +52,6 @@ public class Politician_Results extends Activity {
 			e.printStackTrace();
 		}
         int size = polsList.size();
-        polsList.add(size, "President Barack Obama");
-        polsList.add(size+1, "Vice President Joe Biden");
    
         setContentView(R.layout.activity_politician_results);
         debugButtonClick();
