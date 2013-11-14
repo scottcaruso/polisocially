@@ -84,7 +84,8 @@ public class Politician_Results extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> adapter, View view, int item,
 					long id) {
-				Log.i("Info","The index of the clicked item is "+item);	
+				Log.i("Info","The index of the clicked item is "+item);
+				
 			}
 		});
         

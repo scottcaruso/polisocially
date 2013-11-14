@@ -79,14 +79,7 @@ public class Politician_Results extends Activity {
         ArrayAdapter<String> politicianAdapter = createArray(polsList);
         ListView listView = (ListView) findViewById(R.id.listOfPols);
         listView.setAdapter(politicianAdapter);
-        listView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> adapter, View view, int item,
-					long id) {
-				Log.i("Info","The index of the clicked item is "+item);	
-			}
-		});
+        listView.setOnItemClickListener(OnItemClickListener)
         
         this.setTitle(location);
     }
