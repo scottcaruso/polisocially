@@ -54,11 +54,12 @@ int drawable ic_launcher 0x7f020018
 int drawable main_button 0x7f020019
 int drawable map 0x7f02001a
 int drawable no_image_available 0x7f02001b
-int id About 0x7f050012
+int id About 0x7f050013
 int id button1 0x7f050006
 int id buttonFollow 0x7f05000d
 int id buttonPhone 0x7f05000f
 int id buttonTweet 0x7f05000e
+int id district 0x7f050012
 int id hybrid 0x7f050004
 int id imageButton1 0x7f050005
 int id imageView1 0x7f050009
@@ -92,6 +93,7 @@ int string auth_client_play_services_err_notification_msg 0x7f060013
 int string auth_client_requested_by_msg 0x7f060014
 int string auth_client_using_bad_version_title 0x7f06000f
 int string call 0x7f060023
+int string change_district 0x7f060027
 int string common_google_play_services_enable_button 0x7f060006
 int string common_google_play_services_enable_text 0x7f060005
 int string common_google_play_services_enable_title 0x7f060004

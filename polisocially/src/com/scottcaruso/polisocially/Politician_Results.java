@@ -74,7 +74,6 @@ public class Politician_Results extends Activity {
         polsList.add(size+1, "Vice President Joe Biden");
    
         setContentView(R.layout.activity_politician_results);
-        debugButtonClick();
         
         ArrayAdapter<String> politicianAdapter = createArray(polsList);
         ListView listView = (ListView) findViewById(R.id.listOfPols);
@@ -89,6 +88,10 @@ public class Politician_Results extends Activity {
 		});
         
         this.setTitle(location);
+        
+        Boolean needToShow = shouldButtonBeShown(size);
+        showHiddenButton(needToShow);
+
     }
 
     @Override
@@ -98,7 +101,7 @@ public class Politician_Results extends Activity {
         return true;
     }
     
-    public void debugButtonClick()
+    /*public void debugButtonClick()
     {
     	Button debugButton = (Button) findViewById(R.id.button1);
     	debugButton.setOnClickListener(new View.OnClickListener() {
@@ -111,12 +114,35 @@ public class Politician_Results extends Activity {
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
-    }
+    }*/
     
     public ArrayAdapter<String> createArray(ArrayList<String> polsList2)
     {
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, polsList2);
     	return adapter;
+    }
+    
+    public Boolean shouldButtonBeShown(int listSize)
+    {
+    	if (listSize < 4)
+    	{
+    		return false;
+    	} else
+    	{
+    		return true;
+    	}
+    }
+    
+    public void showHiddenButton(Boolean shouldItBeShown)
+    {
+		Button hiddenButton = (Button) findViewById(R.id.district);
+    	if (shouldItBeShown == true)
+    	{
+    		hiddenButton.setVisibility(Button.VISIBLE);
+    	} else {
+    		hiddenButton.setVisibility(Button.INVISIBLE);
+    	}
+    	
     }
     
 }

@@ -185,11 +185,12 @@ containing a value of this type.
         public static final int no_image_available=0x7f02001b;
     }
     public static final class id {
-        public static final int About=0x7f050012;
+        public static final int About=0x7f050013;
         public static final int button1=0x7f050006;
         public static final int buttonFollow=0x7f05000d;
         public static final int buttonPhone=0x7f05000f;
         public static final int buttonTweet=0x7f05000e;
+        public static final int district=0x7f050012;
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050005;
         public static final int imageView1=0x7f050009;
@@ -246,6 +247,7 @@ containing a value of this type.
          */
         public static final int auth_client_using_bad_version_title=0x7f06000f;
         public static final int call=0x7f060023;
+        public static final int change_district=0x7f060027;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
