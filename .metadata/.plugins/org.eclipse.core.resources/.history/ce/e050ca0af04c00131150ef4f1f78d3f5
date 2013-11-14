@@ -38,8 +38,6 @@ public class Politician_Results extends Activity {
         try {
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
 			JSONObject polObjectOne = polArray.getJSONObject(0);
-			String polNameOne = polObjectOne.getString("Name");
-			Log.i("Info",polNameOne);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

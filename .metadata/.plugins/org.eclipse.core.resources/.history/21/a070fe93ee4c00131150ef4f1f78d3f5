@@ -1,11 +1,5 @@
 package com.scottcaruso.polisocially;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,19 +27,6 @@ public class Politician_Results extends Activity {
             polData = extras.getString("Response");
         }
         Log.i("Info",polData);
-        
-        JSONObject thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
-        try {
-			JSONArray polArray = thesePols.getJSONArray("Politicians");
-			JSONObject polObjectOne = polArray.getJSONObject(0);
-			String polNameOne = polObjectOne.getString("Name");
-			Log.i("Info",polNameOne);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-        
         
         setContentView(R.layout.activity_politician_results);
         debugButtonClick();
@@ -82,5 +63,5 @@ public class Politician_Results extends Activity {
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, politicians);
     	return adapter;
     }
-    
+
 }

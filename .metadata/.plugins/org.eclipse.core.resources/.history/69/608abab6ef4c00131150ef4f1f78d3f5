@@ -36,15 +36,15 @@ public class Politician_Results extends Activity {
         
         JSONObject thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
         try {
-			JSONArray polArray = thesePols.getJSONArray("Politicians");
-			JSONObject polObjectOne = polArray.getJSONObject(0);
-			String polNameOne = polObjectOne.getString("Name");
-			Log.i("Info",polNameOne);
+			JSONArray polsArray = thesePols.getJSONArray("parsedPoliticians");
+			JSONObject polOne = polsArray.getJSONObject(0);
+			String first = polOne.toString();
+			Log.i("Info",first);
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
         
         
         setContentView(R.layout.activity_politician_results);
