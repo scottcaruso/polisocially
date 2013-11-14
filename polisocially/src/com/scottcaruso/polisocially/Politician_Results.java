@@ -3,6 +3,7 @@ package com.scottcaruso.polisocially;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,10 +14,20 @@ import android.widget.ListView;
 public class Politician_Results extends Activity {
 	
 	public String[] politicianNames = {"Test","Test 2","Test 3"};
+	public String polData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+        	polData= null;
+            } else {
+            polData = extras.getString("Response");
+        }
+        Log.i("Info",polData);
+        
         setContentView(R.layout.activity_politician_results);
         debugButtonClick();
         

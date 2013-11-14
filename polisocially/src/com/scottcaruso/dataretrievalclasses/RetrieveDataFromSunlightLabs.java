@@ -26,7 +26,7 @@ public class RetrieveDataFromSunlightLabs {
 		{
 			dataURL = new URL(urlString);
 			String response = getResponse(dataURL);
-			Log.i("Info","Response received: " + response);
+			//Log.i("Info","Response received: " + response);
 			return response;	
 		} 
 		catch (MalformedURLException e) 

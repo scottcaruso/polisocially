@@ -148,9 +148,6 @@ public class Main_Screen extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				runGeolocation();
-		    	Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
-				Activity currentActivity = (Activity) Main_Screen.this;
-				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
     }
@@ -227,15 +224,14 @@ public class Main_Screen extends Activity {
  						} else
  						{
  							//When we get a response...
+							//Log.i("Response",response);
+					    	Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
+							Activity currentActivity = (Activity) Main_Screen.this;
+							nextActivity.putExtra("Response", response);
+							currentActivity.startActivityForResult(nextActivity, 0);
  							/*try {
  								//Try to parse it into a valid location plus state
-								JSONObject result = new JSONObject(response);
-								JSONArray resultArray = result.getJSONArray("geonames");
-								JSONObject thisLocation = resultArray.getJSONObject(0);
-								String nearestPlace = thisLocation.getString("toponymName");
-								String state = thisLocation.getString("adminCode1");
-								location = nearestPlace+", "+state;
-								Log.i("Location",location);
+
 							} catch (JSONException e) {
 								Log.e("Error","Problem parsing JSON data!");
 								e.printStackTrace();
