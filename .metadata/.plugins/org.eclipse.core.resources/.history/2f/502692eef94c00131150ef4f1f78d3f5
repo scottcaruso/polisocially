@@ -39,11 +39,10 @@ import android.widget.Toast;
 public class Main_Screen extends Activity {
 	
 	public static LocationManager lm;
-	public static String lat = "none";
-	public static String lon = "none";
+	public static String lat;
+	public static String lon;
 	public static String response;
 	public static String location;
-	public static String zipEntered = "none";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +122,7 @@ public class Main_Screen extends Activity {
 				    		toast.show();
 						} else
 						{
-							runGeolocation();
+							Log.i("Log","The number entered was "+zipEntered+".");
 						}
 					}
 				});
@@ -204,10 +203,7 @@ public class Main_Screen extends Activity {
     {
          if (lm != null)
          {
-        	if (zipEntered.equals("none"))
-        	{
-             	obtainGeoData();
-        	}
+         	obtainGeoData();
          	Handler retrievalHandler = new Handler()
  			{
  				@Override
@@ -251,7 +247,7 @@ public class Main_Screen extends Activity {
  			startDataService.putExtra(DataRetrievalService.MESSENGER_KEY, apiMessenger);
  			startDataService.putExtra(DataRetrievalService.LON_KEY,lon);
  			startDataService.putExtra(DataRetrievalService.LAT_KEY,lat);
- 			startDataService.putExtra(DataRetrievalService.ZIP_KEY,zipEntered);
+ 			startDataService.putExtra(DataRetrievalService.ZIP_KEY,zip);
  			this.startService(startDataService);
          }
     }    

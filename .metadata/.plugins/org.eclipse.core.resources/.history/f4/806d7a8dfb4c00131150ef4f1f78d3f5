@@ -42,7 +42,7 @@ public class DataRetrievalService extends IntentService{
 			dataResponse = RetrieveDataFromSunlightLabs.retrieveData("http://congress.api.sunlightfoundation.com/legislators/locate?latitude="+latString+"&longitude="+lonString+"&apikey=eab4e1dfef1e467b8a25ed1eab0f7544");
 		} else
 		{
-			dataResponse = RetrieveDataFromSunlightLabs.retrieveData("http://congress.api.sunlightfoundation.com/legislators/legislators/locate?zip="+zipString+"&apikey=eab4e1dfef1e467b8a25ed1eab0f7544");
+			dataResponse = RetrieveDataFromSunlightLabs.retrieveData("http://congress.api.sunlightfoundation.com/legislators//legislators/locate?zip="+ZIP_KEY+"&apikey=eab4e1dfef1e467b8a25ed1eab0f7544");
 		}
 		//Log.i("Info","Response received based on "+dataResponse);
 		//Pass the string back so that it can be parsed into JSON by the DisplayActivity

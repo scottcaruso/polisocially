@@ -39,8 +39,8 @@ import android.widget.Toast;
 public class Main_Screen extends Activity {
 	
 	public static LocationManager lm;
-	public static String lat = "none";
-	public static String lon = "none";
+	public static String lat;
+	public static String lon;
 	public static String response;
 	public static String location;
 	public static String zipEntered = "none";
@@ -208,6 +208,7 @@ public class Main_Screen extends Activity {
         	{
              	obtainGeoData();
         	}
+
          	Handler retrievalHandler = new Handler()
  			{
  				@Override

@@ -15,10 +15,9 @@ import android.util.Log;
 public class DataRetrievalService extends IntentService{
 
 	public static final String MESSENGER_KEY = "messenger";
-	public static final String ZIP_KEY = "ZIP"; //This key is for the user's entered Zip Code. It is appended to the URL below to make the call to the GovTrack API.
+	public static final String ZIP_KEY = "URL"; //This key is for the user's entered Zip Code. It is appended to the URL below to make the call to the GovTrack API.
 	public static final String LON_KEY = "LON";
 	public static final String LAT_KEY = "LAT";
-	public static String dataResponse = "";
 	
 	public DataRetrievalService() 
 	{
@@ -35,15 +34,8 @@ public class DataRetrievalService extends IntentService{
 		Messenger messenger = (Messenger) extras.get(MESSENGER_KEY);
 		String lonString = (String) extras.get(LON_KEY);
 		String latString = (String) extras.get(LAT_KEY);
-		String zipString = (String) extras.get(ZIP_KEY);
 		//Get a string back from SunLight labs using a custom Class housed in a different Java file.
-		if (zipString.equals("none"))
-		{
-			dataResponse = RetrieveDataFromSunlightLabs.retrieveData("http://congress.api.sunlightfoundation.com/legislators/locate?latitude="+latString+"&longitude="+lonString+"&apikey=eab4e1dfef1e467b8a25ed1eab0f7544");
-		} else
-		{
-			dataResponse = RetrieveDataFromSunlightLabs.retrieveData("http://congress.api.sunlightfoundation.com/legislators/legislators/locate?zip="+zipString+"&apikey=eab4e1dfef1e467b8a25ed1eab0f7544");
-		}
+		String dataResponse = RetrieveDataFromSunlightLabs.retrieveData("http://congress.api.sunlightfoundation.com/legislators/locate?latitude="+latString+"&longitude="+lonString+"&apikey=eab4e1dfef1e467b8a25ed1eab0f7544");
 		//Log.i("Info","Response received based on "+dataResponse);
 		//Pass the string back so that it can be parsed into JSON by the DisplayActivity
 		
