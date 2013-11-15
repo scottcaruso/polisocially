@@ -1,0 +1,90 @@
+package com.scottcaruso.polisocially;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.security.AuthProvider;
+import java.util.List;
+
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.auth.AuthorizationConfiguration;
+import twitter4j.auth.RequestToken;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
+import android.view.Menu;
+
+public class Politician_Details extends Activity {
+	
+	public static AccessToken accessToken;
+	public static RequestToken requestToken;
+	public static String redirect_url;
+	public static Twitter twitter;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_politician_details);
+        
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+        
+        try {
+			twitterAuth();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+       List<Status> tweets = getTimeline();
+       Log.i("Info",tweets.toString());
+        
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_politician_details, menu);
+        return true;
+    }
+
+    public static void twitterAuth() throws Exception{    	
+        twitter = TwitterFactory.getSingleton();
+		redirect_url = "";
+		try 
+		{
+			requestToken = twitter.getOAuthRequestToken();
+			redirect_url = requestToken.getAuthorizationURL();
+			accessToken = twitter.getOAuthAccessToken(requestToken);
+		    storeAccessToken(twitter.verifyCredentials().getId() , accessToken);
+		} catch (TwitterException e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+  	private static void storeAccessToken(long l, AccessToken accessToken)
+  	{
+  		accessToken.getToken();
+  		accessToken.getTokenSecret();
+  }
+    
+    public static List<Status> getTimeline() {    	
+    	twitter = TwitterFactory.getSingleton();
+    	List<Status> status = null;
+		try {
+			status = twitter.getUserTimeline("scott_caruso");
+		} catch (TwitterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return status;
+    }
+}
