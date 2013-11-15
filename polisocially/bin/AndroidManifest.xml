@@ -29,7 +29,7 @@
         <activity android:name="Politician_Results"></activity>
         <activity android:name="Politician_Details"></activity>
         <service android:name="com.scottcaruso.dataretrievalclasses.DataRetrievalService"></service>
-        <activity android:name="com.scottcaruso.twittertests.Twitter_Activity"></activity>
+        
     </application>
 
 </manifest>

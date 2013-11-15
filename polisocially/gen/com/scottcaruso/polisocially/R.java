@@ -185,7 +185,11 @@ containing a value of this type.
         public static final int no_image_available=0x7f02001b;
     }
     public static final class id {
-        public static final int About=0x7f050013;
+        public static final int About=0x7f05001a;
+        public static final int btnGetTimeLine=0x7f050016;
+        public static final int btnLoginTwitter=0x7f050014;
+        public static final int btnLogoutTwitter=0x7f050017;
+        public static final int btnUpdateStatus=0x7f050013;
         public static final int button1=0x7f050006;
         public static final int buttonFollow=0x7f05000d;
         public static final int buttonPhone=0x7f05000f;
@@ -194,6 +198,8 @@ containing a value of this type.
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050005;
         public static final int imageView1=0x7f050009;
+        public static final int lblUpdate=0x7f050015;
+        public static final int lblUserName=0x7f050019;
         public static final int listOfPols=0x7f050011;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
@@ -205,11 +211,13 @@ containing a value of this type.
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050007;
+        public static final int txtUpdateStatus=0x7f050018;
     }
     public static final class layout {
         public static final int activity_main__screen=0x7f030000;
         public static final int activity_politician_details=0x7f030001;
         public static final int activity_politician_results=0x7f030002;
+        public static final int twitter_test=0x7f030003;
     }
     public static final class menu {
         public static final int main__screen=0x7f090000;
@@ -305,8 +313,11 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f06000e;
         public static final int debug_advance_to_next_screen=0x7f060026;
         public static final int follow=0x7f060022;
+        public static final int get_timeline=0x7f06002b;
         public static final int hello_world=0x7f060017;
         public static final int hometown=0x7f060021;
+        public static final int login=0x7f060029;
+        public static final int logout=0x7f06002c;
         public static final int main_geolocation_button=0x7f060018;
         public static final int party=0x7f06001f;
         public static final int placeholder_map=0x7f06001d;
@@ -314,6 +325,8 @@ containing a value of this type.
         public static final int politiican_name=0x7f06001e;
         public static final int posts=0x7f060028;
         public static final int tweet=0x7f060025;
+        public static final int update_status=0x7f06002a;
+        public static final int user_name=0x7f06002d;
         public static final int zip_code_entry=0x7f060019;
     }
     public static final class style {

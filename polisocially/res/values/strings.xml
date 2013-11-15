@@ -21,5 +21,10 @@
     <string name="debug_advance_to_next_screen">DEBUG: Advance To Next Screen</string>
     <string name="change_district">Change District</string>
     <string name="posts">posts</string>
+    <string name="login">Login</string>
+    <string name="update_status">Update Status</string>
+    <string name="get_timeline">Get Timeline</string>
+    <string name="logout">Logout</string>
+    <string name="user_name">User Name</string>
 
 </resources>

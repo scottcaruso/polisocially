@@ -6,3 +6,8 @@
 1384445956374	Move file
 1384447810598	Delete element
 1384477732104	Extracts string 'posts' into R.string.posts
+1384536535681	Extracts string 'Login' into R.string.login
+1384536567807	Extracts string 'Update Status' into R.string.update_status
+1384536641486	Extracts string 'Get Timeline' into R.string.get_timeline
+1384536664274	Extracts string 'Logout' into R.string.logout
+1384536862411	Extracts string 'User Name' into R.string.user_name

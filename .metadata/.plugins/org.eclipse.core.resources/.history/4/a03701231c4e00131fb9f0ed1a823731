@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/btnUpdateStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnLoginTwitter"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/update_status" />
+
+    <TextView
+        android:id="@+id/lblUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnUpdateStatus"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="18dp"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/bntGetTimeLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnLogoutTwitter"
+        android:layout_alignRight="@+id/btnUpdateStatus"
+        android:text="@string/get_timeline" />
+
+    <EditText
+        android:id="@+id/txtUpdateStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblUpdate"
+        android:layout_below="@+id/btnUpdateStatus"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btnLogoutTwitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/txtUpdateStatus"
+        android:layout_alignTop="@+id/btnUpdateStatus"
+        android:text="@string/logout" />
+
+    <Button
+        android:id="@+id/btnLoginTwitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnLogoutTwitter"
+        android:layout_alignTop="@+id/lblUpdate"
+        android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/lblUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtUpdateStatus"
+        android:layout_below="@+id/txtUpdateStatus"
+        android:layout_marginTop="42dp"
+        android:text="TextView" />
+
+</RelativeLayout>

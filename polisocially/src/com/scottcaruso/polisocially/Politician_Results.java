@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject;
+import com.scottcaruso.twittertests.Twitter_Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -142,7 +143,7 @@ public class Politician_Results extends Activity {
 			public void onItemClick(AdapterView<?> adapter, View view, int item,
 					long id) {
 				Log.i("Info","The index of the clicked item is "+item);	
-		    	Intent nextActivity = new Intent(Politician_Results.this,Politician_Details.class);
+		    	Intent nextActivity = new Intent(Politician_Results.this,Twitter_Activity.class);
 				Activity currentActivity = (Activity) Politician_Results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
