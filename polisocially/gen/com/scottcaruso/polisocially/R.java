@@ -195,13 +195,13 @@ containing a value of this type.
         public static final int imageButton1=0x7f050005;
         public static final int imageView1=0x7f050009;
         public static final int listOfPols=0x7f050011;
-        public static final int listView1=0x7f050010;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int poliAge=0x7f05000b;
         public static final int poliHometown=0x7f05000c;
         public static final int poliName=0x7f050008;
         public static final int poliParty=0x7f05000a;
+        public static final int posts=0x7f050010;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050007;
@@ -312,6 +312,7 @@ containing a value of this type.
         public static final int placeholder_map=0x7f06001d;
         public static final int politician_picture=0x7f060024;
         public static final int politiican_name=0x7f06001e;
+        public static final int posts=0x7f060028;
         public static final int tweet=0x7f060025;
         public static final int zip_code_entry=0x7f060019;
     }

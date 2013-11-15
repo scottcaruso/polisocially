@@ -1,0 +1,110 @@
+package com.scottcaruso.polisocially;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.security.AuthProvider;
+import java.util.List;
+
+import com.mindspiker.mstwitter.MSTwitter;
+import com.mindspiker.mstwitter.MSTwitter.MSTwitterResultReceiver;
+
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.auth.AuthorizationConfiguration;
+import twitter4j.auth.RequestToken;
+import twitter4j.conf.ConfigurationBuilder;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
+import android.view.Menu;
+
+public class Politician_Details extends Activity {
+	
+	/** Consumer Key generated when you registered your app at https://dev.twitter.com/apps/ */
+	public static final String CONSUMER_KEY = "W5f9ce3TCVVdFi97yHVoQg";
+	/** Consumer Secret generated when you registered your app at https://dev.twitter.com/apps/ */
+	public static final String CONSUMER_SECRET = "0JKuxFLPfWfu2lLv0veIm2OHogmrNuSPlcHWgEAtSD4"; 
+	private MSTwitter mMSTwitter;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_politician_details);
+        
+        // make a MSTwitter event handler to receive tweet send events
+        MSTwitterResultReceiver myMSTReceiver = new MSTwitterResultReceiver() {
+            @Override
+            public void onRecieve(int tweetLifeCycleEvent, String tweetMessage) {
+                handleTweetMessage(tweetLifeCycleEvent, tweetMessage);
+            }
+        };
+    
+        mMSTwitter = new MSTwitter(this, CONSUMER_KEY, CONSUMER_SECRET, myMSTReceiver);
+    }
+    
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_politician_details, menu);
+        return true;
+    }
+    
+    @Override 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        //This MUST MUST be done for authorization to work. If your get a MSTWEET_STATUS_AUTHORIZING 
+        // message and nothing else it is most likely because this is not being done.
+        mMSTwitter.onCallingActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * Send tweet using MSTwitter object created in onCreate()
+     */
+    private void tweet() {
+        // assemble data
+
+        // get text from layout control
+        EditText tweetEditText = (EditText) findViewById(R.id.editText1);
+        String textToTweet = tweetEditText.getText().toString();
+        // get image from resource
+        Bitmap imageToTweet = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+        // use MSTwitter function to save image to file because startTweet() takes an image path
+        // this is done to avoid passing large image files between intents which is not android best practices 
+        String tweetImagePath = MSTwitter.putBitmapInDiskCache(this, imageToTweet);
+
+        // start the tweet
+        mMSTwitter.startTweet(textToTweet, tweetImagePath);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    private void handleTweetMessage(int event, String message) {
+
+        String note = "";
+        switch (event) {
+        case MSTwitter.MSTWEET_STATUS_AUTHORIZING:
+            note = "Authorizing app with twitter.com";
+            break;
+        case MSTwitter.MSTWEET_STATUS_STARTING:
+            note = "Tweet data send started";
+            break;
+        case MSTwitter.MSTWEET_STATUS_FINSIHED_SUCCCESS:
+            note = "Tweet sent successfully";
+            break;
+        case MSTwitter.MSTWEET_STATUS_FINSIHED_FAILED:
+            note = "Tweet failed:" + message;
+            break;
+        }
+
+        // add note to results TextView
+        SimpleDateFormat timeFmt = new SimpleDateFormat("h:mm:ss.S");
+        String timeS = timeFmt.format(new Date());
+        TextView resultsTV = (TextView) findViewById(R.id.resultsTextView);
+        resultsTV.setText(resultsTV.getText() + "\n[Message received at " + timeS +"]\n" + note);
+    }
+    }
+}
