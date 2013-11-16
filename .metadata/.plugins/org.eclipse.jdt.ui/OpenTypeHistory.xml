@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=polisocially/src&lt;com.scottcaruso.polisocially{Politician_Results.java[Politician_Results" modifiers="1" timestamp="1384438137000"/>
-<typeInfo handle="=polisocially/src&lt;com.scottcaruso.polisocially{Politician_Details.java[Politician_Details" modifiers="1" timestamp="1384279175000"/>
+<typeInfo handle="=polisocially/src&lt;com.scottcaruso.polisocially{Politician_Results.java[Politician_Results" modifiers="1" timestamp="1384621819000"/>
+<typeInfo handle="=polisocially/src&lt;com.scottcaruso.polisocially{Politician_Details.java[Politician_Details" modifiers="1" timestamp="1384627263000"/>
 <typeInfo handle="=polisocially/src&lt;com.scottcaruso.dataretrievalclasses{DataRetrievalService.java[DataRetrievalService" modifiers="1" timestamp="1384412910000"/>
+<typeInfo handle="=polisocially/\/Applications\/adt-bundle-mac-x86_64-20130522\/sdk\/platforms\/android-19\/android.jar&lt;android.widget(BaseAdapter.class[BaseAdapter" modifiers="1057" timestamp="1383904887000"/>
+<typeInfo handle="=polisocially/src&lt;com.scottcaruso.polisocially{Politician_Details.java[Politician_Details[WebViewLaunchActivity" modifiers="1" timestamp="1384627263000"/>
 </typeInfoHistroy>

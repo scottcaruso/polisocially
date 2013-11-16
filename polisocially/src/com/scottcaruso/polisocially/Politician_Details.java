@@ -42,8 +42,8 @@ public class Politician_Details extends Activity {
 		public static final String ACCESS_URL = "http://api.twitter.com/oauth/access_token";
 		public static final String AUTHORIZE_URL = "http://api.twitter.com/oauth/authorize";
 
-		final public static String	CALLBACK_SCHEME = "x-latify-oauth-twitter";
-		final public static String	CALLBACK_URL = CALLBACK_SCHEME + "://callback";
+		final public static String CALLBACK_SCHEME = "x-latify-oauth-twitter";
+		final public static String CALLBACK_URL = CALLBACK_SCHEME + "://callback";
 
 		}
 	
@@ -88,8 +88,13 @@ public class Politician_Details extends Activity {
         return true;
     }
     
+    //Launch webview for Twitter signin
     public class WebViewLaunchActivity extends Activity {
     	String url;
+    	
+    	public WebViewLaunchActivity() {
+    		super();
+    	}
     	
     	@SuppressLint("SetJavaScriptEnabled")
 		@Override
@@ -143,7 +148,7 @@ public class Politician_Details extends Activity {
     		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     		final Uri uri = Uri.parse(url);
     		if (uri != null && uri.getScheme().equals(Constants.CALLBACK_SCHEME)) {
-    			//new RetrieveAccessTokenTask(this,PrepareRequestTokenActivity.getConsumer(),PrepareRequestTokenActivity.getProvider(),prefs).execute(uri);
+    			new RetrieveAccessTokenTask(this,PrepareRequestTokenActivity.getConsumer(),PrepareRequestTokenActivity.getProvider(),prefs).execute(uri);
     			finish();
     		}
     	}
@@ -202,5 +207,156 @@ public class Politician_Details extends Activity {
 	    	}
     	}
     }
-   
+    
+    public static class PrepareRequestTokenActivity extends Activity{
+    	final String TAG = getClass().getName();
+        
+        private static OAuthConsumer consumer; 
+        private static OAuthProvider provider;
+        
+         @Override
+         public void onCreate(Bundle savedInstanceState) {
+        	 super.onCreate(savedInstanceState);
+        	 try {
+        		 PrepareRequestTokenActivity.consumer = new CommonsHttpOAuthConsumer(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET);
+        		 PrepareRequestTokenActivity.provider = new CommonsHttpOAuthProvider(Constants.REQUEST_URL,Constants.ACCESS_URL,Constants.AUTHORIZE_URL);
+            } catch (Exception e) {
+                 Log.e(TAG, "Error creating consumer / provider",e);
+            }
+
+            Log.i(TAG, "Starting task to retrieve request token.");
+            new OAuthRequestTokenTask(this,consumer,provider).execute();
+            }
+
+            public static OAuthProvider getProvider() {
+			// TODO Auto-generated method stub
+			return provider;
+		}
+
+			public static OAuthConsumer getConsumer() {
+            
+			return consumer;
+            }
+
+			/**
+             * Called when the OAuthRequestTokenTask finishes (user has authorized the request token).
+             * The callback URL will be intercepted here.
+             */
+            @Override
+            public void onNewIntent(Intent intent) {
+                    super.onNewIntent(intent); 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                    final Uri uri = intent.getData();
+                    if (uri != null && uri.getScheme().equals(Constants.CALLBACK_SCHEME)) {
+                        Log.i(TAG, "Callback received : " + uri);
+                        Log.i(TAG, "Retrieving Access Token");
+                        new RetrieveAccessTokenTask(this,consumer,provider,prefs).execute(uri);
+                        finish();       
+                    }
+            }
+            
+            public class RetrieveAccessTokenTask extends AsyncTask<Uri, Void, Void> {
+
+                    private Context context;
+                    private OAuthProvider provider;
+                    private OAuthConsumer consumer;
+                    private SharedPreferences prefs;
+                    
+                    public RetrieveAccessTokenTask(Context context, OAuthConsumer consumer,OAuthProvider provider, SharedPreferences prefs) {
+                            this.context = context;
+                            this.consumer = consumer;
+                            this.provider = provider;
+                            this.prefs=prefs;
+                    }
+
+
+                    /**
+                     * Retrieve the oauth_verifier, and store the oauth and oauth_token_secret 
+                     * for future API calls.
+                     */
+                    @Override
+                    protected Void doInBackground(Uri...params) {
+                            final Uri uri = params[0];
+                            final String oauth_verifier = uri.getQueryParameter(OAuth.OAUTH_VERIFIER);
+
+                            try {
+                                provider.retrieveAccessToken(consumer, oauth_verifier);
+
+                                final Editor edit = prefs.edit();
+                                edit.putString(OAuth.OAUTH_TOKEN, consumer.getToken());
+                                edit.putString(OAuth.OAUTH_TOKEN_SECRET, consumer.getTokenSecret());
+                                edit.commit();
+                                
+                                String token = prefs.getString(OAuth.OAUTH_TOKEN, "");
+                                String secret = prefs.getString(OAuth.OAUTH_TOKEN_SECRET, "");
+                                
+                                consumer.setTokenWithSecret(token, secret);
+                                //context.startActivity(new Intent(context,SocialActivity.class));
+
+                                executeAfterAccessTokenRetrieval();
+                                
+                                Log.i(TAG, "OAuth - Access Token Retrieved");
+                                    
+                            } catch (Exception e) {
+                                    Log.e(TAG, "OAuth - Access Token Retrieval Error", e);
+                            }
+
+                            return null;
+                    }
+
+
+                    private void executeAfterAccessTokenRetrieval() {
+                        String msg = getIntent().getExtras().getString("tweet_msg");
+                        try {
+                        	//TwitterUtils.sendTweet(prefs, msg);
+                        	Log.i("info",msg);
+                        } catch (Exception e) {
+                        	Log.e(TAG, "OAuth - Error sending to Twitter", e);
+                        }
+                    }
+            }       
+    }
+    
+    public static class OAuthRequestTokenTask extends AsyncTask<Void, Void, Void> {
+
+        final String TAG = getClass().getName();
+        private Context _context;
+        private OAuthProvider _provider;
+        private OAuthConsumer _consumer;
+
+        /**
+         * 
+         * We pass the OAuth consumer and provider.
+         * 
+         * @param       context
+         *                      Required to be able to start the intent to launch the browser.
+         * @param       provider
+         *                      The OAuthProvider object
+         * @param       consumer
+         *                      The OAuthConsumer object
+         */
+        public OAuthRequestTokenTask(Context context, OAuthConsumer consumer, OAuthProvider provider) {
+                _context = context;
+                _consumer = consumer;
+                _provider = provider;
+        }
+
+        /**
+         * 
+         * Retrieve the OAuth Request Token and present a browser to the user to authorize the token.
+         * 
+         */
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                final String url = _provider.retrieveRequestToken(_consumer, Constants.CALLBACK_URL);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url)).setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_FROM_BACKGROUND);
+                _context.startActivity(intent);
+            } catch (Exception ex) {
+            	
+            }
+            return null;
+        }
+    }
+  
 }
