@@ -55,5 +55,6 @@
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.Constants"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.PrepareRequestTokenActivity"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.PrepareRequestTokenActivity.RetrieveAccessTokenTask"/>
+<fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.WebViewLaunchActivity"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details"/>
 </qualifiedTypeNameHistroy>

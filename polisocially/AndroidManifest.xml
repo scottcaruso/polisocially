@@ -27,7 +27,14 @@
             </intent-filter>
         </activity>
         <activity android:name="Politician_Results"></activity>
-        <activity android:name="Politician_Details"></activity>
+        <activity android:name="Politician_Details">
+                <intent-filter>
+	            	<action android:name   = "android.intent.action.VIEW" />
+	            	<category android:name="android.intent.category.DEFAULT" />
+	            	<category android:name="android.intent.category.BROWSABLE" />
+	            	<data android:scheme="x-latify-oauth-twitter" android:host="callback" />
+        		</intent-filter>
+        </activity>
         <service android:name="com.scottcaruso.dataretrievalclasses.DataRetrievalService"></service>
         <activity android:name="Politician_Details$PrepareRequestTokenActivity"></activity>
         <activity android:name="Politician_Details$WebViewLaunchActivity"></activity>
