@@ -1,0 +1,7 @@
+package com.scottcaruso.twittertests;
+
+import android.os.AsyncTask;
+
+public class DownloadTwitterTask extends AsyncTask<Params, Progress, Result> {
+
+}
