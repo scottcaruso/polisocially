@@ -88,7 +88,8 @@ public class Politician_Results extends Activity {
 							String polDistrict = polObjectTwo.getString("District");
 							String polState = polObjectTwo.getString("State");
 							String district = polState+"-"+polDistrict;
-							arrayOfDistricts.add(district);
+							String districtPlusText = district + " - Click Here to Change";
+							arrayOfDistricts.add(districtPlusText);
 						}
 					} catch (Exception e) {
 						//Do nothing and move on.
@@ -210,6 +211,7 @@ public class Politician_Results extends Activity {
     
     public void createSpinner()
     {
+    	
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayOfDistricts);		
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		hiddenButton.setAdapter(adapter);

@@ -1,18 +1,16 @@
 INDEX VERSION 1.126+/Users/scottcaruso/Desktop/Schoolwork/Month 24/Poli-Socially/polisocially/.metadata/.plugins/org.eclipse.jdt.core
 3097035977.index
-3264682852.index
-2626597657.index
-917886962.index
 1415693123.index
 3033558542.index
-2143507423.index
-762359933.index
+2388304717.index
+3264682852.index
+3368361782.index
+1035179377.index
+917886962.index
+1769122612.index
 1121403313.index
 1705481348.index
+762359933.index
 249603267.index
-2388304717.index
-3368361782.index
+2626597657.index
 756267910.index
-1769122612.index
-1035179377.index
-3758389468.index

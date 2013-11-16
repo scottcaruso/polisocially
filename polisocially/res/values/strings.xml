@@ -27,5 +27,8 @@
     <string name="logout">Logout</string>
     <string name="user_name">User Name</string>
     <string name="sign_in_to_view_tweets">Sign In To View Tweets</string>
+    <string name="politician_image">politician image</string>
+    <string name="politician_name">Politician Name</string>
+    <string name="party_name">Party Name</string>
 
 </resources>
