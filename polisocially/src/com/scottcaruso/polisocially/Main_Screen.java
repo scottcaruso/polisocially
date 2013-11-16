@@ -58,14 +58,6 @@ public class Main_Screen extends Activity {
         mainButtonClick();
   	 	startLocationManager();     
     }
-    
-    protected void onActivityResult (int requestCode, int resultCode, Intent data)
-    {
-    	Log.i("info",String.valueOf(requestCode));
-    	Log.i("info",String.valueOf(resultCode));
-    	Bundle thisBundle = data.getExtras();
-    	Log.i("info",thisBundle.toString());
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -68,6 +68,7 @@ public class Politician_Results extends Activity {
 					String partyName = polObjectOne.getString("Party");
 					String longPartyName;
 					polsList.add(x, polName);
+					Log.i("info",polsList.toString());
 					if (partyName.equals("D"))
 					{
 						longPartyName = "Democrat";
@@ -125,12 +126,14 @@ public class Politician_Results extends Activity {
 							String polDistrict = polObjectThree.getString("District");
 							String polState = polObjectThree.getString("State");
 							String district = polState+"-"+polDistrict;
+							String districtPlusText = district + " - Click Here to Change";
 							multipleReps.add(polName);
 							for (int y=0; y < arrayOfDistricts.size(); y++)
 							{
-								if (district.equals(arrayOfDistricts.get(arrayOfDistricts.size()-1)))
+								if (districtPlusText.equals(arrayOfDistricts.get(arrayOfDistricts.size()-1)))
 								{
 									polsList.add(polName);
+									Log.i("info",polsList.toString());
 									if (partyName.equals("D"))
 									{
 										longPartyName = "Democrat";
@@ -140,13 +143,14 @@ public class Politician_Results extends Activity {
 									} else {
 										longPartyName = partyName;
 									}
-									partyList.add(x, longPartyName);
+									partyList.add(longPartyName);
 									break;
 								}
 							}
 						} else
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 							if (partyName.equals("D"))
 							{
 								longPartyName = "Democrat";
@@ -156,7 +160,7 @@ public class Politician_Results extends Activity {
 							} else {
 								longPartyName = partyName;
 							}
-							partyList.add(x, longPartyName);
+							partyList.add(longPartyName);
 						}
 					} catch (Exception e) {
 						//Do nothing and move on.
@@ -172,9 +176,12 @@ public class Politician_Results extends Activity {
         polsList.add("Vice President Joe Biden");
         partyList.add("Democrat");
         partyList.add("Democrat");
+        Log.i("info",partyList.toString());
    
         setContentView(R.layout.activity_politician_results);
         
+        Log.i("info",polsList.toString());
+        Log.i("info",partyList.toString());
         adapter = new CustomAdapter(Politician_Results.this,polsList,partyList);
         politicianAdapter = createArray(polsList);
         listview = (ListView) findViewById(R.id.listOfPols);
@@ -253,9 +260,9 @@ public class Politician_Results extends Activity {
     public void createSpinner()
     {
     	
-    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayOfDistricts);		
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		hiddenButton.setAdapter(adapter);
+    	ArrayAdapter<String> polAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayOfDistricts);		
+		polAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		hiddenButton.setAdapter(polAdapter);
 		//Adapter that listens for which spinner item has been clicked.
 		hiddenButton.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -277,13 +284,15 @@ public class Politician_Results extends Activity {
 						polTitle = polObjectFour.getString("Title");
 						polDistrict = polObjectFour.getString("District");
 						polState = polObjectFour.getString("State");
-						tempLocation = polState+"-"+polDistrict;
+						tempLocation = polState+"-"+polDistrict+" - Click Here to Change";
 						if (polTitle.equals("Rep")&&tempLocation.equals(district))
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 						} else if (!polTitle.equals("Rep"))
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 						}
 					}
 				} catch (JSONException e) {
@@ -292,12 +301,13 @@ public class Politician_Results extends Activity {
 				}
 			
 			//TODO: Need to debug why the title isn't changing with the Spinner clicks.
-			Politician_Results.this.setTitle(tempLocation);
+			Politician_Results.this.setTitle(location);
 		    polsList.add("President Barack Obama");
 		    polsList.add("Vice President Joe Biden");
 		    partyList.add("Democrat");
 		    partyList.add("Democrat");
-			politicianAdapter.notifyDataSetChanged();
+		    Politician_Results.this.adapter.notifyDataSetChanged();
+			//politicianAdapter.notifyDataSetChanged();
 				
 			}
 
