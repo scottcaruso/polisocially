@@ -143,7 +143,7 @@ public class Politician_Results extends Activity {
 			public void onItemClick(AdapterView<?> adapter, View view, int item,
 					long id) {
 				Log.i("Info","The index of the clicked item is "+item);	
-		    	Intent nextActivity = new Intent(Politician_Results.this,Twitter_Activity.class);
+		    	Intent nextActivity = new Intent(Politician_Results.this,Politician_Details.class);
 				Activity currentActivity = (Activity) Politician_Results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}

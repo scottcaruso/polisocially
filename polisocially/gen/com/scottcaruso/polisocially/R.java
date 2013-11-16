@@ -185,22 +185,22 @@ containing a value of this type.
         public static final int no_image_available=0x7f02001b;
     }
     public static final class id {
-        public static final int About=0x7f05001a;
-        public static final int btnGetTimeLine=0x7f050016;
-        public static final int btnLoginTwitter=0x7f050014;
-        public static final int btnLogoutTwitter=0x7f050017;
-        public static final int btnUpdateStatus=0x7f050013;
+        public static final int About=0x7f05001b;
+        public static final int btnGetTimeLine=0x7f050017;
+        public static final int btnLoginTwitter=0x7f050015;
+        public static final int btnLogoutTwitter=0x7f050018;
+        public static final int btnUpdateStatus=0x7f050014;
         public static final int button1=0x7f050006;
         public static final int buttonFollow=0x7f05000d;
         public static final int buttonPhone=0x7f05000f;
         public static final int buttonTweet=0x7f05000e;
-        public static final int district=0x7f050012;
+        public static final int district=0x7f050013;
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050005;
         public static final int imageView1=0x7f050009;
-        public static final int lblUpdate=0x7f050015;
-        public static final int lblUserName=0x7f050019;
-        public static final int listOfPols=0x7f050011;
+        public static final int lblUpdate=0x7f050016;
+        public static final int lblUserName=0x7f05001a;
+        public static final int listOfPols=0x7f050012;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int poliAge=0x7f05000b;
@@ -209,9 +209,10 @@ containing a value of this type.
         public static final int poliParty=0x7f05000a;
         public static final int posts=0x7f050010;
         public static final int satellite=0x7f050002;
+        public static final int signin=0x7f050011;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050007;
-        public static final int txtUpdateStatus=0x7f050018;
+        public static final int txtUpdateStatus=0x7f050019;
     }
     public static final class layout {
         public static final int activity_main__screen=0x7f030000;
@@ -324,6 +325,7 @@ containing a value of this type.
         public static final int politician_picture=0x7f060024;
         public static final int politiican_name=0x7f06001e;
         public static final int posts=0x7f060028;
+        public static final int sign_in_to_view_tweets=0x7f06002e;
         public static final int tweet=0x7f060025;
         public static final int update_status=0x7f06002a;
         public static final int user_name=0x7f06002d;

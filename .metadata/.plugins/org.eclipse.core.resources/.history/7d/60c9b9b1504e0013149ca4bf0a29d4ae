@@ -1,0 +1,65 @@
+package com.scottcaruso.polisocially;
+
+import java.util.ArrayList;
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class Politician_Details extends Activity {
+	
+	public class Constants {
+
+		public static final String CONSUMER_KEY = "W5f9ce3TCVVdFi97yHVoQg";
+		public static final String CONSUMER_SECRET= "0JKuxFLPfWfu2lLv0veIm2OHogmrNuSPlcHWgEAtSD4";
+
+		public static final String REQUEST_URL = "http://api.twitter.com/oauth/request_token";
+		public static final String ACCESS_URL = "http://api.twitter.com/oauth/access_token";
+		public static final String AUTHORIZE_URL = "http://api.twitter.com/oauth/authorize";
+
+		final public static String	CALLBACK_SCHEME = "x-latify-oauth-twitter";
+		final public static String	CALLBACK_URL = CALLBACK_SCHEME + "://callback";
+
+		}
+	
+	public static ListView listview;
+	public static ArrayAdapter<String> postsAdapter;
+	public static ArrayList<String> postsList;
+	
+	private EditText mTwitterMessage;
+	private TextView mTweetSize;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_politician_details);
+        
+        postsList = new ArrayList<String>();
+        postsList.add("Tweet 1");
+        postsList.add("Tweet 2");
+        postsList.add("Tweet 3");
+        postsList.add("Tweet 4");
+        postsList.add("Tweet 5");
+        postsList.add("Tweet 6");
+        postsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, postsList);
+        listview = (ListView) findViewById(R.id.posts);
+        listview.setAdapter(postsAdapter);
+        
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mTwitterMessage = (EditText) findViewById(R.id.editTweetMsg);
+        mTweetSize = (TextView) findViewById(R.id.tweetSize);
+        mTweetSize.setText("" + (140 - mTwitterMessage.length()));
+        Button tweet = (Button) findViewById(R.id.btn_tweet);
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_politician_details, menu);
+        return true;
+    }
+   
+}

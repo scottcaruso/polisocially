@@ -1,0 +1,143 @@
+package com.scottcaruso.polisocially;
+
+import java.util.ArrayList;
+
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class Politician_Details extends Activity {
+	
+	public class Constants {
+
+		public static final String CONSUMER_KEY = "W5f9ce3TCVVdFi97yHVoQg";
+		public static final String CONSUMER_SECRET= "0JKuxFLPfWfu2lLv0veIm2OHogmrNuSPlcHWgEAtSD4";
+
+		public static final String REQUEST_URL = "http://api.twitter.com/oauth/request_token";
+		public static final String ACCESS_URL = "http://api.twitter.com/oauth/access_token";
+		public static final String AUTHORIZE_URL = "http://api.twitter.com/oauth/authorize";
+
+		final public static String	CALLBACK_SCHEME = "x-latify-oauth-twitter";
+		final public static String	CALLBACK_URL = CALLBACK_SCHEME + "://callback";
+
+		}
+	
+	public static ListView listview;
+	public static ArrayAdapter<String> postsAdapter;
+	public static ArrayList<String> postsList;
+	private SharedPreferences prefs;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_politician_details);
+        
+        postsList = new ArrayList<String>();
+        postsList.add("Tweet 1");
+        postsList.add("Tweet 2");
+        postsList.add("Tweet 3");
+        postsList.add("Tweet 4");
+        postsList.add("Tweet 5");
+        postsList.add("Tweet 6");
+        postsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, postsList);
+        listview = (ListView) findViewById(R.id.posts);
+        listview.setAdapter(postsAdapter);
+        
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Button signIn = (Button) findViewById(R.id.signin);
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_politician_details, menu);
+        return true;
+    }
+    
+    public class WebViewLaunchActivity extends Activity {
+    	String url;
+    	
+    	@Override
+    	public void onCreate(Bundle savedInstanceState) {
+    		super.onCreate(savedInstanceState);
+    		Bundle extras = getIntent().getExtras();
+    		if (extras!=null){
+    			url = extras.getString("url");
+    		}
+    		
+    		WebView webview = new WebView(this);
+    		webview.getSettings().setJavaScriptEnabled(true);
+    		webview.setVisibility(View.VISIBLE);
+    		setContentView(webview);
+
+    		/* WebViewClient must be set BEFORE calling loadUrl! */
+    		webview.setWebViewClient(new WebViewClient() {
+
+    			@Override
+    			public void onPageStarted(WebView view, String url,Bitmap bitmap) {
+    			Log.i("info","onPageStarted : " + url);
+    			}
+    			
+    			@Override
+    			public void onPageFinished(WebView view, String url) {
+    				//sview.setVisibility(View.INVISIBLE);
+
+    				if (url.startsWith(Constants.CALLBACK_URL)) {
+    					try {
+
+    						if (url.indexOf("oauth_token=")!=-1) {
+    							view.setVisibility(View.INVISIBLE);
+    							goBack(url);
+
+    	}
+    	else if (url.indexOf("error=")!=-1) {
+    	view.setVisibility(View.INVISIBLE);
+
+    	}
+
+    	} catch (Exception e) {
+    	e.printStackTrace();
+    	}
+    	}
+    	}
+    	});
+    	webview.loadUrl(url);
+
+    	}
+
+    	private void goBack(String url){
+    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    	final Uri uri = Uri.parse(url);
+    	if (uri != null && uri.getScheme().equals(Constants.OAUTH_CALLBACK_SCHEME)) {
+    	new RetrieveAccessTokenTask(this,PrepareRequestTokenActivity.getConsumer(),PrepareRequestTokenActivity.getProvider(),prefs).execute(uri);
+    	finish();
+    	}
+    	}
+    	public class RetrieveAccessTokenTask extends AsyncTask<Uri, Void, Void> {
+
+    	private Context	context;
+    	private OAuthProvider provider;
+    	private OAuthConsumer consumer;
+    	private SharedPreferences prefs;
+
+    	public RetrieveAccessTokenTask(Context context, OAuthConsumer consumer,OAuthProvider provider, SharedPreferences prefs) {
+    	this.context = context;
+    	this.consumer = consumer;
+    	this.provider = provider;
+    	this.prefs=prefs;
+    	}
+   
+}

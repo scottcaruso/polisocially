@@ -26,5 +26,6 @@
     <string name="get_timeline">Get Timeline</string>
     <string name="logout">Logout</string>
     <string name="user_name">User Name</string>
+    <string name="sign_in_to_view_tweets">Sign In To View Tweets</string>
 
 </resources>
