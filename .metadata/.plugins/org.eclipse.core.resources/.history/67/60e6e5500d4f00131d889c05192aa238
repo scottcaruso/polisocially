@@ -115,8 +115,6 @@ public class Politician_Results extends Activity {
 				{
 					JSONObject polObjectThree = polArray.getJSONObject(x);
 					String polName = polObjectThree.getString("Name");
-					String partyName = polObjectThree.getString("Party");
-					String longPartyName;
 					String polTitle = "None";
 					try {
 						polTitle = polObjectThree.getString("Title");
@@ -147,16 +145,6 @@ public class Politician_Results extends Activity {
 						} else
 						{
 							polsList.add(polName);
-							if (partyName.equals("D"))
-							{
-								longPartyName = "Democrat";
-							} else if (partyName.equals("R"))
-							{
-								longPartyName = "Republican";
-							} else {
-								longPartyName = partyName;
-							}
-							partyList.add(x, longPartyName);
 						}
 					} catch (Exception e) {
 						//Do nothing and move on.
@@ -167,11 +155,11 @@ public class Politician_Results extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        //int size = polsList.size();
-        polsList.add("President Barack Obama");
-        polsList.add("Vice President Joe Biden");
-        partyList.add("Democrat");
-        partyList.add("Democrat");
+        int size = polsList.size();
+        polsList.add(size, "President Barack Obama");
+        polsList.add(size+1, "Vice President Joe Biden");
+        partyList.add(size, "Democrat");
+        partyList.add(size+1, "Democrat");
    
         setContentView(R.layout.activity_politician_results);
         
@@ -293,10 +281,9 @@ public class Politician_Results extends Activity {
 			
 			//TODO: Need to debug why the title isn't changing with the Spinner clicks.
 			Politician_Results.this.setTitle(tempLocation);
-		    polsList.add("President Barack Obama");
-		    polsList.add("Vice President Joe Biden");
-		    partyList.add("Democrat");
-		    partyList.add("Democrat");
+		    int size = polsList.size();
+		    polsList.add(size, "President Barack Obama");
+		    polsList.add(size+1, "Vice President Joe Biden");
 			politicianAdapter.notifyDataSetChanged();
 				
 			}
