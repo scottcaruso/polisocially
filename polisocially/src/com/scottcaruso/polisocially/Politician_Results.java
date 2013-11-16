@@ -1,12 +1,14 @@
 package com.scottcaruso.polisocially;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject;
+import com.scottcaruso.listadapter.CustomAdapter;
 import com.scottcaruso.twittertests.Twitter_Activity;
 
 import android.app.Activity;
@@ -27,6 +29,7 @@ public class Politician_Results extends Activity {
 	public String[] politicianNames;
 	public String polData;
 	public ArrayList<String> polsList;
+	public ArrayList<String> partyList;
 	public String location;
 	public String tempLocation;
 	public ArrayList<String> multipleReps;
@@ -35,6 +38,7 @@ public class Politician_Results extends Activity {
 	public JSONObject thesePols;
 	public ListView listview;
 	public ArrayAdapter<String> politicianAdapter;
+	public CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public class Politician_Results extends Activity {
         thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
         try {
         	polsList = new ArrayList<String>();
+        	partyList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
         	multipleReps = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
@@ -61,7 +66,19 @@ public class Politician_Results extends Activity {
 				{
 					JSONObject polObjectOne = polArray.getJSONObject(x);
 					String polName = polObjectOne.getString("Name");
+					String partyName = polObjectOne.getString("Party");
+					String longPartyName;
 					polsList.add(x, polName);
+					if (partyName.equals("D"))
+					{
+						longPartyName = "Democrat";
+					} else if (partyName.equals("R"))
+					{
+						longPartyName = "Republican";
+					} else {
+						longPartyName = partyName;
+					}
+					partyList.add(x, longPartyName);
 					String polTitle = "None";
 					try {
 						polTitle = polObjectOne.getString("Title");
@@ -132,12 +149,15 @@ public class Politician_Results extends Activity {
         int size = polsList.size();
         polsList.add(size, "President Barack Obama");
         polsList.add(size+1, "Vice President Joe Biden");
+        partyList.add(size, "Democrat");
+        partyList.add(size+1, "Democrat");
    
         setContentView(R.layout.activity_politician_results);
         
+        adapter = new CustomAdapter(Politician_Results.this,polsList,partyList);
         politicianAdapter = createArray(polsList);
         listview = (ListView) findViewById(R.id.listOfPols);
-        listview.setAdapter(politicianAdapter);
+        listview.setAdapter(adapter);
         listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

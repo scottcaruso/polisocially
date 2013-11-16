@@ -1,0 +1,66 @@
+package com.scottcaruso.listadapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.scottcaruso.polisocially.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class CustomAdapter extends BaseAdapter {
+
+    private Activity activity;
+    private ArrayList<String> thesePols;
+    private ArrayList<String> theseParties;
+    private static LayoutInflater inflater = null;
+    public ImageLoader imageLoader; 
+ 
+    public CustomAdapter (Activity a, ArrayList<String> pols, ArrayList<String> parties) {
+        activity = a;
+        thesePols = pols;
+        theseParties = parties;
+        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //Will hook up the image loader once I have the pictures to load
+        //imageLoader=new ImageLoader(activity.getApplicationContext());
+    }
+ 
+    public int getCount() {
+        return 5;
+    }
+ 
+    public Object getItem(int position) {
+        return position;
+    }
+ 
+    public long getItemId(int position) {
+        return position;
+    }
+ 
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View vi=convertView;
+        if(convertView==null)
+            vi = inflater.inflate(R.layout.list_row,null);
+ 
+        TextView name = (TextView)vi.findViewById(R.id.polName); // politician name
+        TextView party = (TextView)vi.findViewById(R.id.party); // pol. party name
+        ImageView thumb_image=(ImageView)vi.findViewById(R.id.list_image); // thumb image
+        
+        Log.i("Info",String.valueOf(position));
+        String thisPol = thesePols.get(position);
+        String thisParty = theseParties.get(position);
+        Log.i("Info",thisPol);
+        Log.i("Info",thisParty);
+        // Setting all values in listview
+        //name.setText(thisPol);
+        //party.setText(thisParty);
+        return vi;
+    }
+}
