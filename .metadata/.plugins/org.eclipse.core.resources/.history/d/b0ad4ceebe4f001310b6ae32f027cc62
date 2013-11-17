@@ -1,6 +1,8 @@
 package com.scottcaruso.listadapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.scottcaruso.polisocially.R;
 
 import android.app.Activity;

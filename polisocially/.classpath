@@ -2,14 +2,6 @@
 <classpath>
 	<classpathentry excluding="com/scottcaruso/polisocially/ImageLoader.java|com/scottcaruso/polisocially/CustomAdapter.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/twitter4j-3.0.5/lib/twitter4j-core-3.0.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/gson-2.2.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/commons-codec-1.8/commons-codec-1.8-javadoc.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/commons-codec-1.8/commons-codec-1.8-tests.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/commons-codec-1.8/commons-codec-1.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/signpost-commonshttp4-1.2.1.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/signpost-core-1.2.1.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="/Users/scottcaruso/Desktop/Schoolwork/httpcomponents-client-4.3.1-bin/lib/httpclient-4.3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/connection_verification.jar"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
