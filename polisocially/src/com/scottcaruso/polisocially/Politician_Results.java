@@ -216,7 +216,7 @@ public class Politician_Results extends Activity {
         
         Log.i("info",polsList.toString());
         Log.i("info",partyList.toString());
-        adapter = new CustomAdapter(Politician_Results.this,polsList,partyList);
+        adapter = new CustomAdapter(Politician_Results.this,polsList,partyList,photoIDList);
         politicianAdapter = createArray(polsList);
         listview = (ListView) findViewById(R.id.listOfPols);
         listview.setAdapter(adapter);

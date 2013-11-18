@@ -64,8 +64,7 @@ public class CustomAdapter extends BaseAdapter {
         // Setting all values in listview
         name.setText(thisPol);
         party.setText(thisParty);
-        int id = activity.getResources().getIdentifier(thisImage, "drawable", activity.getPackageName());
-        thumb_image.setImageResource(id);
+        int id = activity.getResources().getIdentifier(thisImage, "drawable", this.getPackageName());
         return vi;
     }
 }

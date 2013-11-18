@@ -1,8 +1,6 @@
 package com.scottcaruso.listadapter;
 
 import java.util.ArrayList;
-
-import com.scottcaruso.polisocially.Politician_Results;
 import com.scottcaruso.polisocially.R;
 
 import android.app.Activity;
@@ -58,14 +56,11 @@ public class CustomAdapter extends BaseAdapter {
         Log.i("Info",String.valueOf(position));
         String thisPol = thesePols.get(position);
         String thisParty = theseParties.get(position);
-        String thisImage = thesePics.get(position);
         Log.i("Info",thisPol);
         Log.i("Info",thisParty);
         // Setting all values in listview
         name.setText(thisPol);
         party.setText(thisParty);
-        int id = activity.getResources().getIdentifier(thisImage, "drawable", activity.getPackageName());
-        thumb_image.setImageResource(id);
         return vi;
     }
 }

@@ -1,35 +1,41 @@
-package com.scottcaruso.polisocially;
+package com.scottcaruso.listadapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
+import com.scottcaruso.polisocially.Politician_Results;
 import com.scottcaruso.polisocially.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CustomAdapter extends BaseAdapter {
 
     private Activity activity;
-    private ArrayList<HashMap<String, String>> data;
+    private ArrayList<String> thesePols;
+    private ArrayList<String> theseParties;
+    private ArrayList<String> thesePics;
     private static LayoutInflater inflater = null;
     public ImageLoader imageLoader; 
  
-    public CustomAdapter (Activity a, ArrayList<HashMap<String, String>> d) {
+    public CustomAdapter (Activity a, ArrayList<String> pols, ArrayList<String> parties, ArrayList<String> photoIDs) {
         activity = a;
-        data=d;
+        thesePols = pols;
+        theseParties = parties;
+        thesePics = photoIDs;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //Will hook up the image loader once I have the pictures to load
         //imageLoader=new ImageLoader(activity.getApplicationContext());
     }
  
     public int getCount() {
-        return data.size();
+        return thesePols.size();
     }
  
     public Object getItem(int position) {
@@ -43,23 +49,22 @@ public class CustomAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.list_row,parent);
+            vi = inflater.inflate(R.layout.list_row,null);
  
-        TextView title = (TextView)vi.findViewById(R.id.poliName); // title
-        TextView artist = (TextView)vi.findViewById(R.id.artist); // artist name
-        TextView duration = (TextView)vi.findViewById(R.id.duration); // duration
+        TextView name = (TextView)vi.findViewById(R.id.polName); // politician name
+        TextView party = (TextView)vi.findViewById(R.id.party); // pol. party name
         ImageView thumb_image=(ImageView)vi.findViewById(R.id.list_image); // thumb image
- 
-        HashMap&lt;String, String&gt; song = new HashMap&lt;String, String&gt;();
-        song = data.get(position);
- 
+        
+        Log.i("Info",String.valueOf(position));
+        String thisPol = thesePols.get(position);
+        String thisParty = theseParties.get(position);
+        String thisImage = thesePics.get(position);
+        Log.i("Info",thisPol);
+        Log.i("Info",thisParty);
         // Setting all values in listview
-        title.setText(song.get(CustomizedListView.KEY_TITLE));
-        artist.setText(song.get(CustomizedListView.KEY_ARTIST));
-        duration.setText(song.get(CustomizedListView.KEY_DURATION));
-        imageLoader.DisplayImage(song.get(CustomizedListView.KEY_THUMB_URL), thumb_image);
+        name.setText(thisPol);
+        party.setText(thisParty);
+        int id = activity.getResources().getIdentifier(thisImage, "drawable", activity.getPackageName());
         return vi;
     }
-}
-
 }
