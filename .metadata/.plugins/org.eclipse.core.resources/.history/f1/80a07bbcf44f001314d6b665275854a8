@@ -45,7 +45,7 @@ public class TurnStringIntoJSONObject {
 					parsedPoliticianObject.put("GovTrackID", thisID);
 					parsedPoliticianObject.put("Party", thisParty);
 					parsedPoliticianObject.put("State", thisState);
-					parsedPoliticianObject.put("TermEnd", termEnds);
+					parsedPoliticianObject.put("Term", termEnds);
 					parsedPoliticianObject.put("Twitter", twitterHandle);
 					parsedPoliticianObject.put("Website", thisWebsite);
 					parsedPoliticianObject.put("Title", thisTitle);

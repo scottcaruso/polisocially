@@ -318,9 +318,11 @@ public class Politician_Results extends Activity {
 						if (polTitle.equals("Rep")&&tempLocation.equals(district))
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 						} else if (!polTitle.equals("Rep"))
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 						}
 					}
 				} catch (JSONException e) {

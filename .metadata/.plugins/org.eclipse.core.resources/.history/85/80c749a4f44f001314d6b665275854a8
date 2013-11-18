@@ -42,15 +42,14 @@ public class TurnStringIntoJSONObject {
 					String thisDistrict = thisPol.getString("district");
 					String thisBirthday = thisPol.getString("birthday");
 					parsedPoliticianObject.put("Name", fullName);
-					parsedPoliticianObject.put("GovTrackID", thisID);
+					parsedPoliticianObject.put("ID", thisID);
 					parsedPoliticianObject.put("Party", thisParty);
 					parsedPoliticianObject.put("State", thisState);
-					parsedPoliticianObject.put("TermEnd", termEnds);
+					parsedPoliticianObject.put("Term End", termEnds);
 					parsedPoliticianObject.put("Twitter", twitterHandle);
 					parsedPoliticianObject.put("Website", thisWebsite);
 					parsedPoliticianObject.put("Title", thisTitle);
 					parsedPoliticianObject.put("District", thisDistrict);
-					parsedPoliticianObject.put("Birthday", thisBirthday);
 					parsedPoliticians.put(parsedPoliticianObject);	
 				}
 				Log.i("Info","Results found and ready to return.");

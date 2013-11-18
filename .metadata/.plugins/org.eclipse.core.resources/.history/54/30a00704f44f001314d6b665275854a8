@@ -199,8 +199,7 @@ public class Politician_Results extends Activity {
 		birthdayList.add("Biden B-Day");
 		termList.add("Obama Term End");
 		termList.add("Biden Term End");
-		govTrackList.add("Obama GovTrack ID");
-		govTrackList.add("Biden GovTrack ID");
+		govTrackList.add(govTrackID);
         Log.i("info",partyList.toString());
    
         setContentView(R.layout.activity_politician_results);
@@ -221,8 +220,8 @@ public class Politician_Results extends Activity {
 		    	nextActivity.putExtra("Name",polsList.get(item));
 		    	nextActivity.putExtra("Party",partyList.get(item));
 		    	nextActivity.putExtra("DOB",birthdayList.get(item));
-		    	nextActivity.putExtra("Term End", termList.get(item));
-		    	nextActivity.putExtra("GovTrack ID", govTrackList.get(item));
+		    	nextActivity.putExtra("Term End", termsList.get(item));
+		    	
 				Activity currentActivity = (Activity) Politician_Results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
@@ -318,9 +317,11 @@ public class Politician_Results extends Activity {
 						if (polTitle.equals("Rep")&&tempLocation.equals(district))
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 						} else if (!polTitle.equals("Rep"))
 						{
 							polsList.add(polName);
+							Log.i("info",polsList.toString());
 						}
 					}
 				} catch (JSONException e) {
