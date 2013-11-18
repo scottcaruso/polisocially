@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right"
+    android:orientation="vertical"
+    tools:context=".Politician_Details" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/poliName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/politiican_name"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttonTweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:text="@string/tweet" />
+
+    <Button
+        android:id="@+id/buttonFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/buttonPhone"
+        android:layout_below="@+id/buttonTweet"
+        android:layout_marginTop="14dp"
+        android:text="@string/post_to_facebook" />
+
+    <Button
+        android:id="@+id/buttonWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/buttonPhone"
+        android:layout_below="@+id/buttonPhone"
+        android:layout_marginTop="17dp"
+        android:text="@string/visit_website" />
+
+    <Button
+        android:id="@+id/buttonPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/buttonTweet"
+        android:layout_below="@+id/buttonFacebook"
+        android:layout_marginTop="16dp"
+        android:text="@string/call" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/buttonTweet"
+        android:layout_toLeftOf="@+id/buttonFacebook" >
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_above="@+id/listView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/listView1"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginBottom="39dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="18dp"
+        android:contentDescription="@string/politician_picture"
+        android:paddingLeft="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/no_image_available" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView1"
+        android:paddingLeft="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Party"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

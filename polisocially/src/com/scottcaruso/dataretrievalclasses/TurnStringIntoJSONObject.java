@@ -34,6 +34,7 @@ public class TurnStringIntoJSONObject {
 					String thisTitle = thisPol.getString("title");
 					String fullName = thisTitle + ". " + thisFirstName + " " + thisLastName;
 					String thisID = thisPol.getString("govtrack_id");
+					String photoID = thisPol.getString("bioguide_id");
 					String thisParty = thisPol.getString("party");
 					String thisState = thisPol.getString("state");
 					String termEnds = thisPol.getString("term_end");
@@ -51,6 +52,7 @@ public class TurnStringIntoJSONObject {
 					parsedPoliticianObject.put("Title", thisTitle);
 					parsedPoliticianObject.put("District", thisDistrict);
 					parsedPoliticianObject.put("Birthday", thisBirthday);
+					parsedPoliticianObject.put("PhotoID",photoID);
 					parsedPoliticians.put(parsedPoliticianObject);	
 				}
 				Log.i("Info","Results found and ready to return.");

@@ -30,6 +30,7 @@ public class Politician_Results extends Activity {
 	public ArrayList<String> birthdayList;
 	public ArrayList<String> termList;
 	public ArrayList<String> govTrackList;
+	public ArrayList<String> photoIDList;
 	public String location;
 	public String tempLocation;
 	public ArrayList<String> multipleReps;
@@ -59,6 +60,7 @@ public class Politician_Results extends Activity {
         	birthdayList = new ArrayList<String>();
         	termList = new ArrayList<String>();
         	govTrackList = new ArrayList<String>();
+        	photoIDList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
         	multipleReps = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
@@ -73,11 +75,13 @@ public class Politician_Results extends Activity {
 					String birthday = polObjectOne.getString("Birthday");
 					String term = polObjectOne.getString("TermEnd");
 					String govTrackID = polObjectOne.getString("GovTrackID");
+					String photoID = polObjectOne.getString("PhotoID");
 					String longPartyName;
 					polsList.add(polName);
 					birthdayList.add(birthday);
 					termList.add(term);
 					govTrackList.add(govTrackID);
+					photoIDList.add(photoID);
 					Log.i("info",polsList.toString());
 					if (partyName.equals("D"))
 					{
@@ -127,9 +131,10 @@ public class Politician_Results extends Activity {
 					JSONObject polObjectThree = polArray.getJSONObject(x);
 					String polName = polObjectThree.getString("Name");
 					String partyName = polObjectThree.getString("Party");
-					String birthday = polObjectOne.getString("Birthday");
-					String term = polObjectOne.getString("TermEnd");
-					String govTrackID = polObjectOne.getString("GovTrackID");
+					String birthday = polObjectThree.getString("Birthday");
+					String term = polObjectThree.getString("TermEnd");
+					String govTrackID = polObjectThree.getString("GovTrackID");
+					String photoID = polObjectThree.getString("PhotoID");
 					String longPartyName;
 					String polTitle = "None";
 					try {
@@ -149,6 +154,7 @@ public class Politician_Results extends Activity {
 									birthdayList.add(birthday);
 									termList.add(term);
 									govTrackList.add(govTrackID);
+									photoIDList.add(photoID);
 									Log.i("info",polsList.toString());
 									if (partyName.equals("D"))
 									{
@@ -169,6 +175,7 @@ public class Politician_Results extends Activity {
 							birthdayList.add(birthday);
 							termList.add(term);
 							govTrackList.add(govTrackID);
+							photoIDList.add(photoID);
 							Log.i("info",polsList.toString());
 							if (partyName.equals("D"))
 							{
@@ -201,6 +208,8 @@ public class Politician_Results extends Activity {
 		termList.add("Biden Term End");
 		govTrackList.add("Obama GovTrack ID");
 		govTrackList.add("Biden GovTrack ID");
+		photoIDList.add("Obama Photo");
+		photoIDList.add("Biden Photo");
         Log.i("info",partyList.toString());
    
         setContentView(R.layout.activity_politician_results);
@@ -223,6 +232,7 @@ public class Politician_Results extends Activity {
 		    	nextActivity.putExtra("DOB",birthdayList.get(item));
 		    	nextActivity.putExtra("Term End", termList.get(item));
 		    	nextActivity.putExtra("GovTrack ID", govTrackList.get(item));
+		    	nextActivity.putExtra("Photo ID", photoIDList.get(item));
 				Activity currentActivity = (Activity) Politician_Results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
