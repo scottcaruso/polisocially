@@ -65,6 +65,7 @@ public class CustomAdapter extends BaseAdapter {
         name.setText(thisPol);
         party.setText(thisParty);
         int id = activity.getResources().getIdentifier(thisImage, "drawable", activity.getPackageName());
+        Log.i("info",String.valueOf(id));
         thumb_image.setImageResource(id);
         return vi;
     }

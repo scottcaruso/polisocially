@@ -29,16 +29,16 @@ public class Politician_Details extends Activity {
         postsList.add("Tweet 5");
         postsList.add("Tweet 6");
         postsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, postsList);
-        listview = (ListView) findViewById(R.id.posts);
+        //listview = (ListView) findViewById(R.id.posts);
         listview.setAdapter(postsAdapter);
         
-        Button signIn = (Button) findViewById(R.id.signin);
-        signIn.setOnClickListener(new View.OnClickListener() {
+        //Button signIn = (Button) findViewById(R.id.signin);
+        /*signIn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				}	
-			});
+			});*/
     }
     
     @Override

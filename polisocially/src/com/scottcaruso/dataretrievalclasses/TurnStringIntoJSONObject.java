@@ -35,6 +35,7 @@ public class TurnStringIntoJSONObject {
 					String fullName = thisTitle + ". " + thisFirstName + " " + thisLastName;
 					String thisID = thisPol.getString("govtrack_id");
 					String photoID = thisPol.getString("bioguide_id");
+					String convertedID = convertIDToLowercase(photoID);
 					String thisParty = thisPol.getString("party");
 					String thisState = thisPol.getString("state");
 					String termEnds = thisPol.getString("term_end");
@@ -52,7 +53,7 @@ public class TurnStringIntoJSONObject {
 					parsedPoliticianObject.put("Title", thisTitle);
 					parsedPoliticianObject.put("District", thisDistrict);
 					parsedPoliticianObject.put("Birthday", thisBirthday);
-					parsedPoliticianObject.put("PhotoID",photoID);
+					parsedPoliticianObject.put("PhotoID",convertedID);
 					parsedPoliticians.put(parsedPoliticianObject);	
 				}
 				Log.i("Info","Results found and ready to return.");
@@ -65,6 +66,12 @@ public class TurnStringIntoJSONObject {
 				e.printStackTrace();
 				return null;
 			}
+	}
+	
+	public static String convertIDToLowercase(String rawID)
+	{
+	    rawID = rawID.substring(0, 1).toLowerCase() + rawID.substring(1);
+		return rawID;
 	}
 
 }
