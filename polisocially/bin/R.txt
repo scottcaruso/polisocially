@@ -971,6 +971,7 @@ int string politiican_name 0x7f06001e
 int string post_to_facebook 0x7f060032
 int string posts 0x7f060028
 int string sign_in_to_view_tweets 0x7f06002e
+int string tap_here_to_view 0x7f060039
 int string term_end 0x7f060035
 int string tweet 0x7f060025
 int string update_status 0x7f06002a

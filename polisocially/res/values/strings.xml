@@ -37,5 +37,6 @@
     <string name="govtrack_id">GovTrack</string>
     <string name="placeholder">Placeholder</string>
     <string name="add_to_favorites">Add to Favorites</string>
+    <string name="tap_here_to_view">Tap Here To View</string>
 
 </resources>

@@ -51,11 +51,18 @@ public class Politician_Details extends Activity {
         partyView.setText(partyName);
         birthdayView.setText(birthday);
         termView.setText(termEnd);
-        govTrackView.setText(govTrackID);
         int id = Politician_Details.this.getResources().getIdentifier(photoID, "drawable", Politician_Details.this.getPackageName());
         polImage.setImageResource(id);
         
         //Set up action buttons
+        govTrackView.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				launchWebIntent("http://www.govtrack.us/congress/members/"+govTrackID);	
+			}
+		});
+        
         Button twitterButton = (Button) findViewById(R.id.buttonTweet);
         twitterButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -88,7 +95,7 @@ public class Politician_Details extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				launchWebIntent();		
+				launchWebIntent("http://www.google.com/");		
 			}
 		});
         
@@ -159,9 +166,9 @@ public class Politician_Details extends Activity {
     	startActivity(intent);
     }
     
-    public void launchWebIntent()
+    public void launchWebIntent(String website)
     {
-    	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.joystiq.com")); 
+    	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(website)); 
     	startActivity(intent);
     }
 }

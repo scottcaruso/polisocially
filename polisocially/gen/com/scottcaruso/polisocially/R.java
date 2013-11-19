@@ -1165,6 +1165,7 @@ containing a value of this type.
         public static final int post_to_facebook=0x7f060032;
         public static final int posts=0x7f060028;
         public static final int sign_in_to_view_tweets=0x7f06002e;
+        public static final int tap_here_to_view=0x7f060039;
         public static final int term_end=0x7f060035;
         public static final int tweet=0x7f060025;
         public static final int update_status=0x7f06002a;
