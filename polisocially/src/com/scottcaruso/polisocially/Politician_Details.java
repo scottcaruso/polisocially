@@ -1,17 +1,15 @@
 package com.scottcaruso.polisocially;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -73,6 +71,24 @@ public class Politician_Details extends Activity {
 			@Override
 			public void onClick(View v) {
 				launchFacebookIntent();		
+			}
+		});
+        
+        Button phoneCallButton = (Button) findViewById(R.id.buttonPhone);
+        phoneCallButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				launchPhoneIntent();		
+			}
+		});
+        
+        Button websiteButton = (Button) findViewById(R.id.buttonWebsite);
+        websiteButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				launchWebIntent();		
 			}
 		});
         
@@ -139,11 +155,13 @@ public class Politician_Details extends Activity {
     
     public void launchPhoneIntent()
     {
-    	
+    	Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "407-267-3533"));
+    	startActivity(intent);
     }
     
     public void launchWebIntent()
     {
-    	
+    	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.joystiq.com")); 
+    	startActivity(intent);
     }
 }
