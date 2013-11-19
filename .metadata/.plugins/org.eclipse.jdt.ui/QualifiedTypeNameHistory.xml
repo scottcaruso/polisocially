@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="android.text.InputType"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.widget.ImageButton"/>
@@ -28,10 +27,8 @@
 <fullyQualifiedTypeName name="com.scottcaruso.dataretrievalclasses.DataRetrievalService"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
-<fullyQualifiedTypeName name="com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject"/>
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="org.json.JSONArray"/>
-<fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Results"/>
 <fullyQualifiedTypeName name="android.view.View.OnTouchListener"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
@@ -49,7 +46,6 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.CustomAdapter"/>
-<fullyQualifiedTypeName name="com.scottcaruso.listadapter.CustomAdapter"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.Constants"/>
@@ -57,4 +53,8 @@
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.PrepareRequestTokenActivity.RetrieveAccessTokenTask"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details.WebViewLaunchActivity"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details"/>
+<fullyQualifiedTypeName name="com.scottcaruso.listadapter.CustomAdapter"/>
+<fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Results"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject"/>
 </qualifiedTypeNameHistroy>

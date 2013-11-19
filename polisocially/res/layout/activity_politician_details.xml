@@ -19,6 +19,7 @@
         android:id="@+id/headerSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="15dp"
         android:orientation="horizontal">
         
         <ImageView
@@ -34,36 +35,35 @@
            	android:id="@+id/polDetailLabels"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:paddingLeft="30dp"
+        	android:paddingLeft="15dp"
         	android:orientation="vertical">
 		
-            <TextView
+           <TextView
 		       android:id="@+id/partyLabel"
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
-		       android:paddingLeft="30dp"
-		       android:text="Party" />
+		       android:text="@string/party" />
             		   
 		   <TextView
 		       android:id="@+id/birthdayLabel"
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
 		       android:paddingTop="15dp"
-		       android:text="Birthday" />
+		       android:text="@string/birthday" />
 		
 		   <TextView
 		       android:id="@+id/termLabel"
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
 		       android:paddingTop="15dp"
-		       android:text="Party" />
+		       android:text="@string/term_end" />
 		
 		   <TextView
 		       android:id="@+id/govTrackLabel"
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
 		       android:paddingTop="15dp"
-		       android:text="Party" />
+		       android:text="@string/govtrack_id" />
 		       	
         </LinearLayout>
         
@@ -71,41 +71,106 @@
            	android:id="@+id/polDetails"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
+        	android:paddingLeft="25dp"
         	android:orientation="vertical">
+		   
+      	   <TextView
+		       android:id="@+id/partyValue"
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:text="@string/placeholder" />
+            		   
+		   <TextView
+		       android:id="@+id/birthdayValue"
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:paddingTop="15dp"
+		       android:text="@string/placeholder" />
+		
+		   <TextView
+		       android:id="@+id/termValue"
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:paddingTop="15dp"
+		       android:text="@string/placeholder" />
+		
+		   <TextView
+		       android:id="@+id/govTrackValue"
+		       android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:paddingTop="15dp"
+		       android:text="@string/placeholder" />
         	
         </LinearLayout>
-        
-        
+           
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/buttonTweet"
+    
+    <LinearLayout
+        android:id="@+id/favesButtonLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:text="@string/tweet" />
-
-    <Button
-        android:id="@+id/buttonFacebook"
-        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal" >
+		   
+           	<Button
+                android:id="@+id/favesButton"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_to_favorites" />
+            
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/lowerSection"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="@string/post_to_facebook" />
+        android:orientation="horizontal"
+        android:paddingTop="15dp" android:baselineAligned="false">
 
-    <Button
-        android:id="@+id/buttonWebsite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:text="@string/visit_website" />
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.67" >
+        </ListView>
 
-    <Button
-        android:id="@+id/buttonPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/call" />
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="25dp" >
 
+            <Button
+                android:id="@+id/buttonTweet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tweet" />
+
+            <Button
+                android:id="@+id/buttonFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/post_to_facebook" />
+
+            <Button
+                android:id="@+id/buttonWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/visit_website" />
+
+            <Button
+                android:id="@+id/buttonPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/call" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

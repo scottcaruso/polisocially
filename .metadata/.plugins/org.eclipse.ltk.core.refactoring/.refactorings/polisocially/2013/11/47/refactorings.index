@@ -7,3 +7,9 @@
 1384763227022	Delete elements
 1384763241104	Delete elements
 1384766336568	Delete element
+1384837646077	Extracts string 'Party' into R.string.party
+1384837652588	Extracts string 'Birthday' into R.string.birthday
+1384837662160	Extracts string 'Term End' into R.string.term_end
+1384837669995	Extracts string 'GovTrack ID' into R.string.govtrack_id
+1384837955511	Extracts string 'Placeholder' into R.string.placeholder
+1384840723171	Extracts string 'Add to Favorites' into R.string.add_to_favorites
