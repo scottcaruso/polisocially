@@ -1020,13 +1020,13 @@ containing a value of this type.
         public static final int headerSection=0x7f050009;
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050005;
-        public static final int imageView1=0x7f05001e;
         public static final int lblUpdate=0x7f050027;
         public static final int lblUserName=0x7f05002b;
         public static final int listOfPols=0x7f05001f;
         public static final int listView1=0x7f050018;
         public static final int list_image=0x7f050022;
         public static final int lowerSection=0x7f050017;
+        public static final int map=0x7f05001e;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int party=0x7f050024;

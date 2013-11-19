@@ -4,13 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="184dp"
-        android:contentDescription="@string/placeholder_map"
-        android:scaleType="fitXY"
-        android:src="@drawable/map" />
+        android:layout_height="156dp" />
 
     <ListView
         android:id="@+id/listOfPols"

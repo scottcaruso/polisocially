@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <fragment
+          android:id="@+id/map"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:name="com.google.android.gms.maps.MapFragment"/>
+
+    <ListView
+        android:id="@+id/listOfPols"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.57" >
+    </ListView>
+
+    <Spinner
+        android:id="@+id/district"
+        style="@android:style/Theme.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="0.08"
+        android:background="@drawable/american_flag"
+        android:text="@string/change_district"
+        android:visibility="gone" />
+
+</LinearLayout>
