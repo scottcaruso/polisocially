@@ -67,6 +67,15 @@ public class Politician_Details extends Activity {
 			}
 		});
         
+        Button facebookButton = (Button) findViewById(R.id.buttonFacebook);
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				launchFacebookIntent();		
+			}
+		});
+        
     }
     
     @Override
@@ -104,7 +113,28 @@ public class Politician_Details extends Activity {
     
     public void launchFacebookIntent()
     {
-    	
+    	Intent facebookIntent = new Intent(Intent.ACTION_SEND);
+    	facebookIntent.putExtra(Intent.EXTRA_TEXT, "This is a Test.");
+    	facebookIntent.setType("text/plain");
+
+    	PackageManager packManager = getPackageManager();
+    	List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(facebookIntent,  PackageManager.MATCH_DEFAULT_ONLY);
+
+    	boolean resolved = false;
+    	for(ResolveInfo resolveInfo: resolvedInfoList){
+    	    if(resolveInfo.activityInfo.packageName.startsWith("com.facebook.katana")){
+    	    	facebookIntent.setClassName(
+    	            resolveInfo.activityInfo.packageName, 
+    	            resolveInfo.activityInfo.name );
+    	        resolved = true;
+    	        break;
+    	    }
+    	}
+    	if(resolved){
+    	    startActivity(facebookIntent);
+    	}else{
+    	    Toast.makeText(this, "Facebook app isn't found", Toast.LENGTH_LONG).show();
+    	}
     }
     
     public void launchPhoneIntent()
