@@ -36,8 +36,6 @@
         		</intent-filter>
         </activity>
         <service android:name="com.scottcaruso.dataretrievalclasses.DataRetrievalService"></service>
-        <activity android:name="Politician_Details$PrepareRequestTokenActivity"></activity>
-        <activity android:name="Politician_Details$WebViewLaunchActivity"></activity>
         
     </application>
 

@@ -998,42 +998,51 @@ containing a value of this type.
         public static final int y000065=0x7f020348;
     }
     public static final class id {
-        public static final int About=0x7f050023;
+        public static final int About=0x7f05002c;
         public static final int birthdayLabel=0x7f05000d;
-        public static final int btnGetTimeLine=0x7f05001f;
-        public static final int btnLoginTwitter=0x7f05001d;
-        public static final int btnLogoutTwitter=0x7f050020;
-        public static final int btnUpdateStatus=0x7f05001c;
+        public static final int birthdayvalue=0x7f050012;
+        public static final int btnGetTimeLine=0x7f050028;
+        public static final int btnLoginTwitter=0x7f050026;
+        public static final int btnLogoutTwitter=0x7f050029;
+        public static final int btnUpdateStatus=0x7f050025;
         public static final int button1=0x7f050006;
-        public static final int buttonFacebook=0x7f050012;
-        public static final int buttonPhone=0x7f050014;
-        public static final int buttonTweet=0x7f050011;
-        public static final int buttonWebsite=0x7f050013;
-        public static final int district=0x7f050017;
+        public static final int buttonFacebook=0x7f05001b;
+        public static final int buttonPhone=0x7f05001d;
+        public static final int buttonTweet=0x7f05001a;
+        public static final int buttonWebsite=0x7f05001c;
+        public static final int buttons=0x7f050019;
+        public static final int district=0x7f050020;
+        public static final int favesButton=0x7f050016;
+        public static final int favesButtonLayout=0x7f050015;
         public static final int govTrackLabel=0x7f05000f;
+        public static final int govtrackvalue=0x7f050014;
         public static final int headerSection=0x7f050009;
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050005;
-        public static final int imageView1=0x7f050015;
-        public static final int lblUpdate=0x7f05001e;
-        public static final int lblUserName=0x7f050022;
-        public static final int listOfPols=0x7f050016;
-        public static final int list_image=0x7f050019;
+        public static final int imageView1=0x7f05001e;
+        public static final int lblUpdate=0x7f050027;
+        public static final int lblUserName=0x7f05002b;
+        public static final int listOfPols=0x7f05001f;
+        public static final int listView1=0x7f050018;
+        public static final int list_image=0x7f050022;
+        public static final int lowerSection=0x7f050017;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int party=0x7f05001b;
+        public static final int party=0x7f050024;
         public static final int partyLabel=0x7f05000c;
+        public static final int partyvalue=0x7f050011;
         public static final int polDetailLabels=0x7f05000b;
         public static final int polDetails=0x7f050010;
         public static final int polImage=0x7f05000a;
-        public static final int polName=0x7f05001a;
+        public static final int polName=0x7f050023;
         public static final int poliName=0x7f050008;
         public static final int satellite=0x7f050002;
         public static final int termLabel=0x7f05000e;
+        public static final int termvalue=0x7f050013;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050007;
-        public static final int thumbnail=0x7f050018;
-        public static final int txtUpdateStatus=0x7f050021;
+        public static final int thumbnail=0x7f050021;
+        public static final int txtUpdateStatus=0x7f05002a;
     }
     public static final class layout {
         public static final int activity_main__screen=0x7f030000;
@@ -1051,6 +1060,7 @@ containing a value of this type.
         public static final int about=0x7f06001c;
         public static final int about_app=0x7f06001b;
         public static final int action_settings=0x7f060016;
+        public static final int add_to_favorites=0x7f060038;
         public static final int age=0x7f060020;
         public static final int all_politiican_data_courtesy_of_sunlight_labs_=0x7f06001a;
         public static final int app_name=0x7f060015;
@@ -1077,6 +1087,7 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f06000f;
+        public static final int birthday=0x7f060034;
         public static final int call=0x7f060023;
         public static final int change_district=0x7f060027;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
@@ -1137,6 +1148,7 @@ containing a value of this type.
         public static final int debug_advance_to_next_screen=0x7f060026;
         public static final int follow=0x7f060022;
         public static final int get_timeline=0x7f06002b;
+        public static final int govtrack_id=0x7f060036;
         public static final int hello_world=0x7f060017;
         public static final int hometown=0x7f060021;
         public static final int login=0x7f060029;
@@ -1144,6 +1156,7 @@ containing a value of this type.
         public static final int main_geolocation_button=0x7f060018;
         public static final int party=0x7f06001f;
         public static final int party_name=0x7f060031;
+        public static final int placeholder=0x7f060037;
         public static final int placeholder_map=0x7f06001d;
         public static final int politician_image=0x7f06002f;
         public static final int politician_name=0x7f060030;
@@ -1152,6 +1165,7 @@ containing a value of this type.
         public static final int post_to_facebook=0x7f060032;
         public static final int posts=0x7f060028;
         public static final int sign_in_to_view_tweets=0x7f06002e;
+        public static final int term_end=0x7f060035;
         public static final int tweet=0x7f060025;
         public static final int update_status=0x7f06002a;
         public static final int user_name=0x7f06002d;

@@ -4,41 +4,51 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class Politician_Details extends Activity {
 	
 	public static ListView listview;
-	public static ArrayAdapter<String> postsAdapter;
-	public static ArrayList<String> postsList;
+	public static String polName;
+	public static String partyName;
+	public static String birthday;
+	public static String termEnd;
+	public static String govTrackID;
+	public static String photoID;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_politician_details);
         
-        postsList = new ArrayList<String>();
-        postsList.add("Tweet 1");
-        postsList.add("Tweet 2");
-        postsList.add("Tweet 3");
-        postsList.add("Tweet 4");
-        postsList.add("Tweet 5");
-        postsList.add("Tweet 6");
-        postsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, postsList);
-        //listview = (ListView) findViewById(R.id.posts);
-        listview.setAdapter(postsAdapter);
+        Bundle extras = getIntent().getExtras();
+        polName = extras.getString("Name");
+        partyName = extras.getString("Party");
+        birthday = extras.getString("DOB");
+        termEnd = extras.getString("Term End");
+        govTrackID = extras.getString("GovTrack ID");
+        photoID = extras.getString("Photo ID");
         
-        //Button signIn = (Button) findViewById(R.id.signin);
-        /*signIn.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				}	
-			});*/
+        TextView name = (TextView) findViewById(R.id.poliName);
+        TextView partyView = (TextView) findViewById(R.id.partyvalue);
+        TextView birthdayView = (TextView) findViewById(R.id.birthdayvalue);
+        TextView termView = (TextView) findViewById(R.id.termvalue);
+        TextView govTrackView = (TextView) findViewById(R.id.govtrackvalue);
+        ImageView polImage = (ImageView) findViewById(R.id.polImage);
+        
+        name.setText(polName);
+        partyView.setText(partyName);
+        birthdayView.setText(birthday);
+        termView.setText(termEnd);
+        govTrackView.setText(govTrackID);
+        int id = Politician_Details.this.getResources().getIdentifier(photoID, "drawable", Politician_Details.this.getPackageName());
+        polImage.setImageResource(id);
+        
     }
     
     @Override
