@@ -1,15 +1,22 @@
 package com.scottcaruso.polisocially;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Politician_Details extends Activity {
 	
@@ -34,6 +41,7 @@ public class Politician_Details extends Activity {
         govTrackID = extras.getString("GovTrack ID");
         photoID = extras.getString("Photo ID");
         
+        //Set dynamic data views
         TextView name = (TextView) findViewById(R.id.poliName);
         TextView partyView = (TextView) findViewById(R.id.partyvalue);
         TextView birthdayView = (TextView) findViewById(R.id.birthdayvalue);
@@ -49,6 +57,16 @@ public class Politician_Details extends Activity {
         int id = Politician_Details.this.getResources().getIdentifier(photoID, "drawable", Politician_Details.this.getPackageName());
         polImage.setImageResource(id);
         
+        //Set up action buttons
+        Button twitterButton = (Button) findViewById(R.id.buttonTweet);
+        twitterButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				launchTwitterIntent();		
+			}
+		});
+        
     }
     
     @Override
@@ -56,5 +74,46 @@ public class Politician_Details extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_politician_details, menu);
         return true;
+    }
+    
+    public void launchTwitterIntent()
+    {
+    	Intent tweetIntent = new Intent(Intent.ACTION_SEND);
+    	tweetIntent.putExtra(Intent.EXTRA_TEXT, "This is a Test.");
+    	tweetIntent.setType("text/plain");
+
+    	PackageManager packManager = getPackageManager();
+    	List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(tweetIntent,  PackageManager.MATCH_DEFAULT_ONLY);
+
+    	boolean resolved = false;
+    	for(ResolveInfo resolveInfo: resolvedInfoList){
+    	    if(resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")){
+    	        tweetIntent.setClassName(
+    	            resolveInfo.activityInfo.packageName, 
+    	            resolveInfo.activityInfo.name );
+    	        resolved = true;
+    	        break;
+    	    }
+    	}
+    	if(resolved){
+    	    startActivity(tweetIntent);
+    	}else{
+    	    Toast.makeText(this, "Twitter app isn't found", Toast.LENGTH_LONG).show();
+    	}
+    }
+    
+    public void launchFacebookIntent()
+    {
+    	
+    }
+    
+    public void launchPhoneIntent()
+    {
+    	
+    }
+    
+    public void launchWebIntent()
+    {
+    	
     }
 }
