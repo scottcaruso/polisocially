@@ -39,6 +39,8 @@ public class Politician_Details extends Activity {
         govTrackID = extras.getString("GovTrack ID");
         photoID = extras.getString("Photo ID");
         
+        this.setTitle(polName);
+        
         //Set dynamic data views
         TextView name = (TextView) findViewById(R.id.poliName);
         TextView partyView = (TextView) findViewById(R.id.partyvalue);
