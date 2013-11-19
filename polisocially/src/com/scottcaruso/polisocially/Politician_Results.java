@@ -25,12 +25,12 @@ public class Politician_Results extends Activity {
 	
 	public String[] politicianNames;
 	public String polData;
-	public ArrayList<String> polsList;
-	public ArrayList<String> partyList;
-	public ArrayList<String> birthdayList;
-	public ArrayList<String> termList;
-	public ArrayList<String> govTrackList;
-	public ArrayList<String> photoIDList;
+	public static ArrayList<String> polsList;
+	public static ArrayList<String> partyList;
+	public static ArrayList<String> birthdayList;
+	public static ArrayList<String> termList;
+	public static ArrayList<String> govTrackList;
+	public static ArrayList<String> photoIDList;
 	public String location;
 	public String tempLocation;
 	public ArrayList<String> multipleReps;
@@ -197,20 +197,7 @@ public class Politician_Results extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        //int size = polsList.size();
-        polsList.add("President Barack Obama");
-        polsList.add("Vice President Joe Biden");
-        partyList.add("Democrat");
-        partyList.add("Democrat");
-		birthdayList.add("Obama B-Day");
-		birthdayList.add("Biden B-Day");
-		termList.add("Obama Term End");
-		termList.add("Biden Term End");
-		govTrackList.add("Obama GovTrack ID");
-		govTrackList.add("Biden GovTrack ID");
-		photoIDList.add("Obama Photo");
-		photoIDList.add("Biden Photo");
-        Log.i("info",partyList.toString());
+        createObamaAndBiden();
    
         setContentView(R.layout.activity_politician_results);
         
@@ -340,10 +327,7 @@ public class Politician_Results extends Activity {
 			
 			//TODO: Need to debug why the title isn't changing with the Spinner clicks.
 			Politician_Results.this.setTitle(location);
-		    polsList.add("President Barack Obama");
-		    polsList.add("Vice President Joe Biden");
-		    partyList.add("Democrat");
-		    partyList.add("Democrat");
+			createObamaAndBiden();
 		    Politician_Results.this.adapter.notifyDataSetChanged();
 			//politicianAdapter.notifyDataSetChanged();
 				
@@ -354,6 +338,22 @@ public class Politician_Results extends Activity {
 				//DO NOTHING
 			}
 		});
+    }
+    
+    public static void createObamaAndBiden()
+    {
+        polsList.add("President Barack Obama");
+        polsList.add("Vice President Joe Biden");
+        partyList.add("Democrat");
+        partyList.add("Democrat");
+		birthdayList.add("1961-08-04");
+		birthdayList.add("1942-11-20");
+		termList.add("2017-01-20");
+		termList.add("2017-01-20");
+		govTrackList.add("400629");
+		govTrackList.add("300008");
+		photoIDList.add("obama");
+		photoIDList.add("biden");
     }
     
 }
