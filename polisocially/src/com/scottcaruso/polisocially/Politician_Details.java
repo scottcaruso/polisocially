@@ -21,12 +21,14 @@ import android.os.Messenger;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class Politician_Details extends Activity {
 	
@@ -248,5 +250,13 @@ public class Politician_Details extends Activity {
     	ListView newsList = (ListView) findViewById(R.id.newsList);
     	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, newsStories);
     	newsList.setAdapter(adapter);
+    	newsList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View view, int item,
+					long id) {
+				launchWebIntent(links.get(item));
+			}
+		});
     }
 }
