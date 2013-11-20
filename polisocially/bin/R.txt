@@ -892,10 +892,10 @@ int id imageButton1 0x7f050005
 int id lblUpdate 0x7f050027
 int id lblUserName 0x7f05002b
 int id listOfPols 0x7f05001f
-int id listView1 0x7f050018
 int id list_image 0x7f050022
 int id lowerSection 0x7f050017
 int id map 0x7f05001e
+int id newsList 0x7f050018
 int id none 0x7f050000
 int id normal 0x7f050001
 int id party 0x7f050024

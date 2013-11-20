@@ -1,7 +1,10 @@
 package com.scottcaruso.polisocially;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.scottcaruso.newsfeedretrieval.NewsFeedRetrieval;
@@ -18,6 +21,7 @@ import android.os.Messenger;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -34,6 +38,8 @@ public class Politician_Details extends Activity {
 	public static String govTrackID;
 	public static String photoID;
 	public static String response;
+	public static ArrayList<String> stories;
+	public static ArrayList<String> links;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,14 +207,12 @@ public class Politician_Details extends Activity {
 						Log.e("Error","There was a problem retrieving the json Response.");
 					}
 					JSONObject newsStories = TurnNPRStringIntoJSONObject.createMasterObject(response);
-					Log.i("Info",newsStories.toString());
-			    	/*Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
-					Activity currentActivity = (Activity) Main_Screen.this;
-					nextActivity.putExtra("Response", response);
-					nextActivity.putExtra("lat",latDouble);
-					nextActivity.putExtra("lon",lonDouble);
-					nextActivity.putExtra("ZipCodeSearch",zipCodeSearch);
-					currentActivity.startActivityForResult(nextActivity, 0);*/		
+					try {
+						addItemsToArrayList(newsStories);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					createListView(stories);	
 					}
 				}
 		};
@@ -219,4 +223,30 @@ public class Politician_Details extends Activity {
 		startDataService.putExtra(NewsFeedRetrieval.POL_NAME,polName);
 		this.startService(startDataService);
      	}
+    
+    public void addItemsToArrayList (JSONObject storyObject) throws JSONException
+    {
+    	stories = new ArrayList<String>();
+    	links = new ArrayList<String>();
+    	if (storyObject == null)
+    	{
+    		return;
+    	} else
+    	{
+    		JSONArray storyArray = storyObject.getJSONArray("Links");
+    		for (int x = 0; x < storyArray.length(); x++)
+    		{
+    			JSONObject thisObject = storyArray.getJSONObject(x);
+    			stories.add(thisObject.getString("Story"));
+    			links.add(thisObject.getString("Link"));
+    		}
+    	}
+    }
+    
+    public void createListView (ArrayList<String> newsStories)
+    {
+    	ListView newsList = (ListView) findViewById(R.id.newsList);
+    	ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, newsStories);
+    	newsList.setAdapter(adapter);
+    }
 }
