@@ -32,7 +32,8 @@ public class TurnSunlightStringIntoJSONObject {
 					String thisFirstName = thisPol.getString("first_name");
 					String thisLastName = thisPol.getString("last_name");
 					String thisTitle = thisPol.getString("title");
-					String fullName = thisTitle + ". " + thisFirstName + " " + thisLastName;
+					String firstPlusLast = thisFirstName + " " + thisLastName;
+					String fullName = thisTitle + ". " + firstPlusLast;
 					String thisID = thisPol.getString("govtrack_id");
 					String photoID = thisPol.getString("bioguide_id");
 					String convertedID = convertIDToLowercase(photoID);
@@ -44,6 +45,7 @@ public class TurnSunlightStringIntoJSONObject {
 					String thisDistrict = thisPol.getString("district");
 					String thisBirthday = thisPol.getString("birthday");
 					parsedPoliticianObject.put("Name", fullName);
+					parsedPoliticianObject.put("Name No Title",firstPlusLast);
 					parsedPoliticianObject.put("GovTrackID", thisID);
 					parsedPoliticianObject.put("Party", thisParty);
 					parsedPoliticianObject.put("State", thisState);

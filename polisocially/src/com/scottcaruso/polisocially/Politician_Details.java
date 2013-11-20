@@ -2,12 +2,20 @@ package com.scottcaruso.polisocially;
 
 import java.util.List;
 
+import org.json.JSONObject;
+
+import com.scottcaruso.newsfeedretrieval.NewsFeedRetrieval;
+import com.scottcaruso.newsfeedretrieval.TurnNPRStringIntoJSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +33,7 @@ public class Politician_Details extends Activity {
 	public static String termEnd;
 	public static String govTrackID;
 	public static String photoID;
+	public static String response;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +47,11 @@ public class Politician_Details extends Activity {
         termEnd = extras.getString("Term End");
         govTrackID = extras.getString("GovTrack ID");
         photoID = extras.getString("Photo ID");
+    	Log.i("Info","DON'T FORGET TO ADD WEBSITES");
+    	Log.i("Info","DON'T FORGET TO ADD PHONE NUMBERS");
         
         this.setTitle(polName);
+        runNewsFeedAPI();
         
         //Set dynamic data views
         TextView name = (TextView) findViewById(R.id.poliName);
@@ -173,4 +185,38 @@ public class Politician_Details extends Activity {
     	Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(website)); 
     	startActivity(intent);
     }
+    
+    public void runNewsFeedAPI()
+    {
+    	Handler retrievalHandler = new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg) 
+			{
+				if (msg.arg1 == RESULT_OK)
+				{
+					try {
+						response = (String) msg.obj;
+					} catch (Exception e) {
+						Log.e("Error","There was a problem retrieving the json Response.");
+					}
+					Log.i("Info",response);
+					JSONObject newsStories = TurnNPRStringIntoJSONObject.createMasterObject(response);
+			    	/*Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
+					Activity currentActivity = (Activity) Main_Screen.this;
+					nextActivity.putExtra("Response", response);
+					nextActivity.putExtra("lat",latDouble);
+					nextActivity.putExtra("lon",lonDouble);
+					nextActivity.putExtra("ZipCodeSearch",zipCodeSearch);
+					currentActivity.startActivityForResult(nextActivity, 0);*/		
+					}
+				}
+		};
+		Messenger apiMessenger = new Messenger(retrievalHandler);
+			
+		Intent startDataService = new Intent(this, NewsFeedRetrieval.class);
+		startDataService.putExtra(NewsFeedRetrieval.MESSENGER_KEY, apiMessenger);
+		startDataService.putExtra(NewsFeedRetrieval.POL_NAME,polName);
+		this.startService(startDataService);
+     	}
 }

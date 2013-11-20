@@ -54,18 +54,13 @@ public class CustomAdapter extends BaseAdapter {
         TextView name = (TextView)vi.findViewById(R.id.polName); // politician name
         TextView party = (TextView)vi.findViewById(R.id.party); // pol. party name
         ImageView thumb_image=(ImageView)vi.findViewById(R.id.list_image); // thumb image
-        
-        Log.i("Info",String.valueOf(position));
         String thisPol = thesePols.get(position);
         String thisParty = theseParties.get(position);
         String thisImage = thesePics.get(position);
-        Log.i("Info",thisPol);
-        Log.i("Info",thisParty);
         // Setting all values in listview
         name.setText(thisPol);
         party.setText(thisParty);
         int id = activity.getResources().getIdentifier(thisImage, "drawable", activity.getPackageName());
-        Log.i("info",String.valueOf(id));
         thumb_image.setImageResource(id);
         return vi;
     }

@@ -29,8 +29,12 @@ public class NewsFeedRetrieval extends IntentService {
 		Messenger messenger = (Messenger) extras.get(MESSENGER_KEY);
 		String politicianname = (String) extras.get(POL_NAME);
 		//Get a string back from NPR using a custom Class housed in a different Java file.
-
-		String newsResponse = RetrieveDataFromAPIs.retrieveData("http://api.npr.org/query?fields=title,titles&searchTerm="+politicianname+"&dateType=story&output=JSON&searchType=mainText&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001");
+		
+		String convertedPolName = politicianname.replaceAll(".", " ");
+		Log.i("Info",convertedPolName);
+		String urlString = "http://api.npr.org/query?fields=title,titles&searchTerm="+convertedPolName+"&dateType=story&output=JSON&searchType=mainText&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001";
+		Log.i("Info",urlString);
+		String newsResponse = RetrieveDataFromAPIs.retrieveData(urlString);
 		//Pass the string back so that it can be parsed into JSON by the DisplayActivity
 		
 		Message message = Message.obtain();

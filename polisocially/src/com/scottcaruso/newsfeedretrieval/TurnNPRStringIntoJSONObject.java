@@ -4,8 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 public class TurnNPRStringIntoJSONObject {
 	public static JSONObject createMasterObject(String response)
 	{
@@ -13,26 +11,25 @@ public class TurnNPRStringIntoJSONObject {
 		try {
 			responseObject = new JSONObject(response);
 			JSONObject resultsObject = responseObject.getJSONObject("list");
-			{
-				return null;
-			}
-			JSONArray storyArray = resultsObject.getJSONArray("story");
 			if (resultsObject.length() == 0)
 			{
-				JSONArray parsedArray = new JSONArray();
-				for (int x = 0; x < storyArray.length(); x++)
-				{
-					JSONObject storyAndLinkObject = new JSONObject();
-					JSONObject thisStory = storyArray.getJSONObject(x);
-					JSONObject thisTitle = thisStory.getJSONObject("title");
-					String titleString = thisTitle.getString("$text");
-					JSONArray thisLink = thisStory.getJSONArray("link");
-					JSONObject linkObject = (JSONObject) thisLink.get(0);
-					String linkString = linkObject.getString("$text");
-					storyAndLinkObject.put("Story", titleString);
-					storyAndLinkObject.put("Link", linkString);
-					parsedArray.put(storyAndLinkObject);	
-				}
+				return null;
+			} else {
+			JSONArray storyArray = resultsObject.getJSONArray("story");
+			JSONArray parsedArray = new JSONArray();
+			for (int x = 0; x < storyArray.length(); x++)
+			{
+				JSONObject storyAndLinkObject = new JSONObject();
+				JSONObject thisStory = storyArray.getJSONObject(x);
+				JSONObject thisTitle = thisStory.getJSONObject("title");
+				String titleString = thisTitle.getString("$text");
+				JSONArray thisLink = thisStory.getJSONArray("link");
+				JSONObject linkObject = (JSONObject) thisLink.get(0);
+				String linkString = linkObject.getString("$text");
+				storyAndLinkObject.put("Story", titleString);
+				storyAndLinkObject.put("Link", linkString);
+				parsedArray.put(storyAndLinkObject);	
+			}
 				JSONObject links = new JSONObject().put("Links",parsedArray);
 				return links;
 				}
@@ -42,12 +39,6 @@ public class TurnNPRStringIntoJSONObject {
 				e.printStackTrace();
 				return null;
 			}
-	}
-	
-	public static String convertIDToLowercase(String rawID)
-	{
-	    rawID = rawID.substring(0, 1).toLowerCase() + rawID.substring(1);
-		return rawID;
 	}
 
 }
