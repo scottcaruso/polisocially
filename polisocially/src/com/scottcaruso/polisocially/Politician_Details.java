@@ -200,8 +200,8 @@ public class Politician_Details extends Activity {
 					} catch (Exception e) {
 						Log.e("Error","There was a problem retrieving the json Response.");
 					}
-					Log.i("Info",response);
 					JSONObject newsStories = TurnNPRStringIntoJSONObject.createMasterObject(response);
+					Log.i("Info",newsStories.toString());
 			    	/*Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
 					Activity currentActivity = (Activity) Main_Screen.this;
 					nextActivity.putExtra("Response", response);

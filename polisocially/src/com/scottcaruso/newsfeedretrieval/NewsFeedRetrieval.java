@@ -32,15 +32,13 @@ public class NewsFeedRetrieval extends IntentService {
 		
 		String convertedPolName = politicianname.replace(" ","%20");
 		convertedPolName = convertedPolName.replace(".", "");
-		Log.i("Info",convertedPolName);
-		String urlString = "http://api.npr.org/query?fields=title,titles&searchTerm="+convertedPolName+"&dateType=story&output=JSON&searchType=mainText&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001";
-		Log.i("Info",urlString);
+		String urlString = "http://api.npr.org/query?fields=title,titles&searchTerm="+convertedPolName+"&dateType=story&output=JSON&searchType=fullContent&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001";
 		String newsResponse = RetrieveDataFromAPIs.retrieveData(urlString);
 		//Pass the string back so that it can be parsed into JSON by the DisplayActivity
 		
 		Message message = Message.obtain();
-		message.arg1 = Activity.RESULT_OK; //Tell the MainActivity that the service worked.
-		message.obj = newsResponse; //Store the JSON Object to the Main Activity so it can do its magic.
+		message.arg1 = Activity.RESULT_OK; //Tell the activity that the service worked.
+		message.obj = newsResponse; //Store the JSON Object
 		
 		try 
 		{

@@ -242,7 +242,7 @@ public class Politician_Results extends Activity {
         Boolean needToShow = shouldButtonBeShown(multipleReps.size());
         showHiddenButton(needToShow);
         
-        if (wasZipSearch =  true)
+        if (wasZipSearch ==  true)
         {
         	View view = findViewById(R.id.map);
         	view.setVisibility(View.GONE);
