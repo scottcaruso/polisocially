@@ -1,0 +1,15 @@
+package com.scottcaruso.favoritesfunctions;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class SavePolitician {
+	
+	public static void savePolitician(Context context)
+	{
+		SharedPreferences prefs = context.getSharedPreferences(
+			      "com.example.app", Context.MODE_PRIVATE);
+	}
+	
+	
+}

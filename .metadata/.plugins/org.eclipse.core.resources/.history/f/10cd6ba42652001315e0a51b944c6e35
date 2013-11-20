@@ -1,0 +1,13 @@
+package com.scottcaruso.favoritesfunctions;
+
+import android.content.SharedPreferences;
+
+public class SavePolitician {
+	
+	public static void savePolitician()
+	{
+		SharedPreferences politicians = getPreferences();
+	}
+	
+	
+}

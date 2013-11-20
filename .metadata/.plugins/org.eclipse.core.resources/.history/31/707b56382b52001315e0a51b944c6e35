@@ -1,0 +1,24 @@
+package com.scottcaruso.favoritesfunctions;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class RetrievePoliticians {
+	
+	public static Boolean isPoliticianSaved(Context context, String govTrackID)
+	{
+		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
+		if (prefs != null)
+		{
+			String saved = prefs.getString("Politicians", "None")
+			
+		} else
+		{
+			return false;
+		}
+		
+		return true;
+		
+	}
+
+}

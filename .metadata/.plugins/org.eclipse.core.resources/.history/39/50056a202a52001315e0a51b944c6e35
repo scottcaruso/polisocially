@@ -1,0 +1,14 @@
+package com.scottcaruso.favoritesfunctions;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class RetrievePoliticians {
+	
+	public static Boolean isPoliticianSaved(Context context, String jsonString)
+	{
+		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
+		prefs.edit().putString("Politicians", jsonString);
+	}
+
+}
