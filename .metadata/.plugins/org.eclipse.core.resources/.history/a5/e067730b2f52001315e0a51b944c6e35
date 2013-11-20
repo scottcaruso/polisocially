@@ -82,6 +82,7 @@ public class Politician_Details extends Activity {
 				@Override
 				public void onClick(View v) {
 					SavePolitician.doSave(Politician_Details.this, politicianToSave);
+					
 				}
 			});
         }

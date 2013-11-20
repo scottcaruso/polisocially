@@ -7,8 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.scottcaruso.favoritesfunctions.RetrievePoliticians;
-import com.scottcaruso.favoritesfunctions.SavePolitician;
 import com.scottcaruso.newsfeedretrieval.NewsFeedRetrieval;
 import com.scottcaruso.newsfeedretrieval.TurnNPRStringIntoJSONObject;
 import android.app.Activity;
@@ -58,34 +56,6 @@ public class Politician_Details extends Activity {
         termEnd = extras.getString("Term End");
         govTrackID = extras.getString("GovTrack ID");
         photoID = extras.getString("Photo ID");
-        politicianToSave = new JSONObject();
-        try {
-			politicianToSave.put("Name", polName);
-			politicianToSave.put("Party", partyName);
-			politicianToSave.put("DOB", birthday);
-			politicianToSave.put("Term End", termEnd);
-			politicianToSave.put("GovTrack ID",govTrackID);
-			politicianToSave.put("Photo ID", photoID);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-        
-        Button favesButton = (Button) findViewById(R.id.favesButton);
-        Boolean saved = RetrievePoliticians.isPoliticianSaved(this, govTrackID);
-        if (saved == true)
-        {
-        	favesButton.setVisibility(Button.GONE);
-        } else
-        {
-        	favesButton.setOnClickListener(new View.OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					SavePolitician.doSave(Politician_Details.this, politicianToSave);
-				}
-			});
-        }
-        
         
     	Log.i("Info","DON'T FORGET TO ADD WEBSITES");
     	Log.i("Info","DON'T FORGET TO ADD PHONE NUMBERS");

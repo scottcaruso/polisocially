@@ -8,7 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.scottcaruso.favoritesfunctions.RetrievePoliticians;
-import com.scottcaruso.favoritesfunctions.SavePolitician;
 import com.scottcaruso.newsfeedretrieval.NewsFeedRetrieval;
 import com.scottcaruso.newsfeedretrieval.TurnNPRStringIntoJSONObject;
 import android.app.Activity;
@@ -81,9 +80,10 @@ public class Politician_Details extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					SavePolitician.doSave(Politician_Details.this, politicianToSave);
+					// TODO Auto-generated method stub
+					
 				}
-			});
+			})
         }
         
         

@@ -7,9 +7,9 @@ import android.content.SharedPreferences;
 
 public class SavePolitician {
 	
-	public static void doSave(Context context, JSONObject saveObject)
+	public static void doSave(Context context, JSONObject masterObject)
 	{
-		String fullString = convertJsonToString(saveObject);
+		String fullString = convertJsonToString(masterObject);
 		savePoliticians(context, fullString);
 	}
 	
