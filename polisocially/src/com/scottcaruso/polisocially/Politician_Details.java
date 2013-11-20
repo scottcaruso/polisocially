@@ -70,7 +70,7 @@ public class Politician_Details extends Activity {
 			e.printStackTrace();
 		}
         
-        Button favesButton = (Button) findViewById(R.id.favesButton);
+        final Button favesButton = (Button) findViewById(R.id.favesButton);
         Boolean saved = RetrievePoliticians.isPoliticianSaved(this, govTrackID);
         if (saved == true)
         {
@@ -82,6 +82,7 @@ public class Politician_Details extends Activity {
 				@Override
 				public void onClick(View v) {
 					SavePolitician.doSave(Politician_Details.this, politicianToSave);
+					favesButton.setVisibility(Button.GONE);
 				}
 			});
         }

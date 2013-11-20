@@ -1,6 +1,7 @@
 package com.scottcaruso.polisocially;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.scottcaruso.favoritesfunctions.RetrievePoliticians;
 import com.scottcaruso.sunlightlabsretrievalclasses.DataRetrievalService;
 import com.scottcaruso.utilities.Connection_Verification;
 
@@ -44,6 +45,7 @@ public class Main_Screen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__screen);
+        RetrievePoliticians.testFunction(this);
         boolean connection = connectionExists();
         //The connection logic below is simply for testing purposes. It will be hooked up when the required classes are built.
         if (connection)

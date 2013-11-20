@@ -1,0 +1,46 @@
+package com.scottcaruso.favoritesfunctions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class SavePolitician {
+	
+	public static void doSave(Context context, JSONObject saveObject)
+	{
+		String singleString = convertJsonToString(saveObject);
+		savePoliticians(context, singleString);
+	}
+	
+	public static void savePoliticians(Context context, String jsonString)
+	{
+		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
+		String saved = prefs.getString("Politicians", "None");
+		JSONObject masterObject;
+		JSONArray masterArray;
+		try {
+			masterObject = new JSONObject(saved);
+			masterArray = masterObject.getJSONArray("Politicians");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		masterArray.put(jsonString);
+		prefs.edit().putString("Politicians", jsonString);
+	}
+	
+	public static String convertJsonToString(JSONObject saveObject)
+	{
+		try {
+			String converted = saveObject.getString("Politician");
+			return converted;
+		} catch (JSONException e) {
+			return null;
+			e.printStackTrace();
+		}
+	}
+
+}

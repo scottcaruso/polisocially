@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class RetrievePoliticians {
 	
@@ -24,7 +25,7 @@ public class RetrievePoliticians {
 				for (int x = 0; x < polArray.length(); x++)
 				{
 					JSONObject thisPol = polArray.getJSONObject(x);
-					String thisGovTrack = thisPol.getString("GovTrackID");
+					String thisGovTrack = thisPol.getString("GovTrack ID");
 					if (thisGovTrack.equals(govTrackID))
 					{
 						return true;
@@ -36,6 +37,13 @@ public class RetrievePoliticians {
 				return false;
 			}
 		}	
+	}
+	
+	public static void testFunction(Context context)
+	{
+		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
+		String saved = prefs.getString("Politicians", "None");
+		Log.i("Info",saved);
 	}
 
 }
