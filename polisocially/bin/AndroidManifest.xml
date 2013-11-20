@@ -43,7 +43,7 @@
 	            	<data android:scheme="x-latify-oauth-twitter" android:host="callback" />
         		</intent-filter>
         </activity>
-        <service android:name="com.scottcaruso.dataretrievalclasses.DataRetrievalService"></service>
+        <service android:name="com.scottcaruso.sunlightlabsretrievalclasses.DataRetrievalService"></service>
     
         <meta-data
         	android:name="com.google.android.maps.v2.API_KEY"

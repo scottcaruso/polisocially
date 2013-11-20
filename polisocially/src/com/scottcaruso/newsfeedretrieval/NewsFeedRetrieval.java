@@ -1,6 +1,6 @@
 package com.scottcaruso.newsfeedretrieval;
 
-import com.scottcaruso.sunlightlabsretrievalclasses.RetrieveDataFromSunlightLabs;
+import com.scottcaruso.sunlightlabsretrievalclasses.RetrieveDataFromAPIs;
 
 import android.app.Activity;
 import android.app.IntentService;
@@ -30,7 +30,7 @@ public class NewsFeedRetrieval extends IntentService {
 		String politicianname = (String) extras.get(POL_NAME);
 		//Get a string back from NPR using a custom Class housed in a different Java file.
 
-		String newsResponse = RetrieveDataFromNPR.retrieveData("http://api.npr.org/query?fields=title,titles&searchTerm="+politicianname+"&dateType=story&output=JSON&searchType=mainText&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001");
+		String newsResponse = RetrieveDataFromAPIs.retrieveData("http://api.npr.org/query?fields=title,titles&searchTerm="+politicianname+"&dateType=story&output=JSON&searchType=mainText&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001");
 		//Pass the string back so that it can be parsed into JSON by the DisplayActivity
 		
 		Message message = Message.obtain();

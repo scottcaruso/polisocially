@@ -12,7 +12,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.scottcaruso.listadapter.CustomAdapter;
-import com.scottcaruso.sunlightlabsretrievalclasses.TurnStringIntoJSONObject;
+import com.scottcaruso.sunlightlabsretrievalclasses.TurnSunlightStringIntoJSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -69,7 +69,7 @@ public class Politician_Results extends Activity {
         }
         Log.i("Info",polData);
         
-        thesePols = TurnStringIntoJSONObject.createMasterObject(polData);
+        thesePols = TurnSunlightStringIntoJSONObject.createMasterObject(polData);
         try {
         	polsList = new ArrayList<String>();
         	partyList = new ArrayList<String>();

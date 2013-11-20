@@ -1,0 +1,75 @@
+package com.scottcaruso.newsfeedretrieval;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.util.Log;
+
+public class TurnNPRStringIntoJSONObject {
+	public static JSONObject createMasterObject(String response)
+	{
+		JSONObject responseObject;
+		try {
+			responseObject = new JSONObject(response);
+			JSONObject resultsObject = responseObject.getJSONObject("list");
+			{
+				return null;
+			}
+			JSONArray storyArray = resultsObject.getJSONArray("story");
+			if (resultsObject.length() == 0)
+			{
+				JSONArray parsedArray = new JSONArray();
+				for (int x = 0; x < storyArray.length(); x++)
+				{
+					JSONObject storyAndLinkObject = new JSONObject();
+					JSONObject thisStory = storyArray.getJSONObject(x);
+					JSONObject thisTitle = thisStory.getJSONObject("title");
+					String titleString = thisTitle.getString("$text");
+					JSONObject thisLink = thisStory.getJSONObject("link");
+					String thisFirstName = thisPol.getString("first_name");
+					String thisLastName = thisPol.getString("last_name");
+					String thisTitle = thisPol.getString("title");
+					String fullName = thisTitle + ". " + thisFirstName + " " + thisLastName;
+					String thisID = thisPol.getString("govtrack_id");
+					String photoID = thisPol.getString("bioguide_id");
+					String convertedID = convertIDToLowercase(photoID);
+					String thisParty = thisPol.getString("party");
+					String thisState = thisPol.getString("state");
+					String termEnds = thisPol.getString("term_end");
+					String twitterHandle = thisPol.getString("twitter_id");
+					String thisWebsite = thisPol.getString("website");
+					String thisDistrict = thisPol.getString("district");
+					String thisBirthday = thisPol.getString("birthday");
+					parsedPoliticianObject.put("Name", fullName);
+					parsedPoliticianObject.put("GovTrackID", thisID);
+					parsedPoliticianObject.put("Party", thisParty);
+					parsedPoliticianObject.put("State", thisState);
+					parsedPoliticianObject.put("TermEnd", termEnds);
+					parsedPoliticianObject.put("Twitter", twitterHandle);
+					parsedPoliticianObject.put("Website", thisWebsite);
+					parsedPoliticianObject.put("Title", thisTitle);
+					parsedPoliticianObject.put("District", thisDistrict);
+					parsedPoliticianObject.put("Birthday", thisBirthday);
+					parsedPoliticianObject.put("PhotoID",convertedID);
+					parsedPoliticians.put(parsedPoliticianObject);	
+				}
+				Log.i("Info","Results found and ready to return.");
+				JSONObject politicians = new JSONObject().put("Politicians", parsedPoliticians);
+				return politicians;
+				}
+				
+			} catch (JSONException e) {
+				
+				e.printStackTrace();
+				return null;
+			}
+	}
+	
+	public static String convertIDToLowercase(String rawID)
+	{
+	    rawID = rawID.substring(0, 1).toLowerCase() + rawID.substring(1);
+		return rawID;
+	}
+
+}

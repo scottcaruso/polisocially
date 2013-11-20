@@ -15,3 +15,6 @@
 1384840723171	Extracts string 'Add to Favorites' into R.string.add_to_favorites
 1384850813441	Extracts string 'Tap Here To View' into R.string.tap_here_to_view
 1384926939840	Rename package 'com.scottcaruso.dataretrievalclasses'
+1384929379317	Delete element
+1384929402278	Rename type 'RetrieveDataFromSunlightLabs'
+1384929732607	Rename type 'TurnStringIntoJSONObject'
