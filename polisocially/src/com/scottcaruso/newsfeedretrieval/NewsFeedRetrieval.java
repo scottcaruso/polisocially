@@ -30,7 +30,8 @@ public class NewsFeedRetrieval extends IntentService {
 		String politicianname = (String) extras.get(POL_NAME);
 		//Get a string back from NPR using a custom Class housed in a different Java file.
 		
-		String convertedPolName = politicianname.replaceAll(".", " ");
+		String convertedPolName = politicianname.replace(" ","%20");
+		convertedPolName = convertedPolName.replace(".", "");
 		Log.i("Info",convertedPolName);
 		String urlString = "http://api.npr.org/query?fields=title,titles&searchTerm="+convertedPolName+"&dateType=story&output=JSON&searchType=mainText&apiKey=MDEyNjM3MTM0MDEzODQ5MjY0NDE5ZTRkNg001";
 		Log.i("Info",urlString);
