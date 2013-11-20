@@ -33,9 +33,12 @@ public class Main_Screen extends Activity {
 	public static LocationManager lm;
 	public static String lat = "none";
 	public static String lon = "none";
+	public static Double latDouble;
+	public static Double lonDouble;
 	public static String response;
 	public static String location;
 	public static String zipEntered = "none";
+	public boolean zipCodeSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,7 @@ public class Main_Screen extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				zipCodeSearch = true;
 				AlertDialog.Builder alert = new AlertDialog.Builder(Main_Screen.this);
 
 				alert.setTitle("Enter Zip Code");
@@ -146,7 +150,7 @@ public class Main_Screen extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				zipCodeSearch = false;
 				runGeolocation();
 			}
 		});
@@ -191,8 +195,8 @@ public class Main_Screen extends Activity {
     	};
     	lm.requestSingleUpdate(criteria, listener, null);
     	Location thisLocation = lm.getLastKnownLocation(providerName);
-    	Double latDouble = thisLocation.getLatitude();
-    	Double lonDouble = thisLocation.getLongitude();
+    	latDouble = thisLocation.getLatitude();
+    	lonDouble = thisLocation.getLongitude();
     	lat = String.valueOf(latDouble);
     	lon = String.valueOf(lonDouble);
     	Log.i("Current Location","Lat = "+lat+"  Lon = "+lon);
@@ -227,19 +231,13 @@ public class Main_Screen extends Activity {
  						} else
  						{
  							//When we get a response...
-							//Log.i("Response",response);
 					    	Intent nextActivity = new Intent(Main_Screen.this,Politician_Results.class);
 							Activity currentActivity = (Activity) Main_Screen.this;
 							nextActivity.putExtra("Response", response);
-							currentActivity.startActivityForResult(nextActivity, 0);
- 							/*try {
- 								//Try to parse it into a valid location plus state
-
-							} catch (JSONException e) {
-								Log.e("Error","Problem parsing JSON data!");
-								e.printStackTrace();
-							}*/
- 							
+							nextActivity.putExtra("lat",latDouble);
+							nextActivity.putExtra("lon",lonDouble);
+							nextActivity.putExtra("ZipCodeSearch",zipCodeSearch);
+							currentActivity.startActivityForResult(nextActivity, 0);		
  						}
  					}
  				}

@@ -5,11 +5,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.scottcaruso.dataretrievalclasses.TurnStringIntoJSONObject;
 import com.scottcaruso.listadapter.CustomAdapter;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +29,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Politician_Results extends Activity {
 	
@@ -40,16 +50,25 @@ public class Politician_Results extends Activity {
 	public ListView listview;
 	public ArrayAdapter<String> politicianAdapter;
 	public CustomAdapter adapter;
+	public static Double latitude;
+	public static Double longitude;
+	public static Boolean wasZipSearch;
+	private GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+ 
+        setContentView(R.layout.activity_politician_results);
 
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
         	polData= null;
             } else {
             polData = extras.getString("Response");
+            latitude = extras.getDouble("lat");
+            longitude = extras.getDouble("lon");
+            wasZipSearch = extras.getBoolean("ZipCodeSearch");
         }
         Log.i("Info",polData);
         
@@ -198,11 +217,7 @@ public class Politician_Results extends Activity {
 			e.printStackTrace();
 		}
         createObamaAndBiden();
-   
-        setContentView(R.layout.activity_politician_results);
         
-        Log.i("info",polsList.toString());
-        Log.i("info",partyList.toString());
         adapter = new CustomAdapter(Politician_Results.this,polsList,partyList,photoIDList);
         politicianAdapter = createArray(polsList);
         listview = (ListView) findViewById(R.id.listOfPols);
@@ -229,7 +244,25 @@ public class Politician_Results extends Activity {
         
         Boolean needToShow = shouldButtonBeShown(multipleReps.size());
         showHiddenButton(needToShow);
-
+        
+        if (wasZipSearch =  true)
+        {
+        	View view = findViewById(R.id.map);
+        	view.setVisibility(View.GONE);
+        	
+        } else
+        {
+	        initilizeMap();
+	        CameraPosition cameraPosition = new CameraPosition.Builder().target(
+	                new LatLng(latitude,longitude)).zoom(12).build();
+	        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+	        
+	        // create marker
+	        MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("Hello Maps");
+	         
+	        // adding marker
+	        map.addMarker(marker);
+        }
     }
 
     @Override
@@ -238,21 +271,6 @@ public class Politician_Results extends Activity {
         getMenuInflater().inflate(R.menu.menu_politician_results, menu);
         return true;
     }
-    
-    /*public void debugButtonClick()
-    {
-    	Button debugButton = (Button) findViewById(R.id.button1);
-    	debugButton.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-		    	Intent nextActivity = new Intent(Politician_Results.this,Politician_Details.class);
-				Activity currentActivity = (Activity) Politician_Results.this;
-				currentActivity.startActivityForResult(nextActivity, 0);
-			}
-		});
-    }*/
     
     public ArrayAdapter<String> createArray(ArrayList<String> polsList2)
     {
@@ -354,6 +372,19 @@ public class Politician_Results extends Activity {
 		govTrackList.add("300008");
 		photoIDList.add("obama");
 		photoIDList.add("biden");
+    }
+    
+    private void initilizeMap() {
+        if (map == null) {
+        	map = ((MapFragment) getFragmentManager().findFragmentById(
+                    R.id.map)).getMap();
+ 
+            // check if map is created successfully or not
+            if (map == null) {
+                Toast.makeText(getApplicationContext(),
+                        "Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
     
 }
