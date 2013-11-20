@@ -18,3 +18,4 @@
 1384929379317	Delete element
 1384929402278	Rename type 'RetrieveDataFromSunlightLabs'
 1384929732607	Rename type 'TurnStringIntoJSONObject'
+1384977385197	Extracts string 'NPR News' into R.string.npr_news

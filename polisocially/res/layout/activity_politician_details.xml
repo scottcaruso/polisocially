@@ -127,15 +127,32 @@
         android:id="@+id/lowerSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:paddingTop="15dp" android:baselineAligned="false">
+        android:paddingTop="15dp" >
 
-        <ListView
-            android:id="@+id/newsList"
-            android:layout_width="0dip"
+        <LinearLayout
+            android:id="@+id/listviewpart"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2.67" >
-        </ListView>
+            android:layout_weight="1.22"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/npr_news"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <ListView
+                android:id="@+id/newsList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </ListView>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/buttons"
