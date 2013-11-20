@@ -1,7 +1,7 @@
 package com.scottcaruso.polisocially;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.scottcaruso.sunlightlabsretrievalclasses.DataRetrievalService;
+import com.scottcaruso.dataretrievalclasses.DataRetrievalService;
 import com.scottcaruso.utilities.Connection_Verification;
 
 import android.location.Criteria;

@@ -1,0 +1,14 @@
+package com.scottcaruso.newsfeedretrieval;
+
+import android.app.IntentService;
+import android.content.Intent;
+
+public class NewsFeedRetrieval extends IntentService {
+
+	@Override
+	protected void onHandleIntent(Intent intent) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

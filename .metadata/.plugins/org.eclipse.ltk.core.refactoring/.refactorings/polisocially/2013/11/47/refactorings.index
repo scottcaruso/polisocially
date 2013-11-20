@@ -14,3 +14,4 @@
 1384837955511	Extracts string 'Placeholder' into R.string.placeholder
 1384840723171	Extracts string 'Add to Favorites' into R.string.add_to_favorites
 1384850813441	Extracts string 'Tap Here To View' into R.string.tap_here_to_view
+1384926939840	Rename package 'com.scottcaruso.dataretrievalclasses'
