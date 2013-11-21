@@ -1073,12 +1073,12 @@ containing a value of this type.
         public static final int menu_politician_results=0x7f090003;
     }
     public static final class string {
-        public static final int about=0x7f06001c;
-        public static final int about_app=0x7f06001b;
+        public static final int about=0x7f06001b;
+        public static final int about_app=0x7f06001a;
         public static final int action_settings=0x7f060016;
-        public static final int add_to_favorites=0x7f060038;
-        public static final int age=0x7f060020;
-        public static final int all_politiican_data_courtesy_of_sunlight_labs_=0x7f06001a;
+        public static final int add_to_favorites=0x7f060037;
+        public static final int age=0x7f06001f;
+        public static final int all_politiican_data_courtesy_of_sunlight_labs_=0x7f060019;
         public static final int app_name=0x7f060015;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -1103,9 +1103,9 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f06000f;
-        public static final int birthday=0x7f060034;
-        public static final int call=0x7f060023;
-        public static final int change_district=0x7f060027;
+        public static final int birthday=0x7f060033;
+        public static final int call=0x7f060022;
+        public static final int change_district=0x7f060026;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -1161,38 +1161,37 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06000e;
-        public static final int debug_advance_to_next_screen=0x7f060026;
-        public static final int delete_button=0x7f06003c;
-        public static final int description=0x7f06003d;
-        public static final int follow=0x7f060022;
-        public static final int get_timeline=0x7f06002b;
-        public static final int govtrack_id=0x7f060036;
-        public static final int hello_world=0x7f060017;
-        public static final int hometown=0x7f060021;
-        public static final int login=0x7f060029;
-        public static final int logout=0x7f06002c;
-        public static final int main_geolocation_button=0x7f060018;
-        public static final int npr_news=0x7f06003a;
-        public static final int party=0x7f06001f;
-        public static final int party_name=0x7f060031;
-        public static final int placeholder=0x7f060037;
-        public static final int placeholder_map=0x7f06001d;
-        public static final int politician_image=0x7f06002f;
-        public static final int politician_name=0x7f060030;
-        public static final int politician_picture=0x7f060024;
-        public static final int politiican_name=0x7f06001e;
-        public static final int post_to_facebook=0x7f060032;
-        public static final int posts=0x7f060028;
-        public static final int sign_in_to_view_tweets=0x7f06002e;
-        public static final int state=0x7f06003b;
-        public static final int tap_here_to_view=0x7f060039;
-        public static final int term_end=0x7f060035;
-        public static final int tweet=0x7f060025;
-        public static final int update_status=0x7f06002a;
-        public static final int user_name=0x7f06002d;
-        public static final int view_favorites=0x7f06003e;
-        public static final int visit_website=0x7f060033;
-        public static final int zip_code_entry=0x7f060019;
+        public static final int debug_advance_to_next_screen=0x7f060025;
+        public static final int delete_button=0x7f06003b;
+        public static final int description=0x7f06003c;
+        public static final int follow=0x7f060021;
+        public static final int get_timeline=0x7f06002a;
+        public static final int govtrack_id=0x7f060035;
+        public static final int hometown=0x7f060020;
+        public static final int login=0x7f060028;
+        public static final int logout=0x7f06002b;
+        public static final int main_geolocation_button=0x7f060017;
+        public static final int npr_news=0x7f060039;
+        public static final int party=0x7f06001e;
+        public static final int party_name=0x7f060030;
+        public static final int placeholder=0x7f060036;
+        public static final int placeholder_map=0x7f06001c;
+        public static final int politician_image=0x7f06002e;
+        public static final int politician_name=0x7f06002f;
+        public static final int politician_picture=0x7f060023;
+        public static final int politiican_name=0x7f06001d;
+        public static final int post_to_facebook=0x7f060031;
+        public static final int posts=0x7f060027;
+        public static final int sign_in_to_view_tweets=0x7f06002d;
+        public static final int state=0x7f06003a;
+        public static final int tap_here_to_view=0x7f060038;
+        public static final int term_end=0x7f060034;
+        public static final int tweet=0x7f060024;
+        public static final int update_status=0x7f060029;
+        public static final int user_name=0x7f06002c;
+        public static final int view_favorites=0x7f06003d;
+        public static final int visit_website=0x7f060032;
+        public static final int zip_code_entry=0x7f060018;
     }
     public static final class style {
         /** 
