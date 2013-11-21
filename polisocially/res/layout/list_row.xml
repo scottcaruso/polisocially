@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/polName"
         android:textColor="#343434"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
         android:text="@string/party_name" />

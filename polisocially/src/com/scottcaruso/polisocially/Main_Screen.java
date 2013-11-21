@@ -159,6 +159,7 @@ public class Main_Screen extends Activity {
     {
     	zipEntered = "none";
     	ImageButton mainButton = (ImageButton) findViewById(R.id.imageButton1);
+    	mainButton.setBackground(null);
     	mainButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
