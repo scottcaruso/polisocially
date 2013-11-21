@@ -1,0 +1,23 @@
+package com.scottcaruso.polisocially;
+
+public class Social_Strings {
+	
+	public String positiveStrings(int optionValue)
+	{
+		String socialText;
+		switch (optionValue) {
+		case 0:
+			socialText = "";
+			return socialText;
+
+		default:
+			break;
+		}
+	}
+	
+	public String negativeStrings(String issue)
+	{
+		
+	}
+
+}

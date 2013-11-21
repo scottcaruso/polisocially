@@ -44,6 +44,7 @@ public class TurnSunlightStringIntoJSONObject {
 					String thisWebsite = thisPol.getString("website");
 					String thisDistrict = thisPol.getString("district");
 					String thisBirthday = thisPol.getString("birthday");
+					String thisPhone = thisPol.getString("phone");
 					parsedPoliticianObject.put("Name", fullName);
 					parsedPoliticianObject.put("Name No Title",firstPlusLast);
 					parsedPoliticianObject.put("GovTrackID", thisID);
@@ -56,6 +57,7 @@ public class TurnSunlightStringIntoJSONObject {
 					parsedPoliticianObject.put("District", thisDistrict);
 					parsedPoliticianObject.put("Birthday", thisBirthday);
 					parsedPoliticianObject.put("PhotoID",convertedID);
+					parsedPoliticianObject.put("Phone",thisPhone);
 					parsedPoliticians.put(parsedPoliticianObject);	
 				}
 				Log.i("Info","Results found and ready to return.");

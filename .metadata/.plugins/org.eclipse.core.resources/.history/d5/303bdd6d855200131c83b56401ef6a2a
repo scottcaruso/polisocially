@@ -1,0 +1,149 @@
+package com.scottcaruso.polisocially;
+
+public class Social_Strings {
+	
+	public static String positiveStrings(int optionValue)
+	{
+		String socialText;
+		switch (optionValue) {
+		case 0:
+			socialText = "";
+			return socialText;
+		case 1:
+			socialText = "Protect a woman's right to choose! Support abortion rights!";
+			return socialText;
+		case 2:
+			socialText = "I'm the only person in America happy with the federal budget!";
+			return socialText;
+		case 3:
+			socialText = "Don't rush into new legislation. Keep moving slowly!";
+			return socialText;
+		case 4:
+			socialText = "Our teachers need our support! Invest more money in education now.";
+			return socialText;
+		case 5:
+			socialText = "We only have one planet. Please take steps to protect her!";
+			return socialText;
+		case 6:
+			socialText = "Our farmers deserve a real farm bill. Give them the support they need!";
+			return socialText;
+		case 7:
+			socialText = "The FDA does a tremendous job. Give them all promotions and raises!";
+			return socialText;
+		case 8:
+			socialText = "Gas prices could be way worse. Thank you for keeping it only moderately expensive.";
+			return socialText;
+		case 9:
+			socialText = "LGBT rights are human rights. Give our brothers and sisters the respect they deserve.";
+			return socialText;
+		case 10:
+			socialText = "How many children need to be murdered with guns before we do something? Gun control now!";
+			return socialText;
+		case 11:
+			socialText = "Please keep my taxes where they are at. I'm proud to support important social programs.";
+			return socialText;
+		case 12:
+			socialText = "Our immigration system is broken. We need to make fixing it a priority now!";
+			return socialText;
+		case 13:
+			socialText = "I hate paying taxes! Keep cutting them down, down, down!";
+			return socialText;
+		case 14:
+			socialText = "The minimum wage is not a living wage. It's time to give workers their dignity back!";
+			return socialText;
+		case 15:
+			socialText = "America's might is in her strong military. Don't you dare think about cutting our military budget!";
+			return socialText;
+		case 16:
+			socialText = "Remember when we put a man on the moon? America can be great in space again.";
+			return socialText;
+		case 17:
+			socialText = "The War on Terror will NEVER cease. Keep fighting back against evildoers!";
+			return socialText;
+		case 18:
+			socialText = "Healthcare is a human right! It's time we took the next step and enacted universal healthcare for all!";
+			return socialText;
+		case 19:
+			socialText = "This country is run by Main Street, not Wall Street. Reform the bankers; hold them accountable!";
+			return socialText;
+		case 20:
+			socialText = "Aliens exist. And they are coming. WELCOME OVERLORDS!";
+			return socialText;	
+		default:
+			return "";
+		}
+	}
+	
+	public String negativeStrings(int optionValue)
+	{
+		String socialText;
+		switch (optionValue) {
+		case 0:
+			socialText = "";
+			return socialText;
+		case 1:
+			socialText = "The unborn is still alive. Restrict abortions now!";
+			return socialText;
+		case 2:
+			socialText = "I have to balance my budget at home; it's time you clowns had to do the same!";
+			return socialText;
+		case 3:
+			socialText = "Stop acting like babies and pass laws that help real American people!";
+			return socialText;
+		case 4:
+			socialText = "We can't afford to waste any more money on public education. Slash those teacher's unions!";
+			return socialText;
+		case 5:
+			socialText = "The environmentalist agenda is corrupting our government. Global warming is a myth!";
+			return socialText;
+		case 6:
+			socialText = "Farm work is a thing of the past. Stop wasting money on useless farm bills.";
+			return socialText;
+		case 7:
+			socialText = "Down with the FDA! Money wasted!";
+			return socialText;
+		case 8:
+			socialText = "Gas prices are too darn high. Thanks, Obama.";
+			return socialText;
+		case 9:
+			socialText = "It's Adam and Eve, not Adam and STEVE. Protect the sanctity of marriage for the children!";
+			return socialText;
+		case 10:
+			socialText = "Don't you dare try to come take my guns away, or you'll see the power of a well-armed militia!";
+			return socialText;
+		case 11:
+			socialText = "STOP TAKING MY MONEY!";
+			return socialText;
+		case 12:
+			socialText = "Immigration reform is a waste of time. Gather them up, ship them out, and put Americans back to work!";
+			return socialText;
+		case 13:
+			socialText = "America can't afford a low tax rate. Keep the rates where they are at!";
+			return socialText;
+		case 14:
+			socialText = "Raising the minimum wage would cripple small business. Why do you hate hard-working Americans?";
+			return socialText;
+		case 15:
+			socialText = "We spend too much money on global conquest. Build infrastructure at home, not abroad!";
+			return socialText;
+		case 16:
+			socialText = "What is this, 1960? Time to kill NASA for good.";
+			return socialText;
+		case 17:
+			socialText = "The war on terror is a joke designed to scare people! Stop pandering to fear!";
+			return socialText;
+		case 18:
+			socialText = "OBAMACARE. NO. NO. NO. NO.";
+			return socialText;
+		case 19:
+			socialText = "Stop picking on poor, innocent investment bankers for being richer than you. They've earned their money!";
+			return socialText;
+		case 20:
+			socialText = "THE ALIENS ARE COMING!! RUN FOR YOUR LIVES!!!";
+			return socialText;	
+		default:
+			return "";
+		}
+	}
+
+}

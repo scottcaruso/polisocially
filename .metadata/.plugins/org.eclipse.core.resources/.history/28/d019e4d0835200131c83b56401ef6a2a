@@ -1,0 +1,82 @@
+package com.scottcaruso.polisocially;
+
+public class Social_Strings {
+	
+	public String positiveStrings(int optionValue)
+	{
+		String socialText;
+		switch (optionValue) {
+		case 0:
+			socialText = "";
+			return socialText;
+		case 1:
+			socialText = "Protect a woman's right to choose! Support abortion rights!";
+			return socialText;
+		case 2:
+			socialText = "I'm the only person in America happy with the federal budget!";
+			return socialText;
+		case 3:
+			socialText = "Don't rush into new legislation. Keep moving slowly!";
+			return socialText;
+		case 4:
+			socialText = "Our teachers need our support! Invest more money in education now.";
+			return socialText;
+		case 5:
+			socialText = "We only have one planet. Please take steps to protect her!";
+			return socialText;
+		case 6:
+			socialText = "Our farmers deserve a real farm bill. Give them the support they need!";
+			return socialText;
+		case 7:
+			socialText = "The FDA does a tremendous job. Give them all promotions and raises!";
+			return socialText;
+		case 8:
+			socialText = "Gas prices could be way worse. Thank you for keeping it only moderately expensive.";
+			return socialText;
+		case 9:
+			socialText = "LGBT rights are human rights. Give our brothers and sisters the respect they deserve.";
+			return socialText;
+		case 10:
+			socialText = "How many children need to be murdered with guns before we do something? Gun control now!";
+			return socialText;
+		case 11:
+			socialText = "Please keep my taxes where they are at. I'm proud to support important social programs.";
+			return socialText;
+		case 12:
+			socialText = "Our immigration system is broken. We need to make fixing it a priority now!";
+			return socialText;
+		case 13:
+			socialText = "I hate paying taxes! Keep cutting them down, down, down!";
+			return socialText;
+		case 14:
+			socialText = "The minimum wage is not a living wage. It's time to give workers their dignity back!";
+			return socialText;
+		case 15:
+			socialText = "America's might is in her strong military. Don't you dare think about cutting our military budget!";
+			return socialText;
+		case 16:
+			socialText = "Remember when we put a man on the moon? America can be great in space again.";
+			return socialText;
+		case 17:
+			socialText = "The War on Terror will NEVER cease. Keep fighting back against evildoers!";
+			return socialText;
+		case 18:
+			socialText = "Healthcare is a human right! It's time we took the next step and enacted universal healthcare for all!";
+			return socialText;
+		case 19:
+			socialText = "This country is run by Main Street, not Wall Street. Reform the bankers; hold them accountable!";
+			return socialText;
+		case 20:
+			socialText = "Aliens exist. And they are coming. WELCOME OVERLORDS!";
+			return socialText;	
+		default:
+			return "";
+		}
+	}
+	
+	public String negativeStrings(String issue)
+	{
+		
+	}
+
+}

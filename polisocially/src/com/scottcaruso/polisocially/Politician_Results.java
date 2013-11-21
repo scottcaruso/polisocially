@@ -39,6 +39,9 @@ public class Politician_Results extends Activity {
 	public static ArrayList<String> govTrackList;
 	public static ArrayList<String> photoIDList;
 	public static ArrayList<String> statesList;
+	public static ArrayList<String> phoneList;
+	public static ArrayList<String> twitterList;
+	public static ArrayList<String> websiteList;
 	public String location;
 	public String tempLocation;
 	public ArrayList<String> multipleReps;
@@ -79,6 +82,9 @@ public class Politician_Results extends Activity {
         	govTrackList = new ArrayList<String>();
         	photoIDList = new ArrayList<String>();
         	statesList = new ArrayList<String>();
+        	phoneList = new ArrayList<String>();
+        	twitterList = new ArrayList<String>();
+        	websiteList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
         	multipleReps = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
@@ -95,6 +101,9 @@ public class Politician_Results extends Activity {
 					String govTrackID = polObjectOne.getString("GovTrackID");
 					String photoID = polObjectOne.getString("PhotoID");
 					String state = polObjectOne.getString("State");
+					String phone = polObjectOne.getString("Phone");
+					String twitter = polObjectOne.getString("Twitter");
+					String website = polObjectOne.getString("Website");
 					String longPartyName;
 					polsList.add(polName);
 					birthdayList.add(birthday);
@@ -102,6 +111,9 @@ public class Politician_Results extends Activity {
 					govTrackList.add(govTrackID);
 					photoIDList.add(photoID);
 					statesList.add(state);
+					twitterList.add(twitter);
+					phoneList.add(phone);
+					websiteList.add(website);
 					Log.i("info",polsList.toString());
 					if (partyName.equals("D"))
 					{
@@ -155,6 +167,9 @@ public class Politician_Results extends Activity {
 					String govTrackID = polObjectThree.getString("GovTrackID");
 					String photoID = polObjectThree.getString("PhotoID");
 					String state = polObjectThree.getString("State");
+					String phone = polObjectThree.getString("Phone");
+					String twitter = polObjectThree.getString("Twitter");
+					String website = polObjectThree.getString("Website");
 					String longPartyName;
 					String polTitle = "None";
 					try {
@@ -175,6 +190,9 @@ public class Politician_Results extends Activity {
 									govTrackList.add(govTrackID);
 									photoIDList.add(photoID);
 									statesList.add(state);
+									twitterList.add(twitter);
+									phoneList.add(phone);
+									websiteList.add(website);
 									Log.i("info",polsList.toString());
 									if (partyName.equals("D"))
 									{
@@ -197,6 +215,9 @@ public class Politician_Results extends Activity {
 							govTrackList.add(govTrackID);
 							photoIDList.add(photoID);
 							statesList.add(state);
+							twitterList.add(twitter);
+							phoneList.add(phone);
+							websiteList.add(website);
 							Log.i("info",polsList.toString());
 							if (partyName.equals("D"))
 							{
@@ -238,6 +259,9 @@ public class Politician_Results extends Activity {
 		    	nextActivity.putExtra("GovTrack ID", govTrackList.get(item));
 		    	nextActivity.putExtra("Photo ID", photoIDList.get(item));
 		    	nextActivity.putExtra("State", statesList.get(item));
+		    	nextActivity.putExtra("Twitter", twitterList.get(item));
+		    	nextActivity.putExtra("Website", websiteList.get(item));
+		    	nextActivity.putExtra("Phone", phoneList.get(item));
 				Activity currentActivity = (Activity) Politician_Results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
@@ -377,6 +401,12 @@ public class Politician_Results extends Activity {
 		photoIDList.add("biden");
 		statesList.add("IL");
 		statesList.add("DE");
+		phoneList.add("(202) 456-1111");
+		phoneList.add("(202) 456-1111");
+		websiteList.add("http://www.barackobama.com/");
+		websiteList.add("http://www.joebiden.com/");
+		twitterList.add("BarackObama");
+		twitterList.add("JoeBiden");
     }
     
     private void initilizeMap() {

@@ -29,6 +29,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,12 +46,17 @@ public class Politician_Details extends Activity {
 	public static String govTrackID;
 	public static String photoID;
 	public static String state;
+	public static String phone;
+	public static String twitter;
+	public static String website;
 	public static String response;
 	public static JSONObject politicianToSave;
 	public static ArrayList<String> stories;
 	public static ArrayList<String> links;
-	public static String issue;
+	public static int issue;
 	public static Boolean support;
+	public static String socialString;
+	public static int buttonClicked; //1 = Twitter, 2 = Facebook
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,9 @@ public class Politician_Details extends Activity {
         govTrackID = extras.getString("GovTrack ID");
         state = extras.getString("State");
         photoID = extras.getString("Photo ID");
+        phone = extras.getString("Phone");
+        twitter = extras.getString("Twitter");
+        website = extras.getString("Website");
         politicianToSave = new JSONObject();
         try {
 			politicianToSave.put("Name", polName);
@@ -74,6 +83,9 @@ public class Politician_Details extends Activity {
 			politicianToSave.put("State", state);
 			politicianToSave.put("GovTrack ID",govTrackID);
 			politicianToSave.put("Photo ID", photoID);
+			politicianToSave.put("Phone", phone);
+			politicianToSave.put("Twitter", twitter);
+			politicianToSave.put("Website", website);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -128,11 +140,11 @@ public class Politician_Details extends Activity {
         
         Button twitterButton = (Button) findViewById(R.id.buttonTweet);
         twitterButton.setOnClickListener(new View.OnClickListener() {
-			
+        	
 			@Override
 			public void onClick(View v) {
-				//launchTwitterIntent();
-				createIssueAlert();
+				buttonClicked = 1;
+				createIssueAlert(buttonClicked);
 			}
 		});
         
@@ -141,7 +153,8 @@ public class Politician_Details extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				launchFacebookIntent();		
+				buttonClicked = 2;
+				createIssueAlert(buttonClicked);	
 			}
 		});
         
@@ -159,7 +172,7 @@ public class Politician_Details extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				launchWebIntent("http://www.google.com/");		
+				launchWebIntent(website);		
 			}
 		});
         
@@ -172,10 +185,10 @@ public class Politician_Details extends Activity {
         return true;
     }
     
-    public void launchTwitterIntent()
+    public void launchTwitterIntent(String text)
     {
     	Intent tweetIntent = new Intent(Intent.ACTION_SEND);
-    	tweetIntent.putExtra(Intent.EXTRA_TEXT, "This is a Test.");
+    	tweetIntent.putExtra(Intent.EXTRA_TEXT, text);
     	tweetIntent.setType("text/plain");
 
     	PackageManager packManager = getPackageManager();
@@ -226,7 +239,7 @@ public class Politician_Details extends Activity {
     
     public void launchPhoneIntent()
     {
-    	Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "407-267-3533"));
+    	Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
     	startActivity(intent);
     }
     
@@ -302,11 +315,12 @@ public class Politician_Details extends Activity {
 		});
     }
     
-    public void createIssueAlert() {
+    public void createIssueAlert(int clicked) {
     	final AlertDialog.Builder alert = new AlertDialog.Builder(this);
     	final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 Politician_Details.this,
                 android.R.layout.select_dialog_singlechoice);
+    	final int social = clicked;
     	alert.setTitle("Which of these issues matters most to you?");
         arrayAdapter.add("Enter My Own");
         arrayAdapter.add("Abortion");
@@ -343,10 +357,9 @@ public class Politician_Details extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                	issue = arrayAdapter.getItem(which);
-                	Log.i("Info",issue);
+                	issue = which;
                     dialog.dismiss();
-                    createPreferenceAlert();
+                    createPreferenceAlert(social);
                     }
                 });
 		AlertDialog alertDialog = alert.create();
@@ -354,11 +367,12 @@ public class Politician_Details extends Activity {
 		alertDialog.show();  
     }
     
-    public void createPreferenceAlert() {
+    public void createPreferenceAlert(int clicked) {
     	final AlertDialog.Builder alert = new AlertDialog.Builder(this);
     	final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 Politician_Details.this,
                 android.R.layout.select_dialog_singlechoice);
+    	final int social = clicked;
     	alert.setTitle("Do you support or oppose your chosen issue?");
         arrayAdapter.add("Support");
         arrayAdapter.add("Oppose");
@@ -380,14 +394,42 @@ public class Politician_Details extends Activity {
                 	String choice = arrayAdapter.getItem(which);
                 	if (choice.equals("Support"))
                 	{
-                		support = true;
+                		socialString = Social_Strings.positiveStrings(issue);
                 	} else
                 	{
-                		support = false;
+                		socialString = Social_Strings.negativeStrings(issue);
                 	}
-                	Log.i("Info",String.valueOf(support));
                     dialog.dismiss();
+                    if (social == 1)
+                    {
+                		launchTwitterIntent("@"+twitter+": "+socialString);
+                    } else
+                    {
+                    	AlertDialog.Builder fbAlert = new AlertDialog.Builder(Politician_Details.this);
+                    	
+                    	alert.setTitle("Facebook");
+                    	alert.setMessage("Copy and paste the text below to post it to Facebook!");
+
+                    	final EditText input = new EditText(Politician_Details.this);
+                    	input.setText(socialString);
+                    	alert.setView(input);
+
+                    	alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    	public void onClick(DialogInterface dialog, int whichButton) {
+                    		launchFacebookIntent();
+                    	  }
+                    	});
+
+                    	alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    	  public void onClick(DialogInterface dialog, int whichButton) {
+                    	    // Canceled.
+                    	  }
+                    	});
+
+                    	alert.show();
                     }
+                    }
+                 
                 });
 		AlertDialog alertDialog = alert.create();
 

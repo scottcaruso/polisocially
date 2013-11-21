@@ -17,10 +17,10 @@ public class RemovePoliticianFromFavorites {
 		try {
 			JSONObject savedPols = new JSONObject(saved);
 			JSONArray polArray = savedPols.getJSONArray("Politicians");
+			JSONArray newArray = new JSONArray();
 			for (int x = 0; x < polArray.length(); x++)
 			{
 				JSONObject thisPol = polArray.getJSONObject(x);
-				JSONArray newArray = new JSONArray();
 				String thisID = thisPol.getString("Photo ID");
 				String thisPolName = thisPol.getString("Name");
 				if (!thisID.equals(photoID))
@@ -30,11 +30,11 @@ public class RemovePoliticianFromFavorites {
 					Toast toast = Toast.makeText(context, thisPolName+" was successfully removed from Favorites.", Toast.LENGTH_SHORT);
 					toast.show();
 				}
-				savedPols = new JSONObject();
-				savedPols.put("Politicians", newArray);
-				String newSave = savedPols.toString();
-				prefs.edit().putString("Politicians", newSave).commit();
 			}
+			savedPols = new JSONObject();
+			savedPols.put("Politicians", newArray);
+			String newSave = savedPols.toString();
+			prefs.edit().putString("Politicians", newSave).commit();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

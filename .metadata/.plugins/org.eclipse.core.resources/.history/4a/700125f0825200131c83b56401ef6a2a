@@ -1,0 +1,62 @@
+package com.scottcaruso.polisocially;
+
+public class Social_Strings {
+	
+	public String positiveStrings(int optionValue)
+	{
+		String socialText;
+		switch (optionValue) {
+		case 0:
+			socialText = "";
+			return socialText;
+		case 1:
+			socialText = "Protect a woman's right to choose! Support abortion rights!";
+			return socialText;
+		case 2:
+			socialText = "I'm the only person in America happy with the federal budget!";
+			return socialText;
+		case 3:
+			socialText = "Don't rush into new legislation. Keep moving slowly!";
+			return socialText;
+		case 4:
+			socialText = "Our teachers need our support! Invest more money in education now.";
+			return socialText;
+		case 5:
+			socialText = "We only have one planet. Please take steps to protect her!";
+			return socialText;
+		case 6:
+			socialText = "Our farmers deserve a real farm bill. Give them the support they need!";
+			return socialText;
+		case 7:
+			socialText = "The FDA does a tremendous job. Give them all promotions and raises!";
+			return socialText;
+		case 8:
+			socialText = "Gas prices could be way worse. Thank you for keeping it only moderately expensive.";
+			return socialText;
+		case 9:
+			socialText = "";
+			return socialText;
+		case 0:
+			socialText = "";
+			return socialText;
+		case 0:
+			socialText = "";
+			return socialText;
+		case 0:
+			socialText = "";
+			return socialText;
+			
+			
+			
+			
+		default:
+			break;
+		}
+	}
+	
+	public String negativeStrings(String issue)
+	{
+		
+	}
+
+}
