@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 package com.scottcaruso.listadapter;
 
 import java.util.ArrayList;
@@ -14,6 +18,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+//This adapter is for the favorites list, providing a custom layout that displays politician
+//names, states, parties, and images. It also handles moving forward to the details page
+//and removal of politicians from the list.
 
 public class CustomFavoritesAdapter extends BaseAdapter {
 

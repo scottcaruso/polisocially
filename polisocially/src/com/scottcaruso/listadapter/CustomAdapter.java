@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 package com.scottcaruso.listadapter;
 
 import java.util.ArrayList;
@@ -13,6 +17,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//This CustomAdapter is used for feeding data to the Politician Results screen. It 
+//includes politician names, political parties, and images. It also handles advancing to 
+//the Details screen.
+
 public class CustomAdapter extends BaseAdapter {
 
     private Activity activity;
@@ -27,8 +35,6 @@ public class CustomAdapter extends BaseAdapter {
         theseParties = parties;
         thesePics = photoIDs;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //Will hook up the image loader once I have the pictures to load
-        //imageLoader=new ImageLoader(activity.getApplicationContext());
     }
  
     public int getCount() {

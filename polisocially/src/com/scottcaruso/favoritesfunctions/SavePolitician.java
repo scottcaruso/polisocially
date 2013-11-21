@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 package com.scottcaruso.favoritesfunctions;
 
 import org.json.JSONArray;
@@ -8,6 +12,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SavePolitician {
+	
+	//This class includes functions related to saving politician data to the preferences
+	//file. There is a master save function, that wraps up a function that converts a
+	//JSON object to a string, and a second function that saves that string to the
+	//storage with the other strings.
 	
 	public static void doSave(Context context, JSONObject saveObject)
 	{

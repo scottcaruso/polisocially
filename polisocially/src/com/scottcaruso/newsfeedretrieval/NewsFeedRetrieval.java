@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 package com.scottcaruso.newsfeedretrieval;
 
 import com.scottcaruso.sunlightlabsretrievalclasses.RetrieveDataFromAPIs;
@@ -12,6 +16,9 @@ import android.os.RemoteException;
 import android.util.Log;
 
 public class NewsFeedRetrieval extends IntentService {
+	
+	//This service calls the NPR Api to pull down the appropriate news stories based on
+	//a properly formatted URL.
 	
 	public static final String MESSENGER_KEY = "messenger";
 	public static final String POL_NAME = "politicianname";

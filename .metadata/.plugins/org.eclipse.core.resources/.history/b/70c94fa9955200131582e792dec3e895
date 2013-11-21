@@ -1,0 +1,78 @@
+package com.scottcaruso.listadapter;
+
+import java.util.ArrayList;
+
+import com.scottcaruso.favoritesfunctions.RemovePoliticianFromFavorites;
+import com.scottcaruso.polisocially.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class CustomFavoritesAdapter extends BaseAdapter {
+
+    private Activity activity;
+    private ArrayList<String> thesePols;
+    private ArrayList<String> theseParties;
+    private ArrayList<String> thesePics;
+    private ArrayList<String> theseStates;
+    private static LayoutInflater inflater = null;
+ 
+    public CustomFavoritesAdapter (Activity a, ArrayList<String> pols, ArrayList<String> parties, ArrayList<String> states, ArrayList<String> photoIDs) {
+        activity = a;
+        thesePols = pols;
+        theseParties = parties;
+        theseStates = states;
+        thesePics = photoIDs;
+        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+ 
+    public int getCount() {
+        return thesePols.size();
+    }
+ 
+    public Object getItem(int position) {
+        return position;
+    }
+ 
+    public long getItemId(int position) {
+        return position;
+    }
+ 
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final View vi=inflater.inflate(R.layout.favorites_list_row,null);
+        TextView name = (TextView)vi.findViewById(R.id.faves_name); // politician name
+        TextView party = (TextView)vi.findViewById(R.id.faves_party); // pol. party name
+        TextView state = (TextView)vi.findViewById(R.id.faves_state);
+        ImageView thumb_image=(ImageView)vi.findViewById(R.id.faves_image); // thumb image
+        String thisPol = thesePols.get(position);
+        String thisParty = theseParties.get(position);
+        final String thisImage = thesePics.get(position);
+        String thisState = theseStates.get(position);
+        
+        // Setting all values in listview
+        name.setText(thisPol);
+        party.setText(thisParty);
+        state.setText(thisState);
+        int id = activity.getResources().getIdentifier(thisImage, "drawable", activity.getPackageName());
+        thumb_image.setImageResource(id);
+        ImageButton delete = (ImageButton)vi.findViewById(R.id.deletebutton);
+        delete.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				RemovePoliticianFromFavorites.removePoliticianFromFavorites(vi.getContext(), thisImage);
+				activity.recreate();
+			}
+		});
+        
+        return vi;
+    }
+
+}

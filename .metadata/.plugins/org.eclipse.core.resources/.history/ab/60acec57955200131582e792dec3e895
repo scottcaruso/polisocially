@@ -1,0 +1,81 @@
+
+package com.scottcaruso.sunlightlabsretrievalclasses;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.util.Log;
+
+//This class does exactly what it says it does - it turns the string returned from the Sunlight Labs API into a JSON Object that the rest of the application can parse.
+
+public class TurnSunlightStringIntoJSONObject {
+	
+	public static JSONObject createMasterObject(String response)
+	{
+		Log.i("Info","Turning the saved string into a readable JSON Object");
+		JSONObject responseObject;
+		try {
+			responseObject = new JSONObject(response);
+			JSONArray resultsArray = responseObject.getJSONArray("results");
+			if (resultsArray.length() == 0)
+			{
+				Log.i("Info","There are no results to parse.");
+				return null;
+			} else
+			{
+				JSONArray parsedPoliticians = new JSONArray();
+				for (int x = 0; x < resultsArray.length(); x++)
+				{
+					JSONObject parsedPoliticianObject = new JSONObject();
+					JSONObject thisPol = resultsArray.getJSONObject(x);
+					String thisFirstName = thisPol.getString("first_name");
+					String thisLastName = thisPol.getString("last_name");
+					String thisTitle = thisPol.getString("title");
+					String firstPlusLast = thisFirstName + " " + thisLastName;
+					String fullName = thisTitle + ". " + firstPlusLast;
+					String thisID = thisPol.getString("govtrack_id");
+					String photoID = thisPol.getString("bioguide_id");
+					String convertedID = convertIDToLowercase(photoID);
+					String thisParty = thisPol.getString("party");
+					String thisState = thisPol.getString("state");
+					String termEnds = thisPol.getString("term_end");
+					String twitterHandle = thisPol.getString("twitter_id");
+					String thisWebsite = thisPol.getString("website");
+					String thisDistrict = thisPol.getString("district");
+					String thisBirthday = thisPol.getString("birthday");
+					String thisPhone = thisPol.getString("phone");
+					parsedPoliticianObject.put("Name", fullName);
+					parsedPoliticianObject.put("Name No Title",firstPlusLast);
+					parsedPoliticianObject.put("GovTrackID", thisID);
+					parsedPoliticianObject.put("Party", thisParty);
+					parsedPoliticianObject.put("State", thisState);
+					parsedPoliticianObject.put("TermEnd", termEnds);
+					parsedPoliticianObject.put("Twitter", twitterHandle);
+					parsedPoliticianObject.put("Website", thisWebsite);
+					parsedPoliticianObject.put("Title", thisTitle);
+					parsedPoliticianObject.put("District", thisDistrict);
+					parsedPoliticianObject.put("Birthday", thisBirthday);
+					parsedPoliticianObject.put("PhotoID",convertedID);
+					parsedPoliticianObject.put("Phone",thisPhone);
+					parsedPoliticians.put(parsedPoliticianObject);	
+				}
+				Log.i("Info","Results found and ready to return.");
+				JSONObject politicians = new JSONObject().put("Politicians", parsedPoliticians);
+				return politicians;
+				}
+				
+			} catch (JSONException e) {
+				
+				e.printStackTrace();
+				return null;
+			}
+	}
+	
+	public static String convertIDToLowercase(String rawID)
+	{
+	    rawID = rawID.substring(0, 1).toLowerCase() + rawID.substring(1);
+		return rawID;
+	}
+
+}

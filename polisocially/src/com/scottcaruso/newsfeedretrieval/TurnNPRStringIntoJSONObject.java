@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 package com.scottcaruso.newsfeedretrieval;
 
 import org.json.JSONArray;
@@ -5,6 +9,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TurnNPRStringIntoJSONObject {
+	
+	//This function takes the string returned from the data services and converts it
+	//into a JSON Object for parsing and storage.
+	
 	public static JSONObject createMasterObject(String response)
 	{
 		JSONObject responseObject;

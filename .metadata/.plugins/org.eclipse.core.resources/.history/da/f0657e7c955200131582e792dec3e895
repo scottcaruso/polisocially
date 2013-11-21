@@ -1,0 +1,47 @@
+/*
+ * 
+ */
+package com.scottcaruso.newsfeedretrieval;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class TurnNPRStringIntoJSONObject {
+	public static JSONObject createMasterObject(String response)
+	{
+		JSONObject responseObject;
+		try {
+			responseObject = new JSONObject(response);
+			JSONObject resultsObject = responseObject.getJSONObject("list");
+			if (resultsObject.length() == 0)
+			{
+				return null;
+			} else {
+			JSONArray storyArray = resultsObject.getJSONArray("story");
+			JSONArray parsedArray = new JSONArray();
+			for (int x = 0; x < storyArray.length(); x++)
+			{
+				JSONObject storyAndLinkObject = new JSONObject();
+				JSONObject thisStory = storyArray.getJSONObject(x);
+				JSONObject thisTitle = thisStory.getJSONObject("title");
+				String titleString = thisTitle.getString("$text");
+				JSONArray thisLink = thisStory.getJSONArray("link");
+				JSONObject linkObject = (JSONObject) thisLink.get(0);
+				String linkString = linkObject.getString("$text");
+				storyAndLinkObject.put("Story", titleString);
+				storyAndLinkObject.put("Link", linkString);
+				parsedArray.put(storyAndLinkObject);	
+			}
+				JSONObject links = new JSONObject().put("Links",parsedArray);
+				return links;
+				}
+				
+			} catch (JSONException e) {
+				
+				e.printStackTrace();
+				return null;
+			}
+	}
+
+}

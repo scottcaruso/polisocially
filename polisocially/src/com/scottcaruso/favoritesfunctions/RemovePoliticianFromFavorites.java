@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 package com.scottcaruso.favoritesfunctions;
 
 import org.json.JSONArray;
@@ -9,6 +13,9 @@ import android.content.SharedPreferences;
 import android.widget.Toast;
 
 public class RemovePoliticianFromFavorites {
+	
+	//This class is for the removal of a politician from the Favorites list. It removes
+	//the JSONObject from the Array, and then rebuilds the array.
 	
 	public static void removePoliticianFromFavorites(Context context, String photoID)
 	{

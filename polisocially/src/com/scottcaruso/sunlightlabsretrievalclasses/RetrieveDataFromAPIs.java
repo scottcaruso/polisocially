@@ -1,3 +1,7 @@
+/* Political Connectness
+ * by Scott Caruso
+ * APD2 1311 Term
+ */
 
 package com.scottcaruso.sunlightlabsretrievalclasses;
 
