@@ -42,7 +42,6 @@
 		       android:id="@+id/partyLabel"
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
-		       android:textStyle="bold"
 		       android:text="@string/party" />
             		   
 		   <TextView
@@ -50,7 +49,6 @@
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
 		       android:paddingTop="15dp"
-		       android:textStyle="bold"
 		       android:text="@string/birthday" />
 		
 		   <TextView
@@ -58,7 +56,6 @@
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
 		       android:paddingTop="15dp"
-		       android:textStyle="bold"
 		       android:text="@string/term_end" />
 		
 		   <TextView
@@ -66,7 +63,6 @@
 		       android:layout_width="wrap_content"
 		       android:layout_height="wrap_content"
 		       android:paddingTop="15dp"
-		       android:textStyle="bold"
 		       android:text="@string/govtrack_id" />
 		       	
         </LinearLayout>
@@ -162,7 +158,7 @@
             android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="25dp" >
 
@@ -170,31 +166,27 @@
                 android:id="@+id/buttonTweet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="120dp"
                 android:text="@string/tweet" />
 
             <Button
                 android:id="@+id/buttonFacebook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:minWidth="120dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/post_to_facebook" />
 
             <Button
                 android:id="@+id/buttonWebsite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:minWidth="120dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/visit_website" />
 
             <Button
                 android:id="@+id/buttonPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:minWidth="120dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/call" />
         </LinearLayout>
     </LinearLayout>
