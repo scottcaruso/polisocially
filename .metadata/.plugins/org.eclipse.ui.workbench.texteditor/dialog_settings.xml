@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="263" key="DIALOG_WIDTH"/>
-		<item value="164" key="DIALOG_Y_ORIGIN"/>
+		<item value="191" key="DIALOG_Y_ORIGIN"/>
+		<item value="937" key="DIALOG_X_ORIGIN"/>
 		<item value="399" key="DIALOG_HEIGHT"/>
-		<item value="812" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="IssueAlert" key="selection"/>
+		<item value="Create" key="selection"/>
 		<list key="findhistory">
-			<item value="issueAlert"/>
-			<item value="toast"/>
-			<item value="toas"/>
+			<item value="create"/>
+			<item value="cre\"/>
+			<item value="createAlert"/>
 			<item value="button"/>
-			<item value="imageview"/>
-			<item value="arrayadapter"/>
-			<item value="politicianAdapter"/>
-			<item value="zipCode"/>
+			<item value="toast"/>
+			<item value="AlertDialog"/>
+			<item value="faceboo"/>
+			<item value="final"/>
 		</list>
 		<list key="replacehistory">
 		</list>

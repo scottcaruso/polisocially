@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
-<fullyQualifiedTypeName name="android.R"/>
-<fullyQualifiedTypeName name="android.R.id"/>
-<fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.R"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.CustomAdapter"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -17,7 +13,6 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.ImageView"/>
-<fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.content.pm.PackageManager"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
 <fullyQualifiedTypeName name="com.scottcaruso.polisocially.Social_Strings"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog"/>
+<fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="com.scottcaruso.polisocially.Politician_Details"/>
+<fullyQualifiedTypeName name="com.scottcaruso.polisocially.Main_Screen"/>
 </qualifiedTypeNameHistroy>
