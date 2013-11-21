@@ -22,16 +22,25 @@
 	        android:layout_marginTop="80dp"
 	        android:contentDescription="@string/main_geolocation_button"
 	        android:src="@drawable/main_button" />
-	
-	    <Button
-	        android:id="@+id/button1"
-	        style="?android:attr/buttonStyleSmall"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentBottom="true"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginBottom="63dp"
-	        android:text="@string/zip_code_entry" />
+
+	  	<Button
+	  	    android:id="@+id/favesButton"
+	  	    style="?android:attr/buttonStyleSmall"
+	  	    android:layout_width="wrap_content"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_alignParentBottom="true"
+	  	    android:layout_centerHorizontal="true"
+	  	    android:text="@string/view_favorites" />
+
+	  	<Button
+	  	    android:id="@+id/zipButton"
+	  	    style="?android:attr/buttonStyleSmall"
+	  	    android:layout_width="wrap_content"
+	  	    android:layout_height="wrap_content"
+	  	    android:layout_below="@+id/imageButton1"
+	  	    android:layout_centerHorizontal="true"
+	  	    android:layout_marginTop="18dp"
+	  	    android:text="@string/zip_code_entry" />
 
     </RelativeLayout>
 

@@ -40,15 +40,18 @@ public class Main_Screen extends Activity {
 	public static String location;
 	public static String zipEntered = "none";
 	public boolean zipCodeSearch;
+	public static Button favoritesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__screen);
-        RetrievePoliticians.testFunction(this);
         boolean connection = connectionExists();
+        String favorites = RetrievePoliticians.retrieveFavorites(this);
+    	favoritesButton = (Button) findViewById(R.id.favesButton);
         //The connection logic below is simply for testing purposes. It will be hooked up when the required classes are built.
-        if (connection)
+        
+    	if (connection)
         {
         	Log.i("Info","We are connected.");
     		Toast toast = Toast.makeText(this, "There is a connection to the network!", Toast.LENGTH_LONG);
@@ -61,6 +64,14 @@ public class Main_Screen extends Activity {
         }
         zipcodeClick();
         mainButtonClick();
+        if (favorites.equals("None"))
+        {
+        	favoritesButton.setVisibility(Button.GONE);
+        } else
+        {
+        	favesButtonClick();
+        }
+       
   	 	startLocationManager();     
     }
 
@@ -99,7 +110,7 @@ public class Main_Screen extends Activity {
     }
     
     public void zipcodeClick() {
-    	Button zipButton = (Button) findViewById(R.id.button1);
+    	Button zipButton = (Button) findViewById(R.id.zipButton);
     	zipButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -154,6 +165,19 @@ public class Main_Screen extends Activity {
 			public void onClick(View v) {
 				zipCodeSearch = false;
 				runGeolocation();
+			}
+		});
+    }
+    
+    public void favesButtonClick()
+    {
+    	favoritesButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+		    	Intent nextActivity = new Intent(Main_Screen.this,Favorites_Activity.class);
+				Activity currentActivity = (Activity) Main_Screen.this;
+				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
     }

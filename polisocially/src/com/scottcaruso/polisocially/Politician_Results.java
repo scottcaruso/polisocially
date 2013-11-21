@@ -38,6 +38,7 @@ public class Politician_Results extends Activity {
 	public static ArrayList<String> termList;
 	public static ArrayList<String> govTrackList;
 	public static ArrayList<String> photoIDList;
+	public static ArrayList<String> statesList;
 	public String location;
 	public String tempLocation;
 	public ArrayList<String> multipleReps;
@@ -77,6 +78,7 @@ public class Politician_Results extends Activity {
         	termList = new ArrayList<String>();
         	govTrackList = new ArrayList<String>();
         	photoIDList = new ArrayList<String>();
+        	statesList = new ArrayList<String>();
         	arrayOfDistricts = new ArrayList<String>();
         	multipleReps = new ArrayList<String>();
 			JSONArray polArray = thesePols.getJSONArray("Politicians");
@@ -92,12 +94,14 @@ public class Politician_Results extends Activity {
 					String term = polObjectOne.getString("TermEnd");
 					String govTrackID = polObjectOne.getString("GovTrackID");
 					String photoID = polObjectOne.getString("PhotoID");
+					String state = polObjectOne.getString("State");
 					String longPartyName;
 					polsList.add(polName);
 					birthdayList.add(birthday);
 					termList.add(term);
 					govTrackList.add(govTrackID);
 					photoIDList.add(photoID);
+					statesList.add(state);
 					Log.i("info",polsList.toString());
 					if (partyName.equals("D"))
 					{
@@ -115,8 +119,7 @@ public class Politician_Results extends Activity {
 						if (polTitle.equals("Rep"))
 						{
 							String polDistrict = polObjectOne.getString("District");
-							String polState = polObjectOne.getString("State");
-							location = polState+"-"+polDistrict;
+							location = state+"-"+polDistrict;
 						}
 					} catch (Exception e) {
 						//Do nothing and move on.
@@ -151,6 +154,7 @@ public class Politician_Results extends Activity {
 					String term = polObjectThree.getString("TermEnd");
 					String govTrackID = polObjectThree.getString("GovTrackID");
 					String photoID = polObjectThree.getString("PhotoID");
+					String state = polObjectThree.getString("State");
 					String longPartyName;
 					String polTitle = "None";
 					try {
@@ -158,8 +162,7 @@ public class Politician_Results extends Activity {
 						if (polTitle.equals("Rep"))
 						{
 							String polDistrict = polObjectThree.getString("District");
-							String polState = polObjectThree.getString("State");
-							String district = polState+"-"+polDistrict;
+							String district = state+"-"+polDistrict;
 							String districtPlusText = district + " - Click Here to Change";
 							multipleReps.add(polName);
 							for (int y=0; y < arrayOfDistricts.size(); y++)
@@ -171,6 +174,7 @@ public class Politician_Results extends Activity {
 									termList.add(term);
 									govTrackList.add(govTrackID);
 									photoIDList.add(photoID);
+									statesList.add(state);
 									Log.i("info",polsList.toString());
 									if (partyName.equals("D"))
 									{
@@ -192,6 +196,7 @@ public class Politician_Results extends Activity {
 							termList.add(term);
 							govTrackList.add(govTrackID);
 							photoIDList.add(photoID);
+							statesList.add(state);
 							Log.i("info",polsList.toString());
 							if (partyName.equals("D"))
 							{
@@ -232,6 +237,7 @@ public class Politician_Results extends Activity {
 		    	nextActivity.putExtra("Term End", termList.get(item));
 		    	nextActivity.putExtra("GovTrack ID", govTrackList.get(item));
 		    	nextActivity.putExtra("Photo ID", photoIDList.get(item));
+		    	nextActivity.putExtra("State", statesList.get(item));
 				Activity currentActivity = (Activity) Politician_Results.this;
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
@@ -369,6 +375,8 @@ public class Politician_Results extends Activity {
 		govTrackList.add("300008");
 		photoIDList.add("obama");
 		photoIDList.add("biden");
+		statesList.add("IL");
+		statesList.add("DE");
     }
     
     private void initilizeMap() {

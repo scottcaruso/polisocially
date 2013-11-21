@@ -22,7 +22,6 @@ public class CustomAdapter extends BaseAdapter {
     private ArrayList<String> theseParties;
     private ArrayList<String> thesePics;
     private static LayoutInflater inflater = null;
-    public ImageLoader imageLoader; 
  
     public CustomAdapter (Activity a, ArrayList<String> pols, ArrayList<String> parties, ArrayList<String> photoIDs) {
         activity = a;

@@ -41,6 +41,7 @@ public class Politician_Details extends Activity {
 	public static String termEnd;
 	public static String govTrackID;
 	public static String photoID;
+	public static String state;
 	public static String response;
 	public static JSONObject politicianToSave;
 	public static ArrayList<String> stories;
@@ -57,6 +58,7 @@ public class Politician_Details extends Activity {
         birthday = extras.getString("DOB");
         termEnd = extras.getString("Term End");
         govTrackID = extras.getString("GovTrack ID");
+        state = extras.getString("State");
         photoID = extras.getString("Photo ID");
         politicianToSave = new JSONObject();
         try {
@@ -64,6 +66,7 @@ public class Politician_Details extends Activity {
 			politicianToSave.put("Party", partyName);
 			politicianToSave.put("DOB", birthday);
 			politicianToSave.put("Term End", termEnd);
+			politicianToSave.put("State", state);
 			politicianToSave.put("GovTrack ID",govTrackID);
 			politicianToSave.put("Photo ID", photoID);
 		} catch (JSONException e) {

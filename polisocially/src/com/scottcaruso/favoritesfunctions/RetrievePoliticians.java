@@ -39,11 +39,11 @@ public class RetrievePoliticians {
 		}	
 	}
 	
-	public static void testFunction(Context context)
+	public static String retrieveFavorites(Context context)
 	{
 		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
 		String saved = prefs.getString("Politicians", "None");
-		Log.i("Info",saved);
+		return saved;
 	}
 
 }

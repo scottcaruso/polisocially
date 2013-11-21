@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+ 
+    <!--  ListRow Left sied Thumbnail image -->
+    <LinearLayout android:id="@+id/favoritesthumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_marginRight="5dip">
+ 
+        <ImageView
+            android:id="@+id/faves_image"
+            android:contentDescription="@string/politician_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/no_image_available"/>
+ 
+    </LinearLayout>
+	
+  	<LinearLayout android:id="@+id/favoritestext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="3dip"
+        android:layout_marginRight="5dip">
+        
+	    <TextView
+	        android:id="@+id/polName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/politician_name"
+	        android:textColor="#040404"
+	        android:textSize="15sp"
+	        android:textStyle="bold"
+	        android:typeface="sans" />
+	    
+	      	<LinearLayout android:id="@+id/favoritestext"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+
+			    <TextView
+			        android:id="@+id/faves_party"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/party_name"
+			        android:textColor="#343434"
+			        android:textSize="10sp" />
+			    
+			   <TextView
+			        android:id="@+id/faves_state"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/state"
+			        android:textColor="#343434"
+			        android:textSize="10sp" />
+    
+    </LinearLayout>
+
+</LinearLayout>

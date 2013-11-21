@@ -39,5 +39,9 @@
     <string name="add_to_favorites">Add to Favorites</string>
     <string name="tap_here_to_view">Tap Here To View</string>
     <string name="npr_news">NPR News</string>
+    <string name="state">State</string>
+    <string name="delete_button">delete button</string>
+    <string name="description">View and manage your saved politicians from this screen. Tap the X to remove a politician from favorites, or tap anywhere else on the politician to view his or her details.</string>
+    <string name="view_favorites">View Favorites</string>
 
 </resources>

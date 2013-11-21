@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+ 
+    <!--  ListRow Left sied Thumbnail image -->
+    <LinearLayout android:id="@+id/favoritesthumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip">
+ 
+        <ImageView
+            android:id="@+id/faves_image"
+            android:contentDescription="@string/politician_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/no_image_available"/>
+ 
+    </LinearLayout>
+ 
+    <!-- Politician Name-->
+ 
+    <!-- Party -->
+
+    <TextView
+        android:id="@+id/polName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/favoritesthumb"
+        android:text="@string/politician_name"
+        android:textColor="#040404"
+        android:textSize="15dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/party"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/favoritesthumb"
+        android:layout_alignLeft="@+id/polName"
+        android:text="@string/party_name"
+        android:textColor="#343434"
+        android:textSize="10dip" />
+
+</RelativeLayout>
