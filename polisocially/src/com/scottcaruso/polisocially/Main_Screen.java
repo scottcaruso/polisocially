@@ -90,7 +90,6 @@ public class Main_Screen extends Activity {
     	return true;
     }
     
-    
     public void createAlert() {
     	AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.about_app);

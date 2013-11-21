@@ -2,12 +2,10 @@ package com.scottcaruso.listadapter;
 
 import java.util.ArrayList;
 
-import com.scottcaruso.polisocially.Politician_Results;
 import com.scottcaruso.polisocially.R;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

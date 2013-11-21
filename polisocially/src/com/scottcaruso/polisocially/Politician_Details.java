@@ -25,6 +25,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -183,6 +184,20 @@ public class Politician_Details extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_politician_details, menu);
         return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	this.createAlert();
+    	return true;
+    }
+    
+    public void createAlert() {
+    	AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(R.string.about_app);
+		AlertDialog alertDialog = alert.create();
+
+		alertDialog.show();  
     }
     
     public void launchTwitterIntent(String text)
@@ -405,8 +420,6 @@ public class Politician_Details extends Activity {
                 		launchTwitterIntent("@"+twitter+": "+socialString);
                     } else
                     {
-                    	AlertDialog.Builder fbAlert = new AlertDialog.Builder(Politician_Details.this);
-                    	
                     	alert.setTitle("Facebook");
                     	alert.setMessage("Copy and paste the text below to post it to Facebook!");
 

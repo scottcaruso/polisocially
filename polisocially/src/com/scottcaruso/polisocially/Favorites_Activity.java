@@ -10,14 +10,14 @@ import com.scottcaruso.favoritesfunctions.RetrievePoliticians;
 import com.scottcaruso.listadapter.CustomFavoritesAdapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -48,6 +48,20 @@ public class Favorites_Activity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_favorites, menu);
         return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	this.createAlert();
+    	return true;
+    }
+    
+    public void createAlert() {
+    	AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(R.string.about_app);
+		AlertDialog alertDialog = alert.create();
+
+		alertDialog.show();  
     }
     
     public void getFavoritesAndParse()
