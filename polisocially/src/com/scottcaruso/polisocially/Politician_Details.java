@@ -12,6 +12,9 @@ import com.scottcaruso.favoritesfunctions.SavePolitician;
 import com.scottcaruso.newsfeedretrieval.NewsFeedRetrieval;
 import com.scottcaruso.newsfeedretrieval.TurnNPRStringIntoJSONObject;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -46,6 +49,8 @@ public class Politician_Details extends Activity {
 	public static JSONObject politicianToSave;
 	public static ArrayList<String> stories;
 	public static ArrayList<String> links;
+	public static String issue;
+	public static Boolean support;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,7 +131,8 @@ public class Politician_Details extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				launchTwitterIntent();		
+				//launchTwitterIntent();
+				createIssueAlert();
 			}
 		});
         
@@ -294,5 +300,97 @@ public class Politician_Details extends Activity {
 				launchWebIntent(links.get(item));
 			}
 		});
+    }
+    
+    public void createIssueAlert() {
+    	final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+    	final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                Politician_Details.this,
+                android.R.layout.select_dialog_singlechoice);
+    	alert.setTitle("Which of these issues matters most to you?");
+        arrayAdapter.add("Enter My Own");
+        arrayAdapter.add("Abortion");
+        arrayAdapter.add("Budget");
+        arrayAdapter.add("Congressional Gridlock");
+        arrayAdapter.add("Education");
+        arrayAdapter.add("Environment");
+        arrayAdapter.add("Farm Bill");
+        arrayAdapter.add("FDA");
+        arrayAdapter.add("Gas Prices");
+        arrayAdapter.add("Gay Rights");
+        arrayAdapter.add("Gun Control");
+        arrayAdapter.add("High Taxes");
+        arrayAdapter.add("Immigration Reform");
+        arrayAdapter.add("Low Taxes");
+        arrayAdapter.add("Minimum Wage Reform");
+        arrayAdapter.add("Military Spending");
+        arrayAdapter.add("NASA");
+        arrayAdapter.add("Terrorism");
+        arrayAdapter.add("Universal Healthcare");
+        arrayAdapter.add("Wall Street Reform");
+        arrayAdapter.add("Alien Invasions");
+        alert.setNegativeButton("Cancel", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();	
+			}
+		});
+        
+        alert.setAdapter(arrayAdapter,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                	issue = arrayAdapter.getItem(which);
+                	Log.i("Info",issue);
+                    dialog.dismiss();
+                    createPreferenceAlert();
+                    }
+                });
+		AlertDialog alertDialog = alert.create();
+
+		alertDialog.show();  
+    }
+    
+    public void createPreferenceAlert() {
+    	final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+    	final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                Politician_Details.this,
+                android.R.layout.select_dialog_singlechoice);
+    	alert.setTitle("Do you support or oppose your chosen issue?");
+        arrayAdapter.add("Support");
+        arrayAdapter.add("Oppose");
+
+        alert.setNegativeButton("Cancel", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();	
+			}
+		});
+        
+        alert.setAdapter(arrayAdapter,
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                	String choice = arrayAdapter.getItem(which);
+                	if (choice.equals("Support"))
+                	{
+                		support = true;
+                	} else
+                	{
+                		support = false;
+                	}
+                	Log.i("Info",String.valueOf(support));
+                    dialog.dismiss();
+                    }
+                });
+		AlertDialog alertDialog = alert.create();
+
+		alertDialog.show();  
     }
 }

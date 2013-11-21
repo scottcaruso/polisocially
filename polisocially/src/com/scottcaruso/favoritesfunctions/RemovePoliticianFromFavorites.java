@@ -4,8 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.scottcaruso.polisocially.Main_Screen;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
