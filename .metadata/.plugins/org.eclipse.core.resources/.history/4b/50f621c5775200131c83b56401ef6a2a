@@ -1,0 +1,30 @@
+package com.scottcaruso.favoritesfunctions;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class RemovePoliticianFromFavorites {
+	
+	public void removePoliticianFromFavorites(Context context, String govTrackID)
+	{
+		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
+		String saved = prefs.getString("Politicians", "None");
+		JSONObject savedPols = new JSONObject(saved);
+		JSONArray polArray = savedPols.getJSONArray("Politicians");
+		for (int x = 0; x < polArray.length(); x++)
+		{
+			JSONObject thisPol = polArray.getJSONObject(x);
+			String thisGovTrack = thisPol.getString("GovTrack ID");
+			if (thisGovTrack.equals(govTrackID))
+			{
+				polArray.remove(x);
+				savedPols = new JSONObject();
+			}
+
+		}
+	}
+
+}

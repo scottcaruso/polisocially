@@ -1,0 +1,42 @@
+package com.scottcaruso.favoritesfunctions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.scottcaruso.polisocially.Main_Screen;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.widget.Toast;
+
+public class RemovePoliticianFromFavorites {
+	
+	public void removePoliticianFromFavorites(Context context, String govTrackID)
+	{
+		SharedPreferences prefs = context.getSharedPreferences("com.scottcaruso.politicalconnectness", Context.MODE_PRIVATE);
+		String saved = prefs.getString("Politicians", "None");
+		try {
+			JSONObject savedPols = new JSONObject(saved);
+			JSONArray polArray = savedPols.getJSONArray("Politicians");
+			for (int x = 0; x < polArray.length(); x++)
+			{
+				JSONObject thisPol = polArray.getJSONObject(x);
+				String thisGovTrack = thisPol.getString("GovTrack ID");
+				if (thisGovTrack.equals(govTrackID))
+				{
+					polArray.remove(x);
+					savedPols = new JSONObject();
+					savedPols.put("Politicians", polArray);
+					Toast toast = Toast.makeText(context, "There was a problem retrieving Geo data. Please try again later.", Toast.LENGTH_SHORT);
+					toast.show();
+					break;
+				}
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
