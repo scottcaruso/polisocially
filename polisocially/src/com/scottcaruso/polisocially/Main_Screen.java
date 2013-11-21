@@ -105,17 +105,17 @@ public class Main_Screen extends Activity {
     }
     
     public void zipcodeClick() {
+    	if (!connection)
+        {
+    		Toast toast = Toast.makeText(Main_Screen.this, "There is no connection to the internet available. Please try again later.", Toast.LENGTH_LONG);
+    		toast.show();
+        } else
+        {
     	Button zipButton = (Button) findViewById(R.id.zipButton);
     	zipButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-		    	if (!connection)
-		        {
-		    		Toast toast = Toast.makeText(this, "There is no connection to the internet available. Please try again later.", Toast.LENGTH_LONG);
-		    		toast.show();
-		        } else
-		        {
 				zipCodeSearch = true;
 				AlertDialog.Builder alert = new AlertDialog.Builder(Main_Screen.this);
 
@@ -153,20 +153,20 @@ public class Main_Screen extends Activity {
 				alert.show();
 				
 			}
-			}
 		});	
+        }
     }
     
     public void mainButtonClick()
     {
+    	ImageButton mainButton = (ImageButton) findViewById(R.id.imageButton1);
+    	mainButton.setBackground(null);
     	if (!connection)
         {
     		Toast toast = Toast.makeText(this, "There is no connection to the internet available. Please try again later.", Toast.LENGTH_LONG);
     		toast.show();
         } else {
     	zipEntered = "none";
-    	ImageButton mainButton = (ImageButton) findViewById(R.id.imageButton1);
-    	mainButton.setBackground(null);
     	mainButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
