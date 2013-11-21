@@ -1,7 +1,0 @@
-package com.scottcaruso.polisocially;
-
-import android.app.Activity;
-
-public class Favorites_Activity extends Activity {
-
-}
