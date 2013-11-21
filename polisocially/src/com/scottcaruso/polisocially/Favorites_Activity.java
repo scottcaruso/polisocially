@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -29,6 +31,7 @@ public class Favorites_Activity extends Activity {
 	public static ArrayList<String> birthdayList;
 	public static ArrayList<String> termList;
 	public static ArrayList<String> govTrackList;
+	public static ListView listview;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,7 @@ public class Favorites_Activity extends Activity {
 		try {
 			savedPols = new JSONObject(favorites);
 			JSONArray polArray = savedPols.getJSONArray("Politicians");
-			for (int x = 0; x <= polArray.length(); x++)
+			for (int x = 0; x < polArray.length(); x++)
 			{
 				JSONObject thisPol = polArray.getJSONObject(x);
 				polsList.add(thisPol.getString("Name"));
@@ -77,7 +80,7 @@ public class Favorites_Activity extends Activity {
 			e.printStackTrace();
 		}
 	    adapter = new CustomFavoritesAdapter(Favorites_Activity.this,polsList,partyList,statesList,photoIDList);
-	    ListView listview = (ListView) findViewById(R.id.faves_listview);
+	    listview = (ListView) findViewById(R.id.faves_listview);
 	    listview.setAdapter(adapter);
 	    listview.setOnItemClickListener(new OnItemClickListener() {
 

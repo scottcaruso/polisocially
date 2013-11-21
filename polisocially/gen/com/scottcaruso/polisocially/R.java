@@ -1000,19 +1000,20 @@ containing a value of this type.
         public static final int y000065=0x7f02034a;
     }
     public static final class id {
-        public static final int About=0x7f050036;
+        public static final int About=0x7f050037;
         public static final int birthdayLabel=0x7f05000f;
         public static final int birthdayvalue=0x7f050014;
-        public static final int btnGetTimeLine=0x7f050032;
-        public static final int btnLoginTwitter=0x7f050030;
-        public static final int btnLogoutTwitter=0x7f050033;
-        public static final int btnUpdateStatus=0x7f05002f;
+        public static final int btnGetTimeLine=0x7f050033;
+        public static final int btnLoginTwitter=0x7f050031;
+        public static final int btnLogoutTwitter=0x7f050034;
+        public static final int btnUpdateStatus=0x7f050030;
         public static final int buttonFacebook=0x7f05001d;
         public static final int buttonPhone=0x7f05001f;
         public static final int buttonTweet=0x7f05001c;
         public static final int buttonWebsite=0x7f05001e;
         public static final int button_layout=0x7f05002a;
         public static final int buttons=0x7f05001b;
+        public static final int deletebutton=0x7f05002b;
         public static final int district=0x7f050022;
         public static final int favesButton=0x7f050008;
         public static final int favesButtonLayout=0x7f050017;
@@ -1029,31 +1030,31 @@ containing a value of this type.
         public static final int headerSection=0x7f05000b;
         public static final int hybrid=0x7f050004;
         public static final int imageButton1=0x7f050007;
-        public static final int lblUpdate=0x7f050031;
-        public static final int lblUserName=0x7f050035;
+        public static final int lblUpdate=0x7f050032;
+        public static final int lblUserName=0x7f050036;
         public static final int listOfPols=0x7f050021;
-        public static final int list_image=0x7f05002c;
+        public static final int list_image=0x7f05002d;
         public static final int listviewpart=0x7f050019;
         public static final int lowerSection=0x7f050018;
         public static final int map=0x7f050020;
         public static final int newsList=0x7f05001a;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int party=0x7f05002e;
+        public static final int party=0x7f05002f;
         public static final int partyLabel=0x7f05000e;
         public static final int partyvalue=0x7f050013;
         public static final int polDetailLabels=0x7f05000d;
         public static final int polDetails=0x7f050012;
         public static final int polImage=0x7f05000c;
-        public static final int polName=0x7f05002d;
+        public static final int polName=0x7f05002e;
         public static final int poliName=0x7f05000a;
         public static final int satellite=0x7f050002;
         public static final int termLabel=0x7f050010;
         public static final int termvalue=0x7f050015;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050005;
-        public static final int thumbnail=0x7f05002b;
-        public static final int txtUpdateStatus=0x7f050034;
+        public static final int thumbnail=0x7f05002c;
+        public static final int txtUpdateStatus=0x7f050035;
         public static final int zipButton=0x7f050009;
     }
     public static final class layout {
