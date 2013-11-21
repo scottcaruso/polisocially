@@ -40,14 +40,13 @@ public class Main_Screen extends Activity {
 	public static String location;
 	public static String zipEntered = "none";
 	public boolean zipCodeSearch;
-	public boolean connection;
 	public static Button favoritesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__screen);
-        connection = connectionExists();
+        boolean connection = connectionExists();
         String favorites = RetrievePoliticians.retrieveFavorites(this);
     	favoritesButton = (Button) findViewById(R.id.favesButton);
         //The connection logic below is simply for testing purposes. It will be hooked up when the required classes are built.
@@ -163,7 +162,7 @@ public class Main_Screen extends Activity {
         {
     		Toast toast = Toast.makeText(this, "There is no connection to the internet available. Please try again later.", Toast.LENGTH_LONG);
     		toast.show();
-        } else {
+        }
     	zipEntered = "none";
     	ImageButton mainButton = (ImageButton) findViewById(R.id.imageButton1);
     	mainButton.setBackground(null);
@@ -175,16 +174,10 @@ public class Main_Screen extends Activity {
 				runGeolocation();
 			}
 		});
-        }
     }
     
     public void favesButtonClick()
     {
-    	if (!connection)
-        {
-    		Toast toast = Toast.makeText(this, "There is no connection to the internet available. Please try again later.", Toast.LENGTH_LONG);
-    		toast.show();
-        } else {
     	favoritesButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -194,7 +187,6 @@ public class Main_Screen extends Activity {
 				currentActivity.startActivityForResult(nextActivity, 0);
 			}
 		});
-        }
     }
     
     public void startLocationManager()
